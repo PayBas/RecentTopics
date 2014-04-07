@@ -7,6 +7,7 @@ services:
             - @cache
             - @content.visibility
             - @dbal.conn
+            - @dispatcher
             - @pagination
             - @template
             - @user

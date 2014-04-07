@@ -38,6 +38,9 @@ class functions_recenttopics
 	/** @var \phpbb\db\driver\driver */
 	protected $db;
 
+	/** @var \phpbb\event\dispatcher */
+	protected $dispatcher;
+
 	/** @var \phpbb\pagination */
 	protected $pagination;
 
@@ -54,13 +57,14 @@ class functions_recenttopics
 	protected $phpEx;
 
 
-	public function __construct(\phpbb\auth\auth $auth, \phpbb\config\config $config, \phpbb\cache\service $cache, \phpbb\content_visibility $content_visibility, \phpbb\db\driver\driver $db, \phpbb\pagination $pagination, \phpbb\template\template $template, \phpbb\user $user, $root_path, $phpEx)
+	public function __construct(\phpbb\auth\auth $auth, \phpbb\config\config $config, \phpbb\cache\service $cache, \phpbb\content_visibility $content_visibility, \phpbb\db\driver\driver $db, \phpbb\event\dispatcher $dispatcher, \phpbb\pagination $pagination, \phpbb\template\template $template, \phpbb\user $user, $root_path, $phpEx)
 	{
 		$this->auth = $auth;
 		$this->config = $config;
 		$this->cache = $cache;
 		$this->content_visibility = $content_visibility;
 		$this->db = $db;
+		$this->dispatcher = $dispatcher;
 		$this->pagination = $pagination;
 		$this->template = $template;
 		$this->user = $user;
@@ -200,7 +204,7 @@ class functions_recenttopics
 		}
 	
 		// Get the allowed topics
-		$sql_query_array = array(
+		$sql_array = array(
 			'SELECT'	=> 't.forum_id, t.topic_id, t.topic_type, t.icon_id, tt.mark_time, ft.mark_time as f_mark_time',
 			'FROM'		=> array(TOPICS_TABLE => 't'),
 			'LEFT_JOIN'	=> array(
@@ -229,10 +233,10 @@ class functions_recenttopics
 		// Is a soft delete MOD installed?
 		if (file_exists("{$this->root_path}includes/mods/soft_delete.$this->phpEx"))
 		{
-			$sql_query_array['WHERE'] .= ' AND topic_deleted = 0';
+			$sql_array['WHERE'] .= ' AND topic_deleted = 0';
 		}
 	
-		$sql = $this->db->sql_build_query('SELECT', $sql_query_array);
+		$sql = $this->db->sql_build_query('SELECT', $sql_array);
 		$result = $this->db->sql_query_limit($sql, $total_limit);
 	
 		$forums = $ga_topic_ids = $topic_ids = array();
@@ -299,7 +303,7 @@ class functions_recenttopics
 		}
 	
 		// Now only pull the data of the requested topics
-		$sql_query_array = array(
+		$sql_array = array(
 			'SELECT'	=> 't.*, tp.topic_posted, f.forum_name',
 			'FROM'		=> array(TOPICS_TABLE => 't'),
 			'LEFT_JOIN'	=> array(
@@ -318,12 +322,23 @@ class functions_recenttopics
 	
 		if ($display_parent_forums)
 		{
-			$sql_query_array['SELECT'] .= ', f.parent_id, f.forum_parents, f.left_id, f.right_id';
+			$sql_array['SELECT'] .= ', f.parent_id, f.forum_parents, f.left_id, f.right_id';
 		}
-	
-		$sql = $this->db->sql_build_query('SELECT', $sql_query_array);
+		
+		/**
+		* Event to modify the SQL query before the topics data is retrieved
+		*
+		* @event recenttopics.sql_pull_topics_data
+		* @var	array	sql_array		The SQL array
+		* @since 2.0.0
+		*/
+		$vars = array('sql_array');
+		extract($this->dispatcher->trigger_event('recenttopics.sql_pull_topics_data', compact($vars)));
+
+		$sql = $this->db->sql_build_query('SELECT', $sql_array);
 		$result = $this->db->sql_query_limit($sql, $topics_per_page);
-	
+
+
 		$topic_icons = array();
 		while ($row = $this->db->sql_fetchrow($result))
 		{
@@ -371,8 +386,8 @@ class functions_recenttopics
 			// Get folder img, topic status/type related information
 			$folder_img = $folder_alt = $topic_type = '';
 			topic_status($row, $replies, $unread_topic, $folder_img, $folder_alt, $topic_type);
-	
-			$this->template->assign_block_vars($tpl_loopname, array(
+
+			$tpl_ary = array(
 				'FORUM_ID'					=> $forum_id,
 				'TOPIC_ID'					=> $topic_id,
 				'TOPIC_AUTHOR_FULL'			=> get_username_string('full', $row['topic_poster'], $row['topic_first_poster_name'], $row['topic_first_poster_colour']),
@@ -425,8 +440,21 @@ class functions_recenttopics
 				'U_VIEW_FORUM'			=> $view_forum_url,
 				'U_MCP_REPORT'			=> append_sid("{$this->root_path}mcp.$this->phpEx", 'i=reports&amp;mode=reports&amp;f=' . $forum_id . '&amp;t=' . $topic_id, true, $this->user->session_id),
 				'U_MCP_QUEUE'			=> $u_mcp_queue,
-			));
-	
+			);
+
+			/**
+			* Modify the topic data before it is assigned to the template
+			*
+			* @event recenttopics.modify_tpl_ary
+			* @var	array	row			Array with topic data
+			* @var	array	tpl_ary		Template block array with topic data
+			* @since 2.0.0
+			*/
+			$vars = array('row', 'tpl_ary');
+			extract($this->dispatcher->trigger_event('recenttopics.modify_tpl_ary', compact($vars)));
+
+			$this->template->assign_block_vars($tpl_loopname, $tpl_ary);
+
 			$this->pagination->generate_template_pagination($view_topic_url, $tpl_loopname . '.pagination', 'start', $replies + 1, $this->config['posts_per_page'], 1, true, true);
 
 			if ($display_parent_forums)
