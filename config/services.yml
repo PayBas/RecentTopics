@@ -1,0 +1,20 @@
+services:
+    paybas.recenttopics.functions:
+        class: paybas\recenttopics\core\functions_recenttopics
+        arguments:
+            - @auth
+            - @config
+            - @cache
+            - @content.visibility
+            - @dbal.conn
+            - @pagination
+            - @template
+            - @user
+            - %core.root_path%
+            - %core.php_ext%
+    paybas.recenttopics.listener:
+        class: paybas\recenttopics\event\listener
+        arguments:
+            - @paybas.recenttopics.functions
+        tags:
+            - { name: event.listener }

@@ -1,0 +1,30 @@
+{
+    "name": "paybas/recenttopics",
+    "type": "phpbb-extension",
+    "description": "Adds a list with a number of recent topics to the index.php",
+    "homepage": "http://paybas.com/",
+    "version": "2.0.0",
+    "time": "2014-04-10",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "PayBas",
+            "email": "admin@pbwow.com",
+            "homepage": "http://www.paybas.com",
+            "role": "Lead Developer"
+        },
+        {
+            "name": "nickvergessen",
+            "email": "",
+            "homepage": "http://www.flying-bits.org/",
+            "role": "Previous Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "phpbb/phpbb": "3.1.*@dev"
+    },
+    "extra": {
+        "display-name": "Recent Topics"
+    }
+}

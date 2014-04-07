@@ -1,0 +1,46 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_RECENT_TOPICS_EXT}</h1>
+<p>{RT_VERSION}</p>
+
+
+<form id="acp_board" method="post" action="{U_ACTION}">
+	<fieldset>
+		<dl>
+			<dt><label for="rt_number">{L_RT_NUMBER}:</label><br />
+			<span>{L_RT_NUMBER_EXP}</span></dt>
+			<dd><input type="text" id="rt_number" name="rt_number" size="30" value="{RT_NUMBER}" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="rt_page_number">{L_RT_PAGE_NUMBER}:</label><br />
+			<span>{L_RT_PAGE_NUMBER_EXP}</span></dt>
+			<dd><input type="text" id="rt_page_number" name="rt_page_number" size="30" value="{RT_PAGE_NUMBER}" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="rt_anti_topics">{L_RT_ANTI_TOPICS}:</label><br />
+			<span>{L_RT_ANTI_TOPICS_EXP}</span></dt>
+			<dd><input type="text" id="rt_anti_topics" name="rt_anti_topics" size="30" value="{RT_ANTI_TOPICS}" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="rt_parents">{L_RT_PARENTS}:</label></dt>
+			<dd><input type="radio" class="radio" id="rt_parents" name="rt_parents" value="1" <!-- IF RT_PARENTS -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+				<input type="radio" class="radio" name="rt_parents" value="0" <!-- IF not RT_PARENTS -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_RT_VIEW_ON}</legend>
+		<dl>
+			<dt><label for="rt_index">{L_RT_INDEX}</label></dt>
+			<dd><input type="radio" class="radio" id="rt_index" name="rt_index" value="1" <!-- IF RT_INDEX -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+				<input type="radio" class="radio" name="rt_index" value="0" <!-- IF not RT_INDEX -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<p class="submit-buttons">
+			{S_FORM_TOKEN}
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		</p>
+	</fieldset>
+</form>
+<!-- INCLUDE overall_footer.html -->

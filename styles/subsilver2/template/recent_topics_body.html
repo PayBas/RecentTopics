@@ -1,0 +1,73 @@
+<a name="recent_topics"></a>
+<div id="recent_topics">
+	<!-- IF RECENT_TOPICS_PAGINATION -->
+		<table width="100%" cellspacing="1">
+		<tr>
+			<td class="nav" valign="middle" nowrap="nowrap">&nbsp;{RECENT_TOPICS_PAGE_NUMBER}<br /></td>
+			<td class="gensmall" width="100%" align="{S_CONTENT_FLOW_END}" nowrap="nowrap"><b>{RECENT_TOPICS_PAGINATION}</b></td>
+		</tr>
+		</table>
+	<!-- ENDIF -->
+	<table class="tablebg" width="100%" cellspacing="1">
+		<tr class="nav">
+			<td class="cat" colspan="<!-- IF S_TOPIC_ICONS -->6<!-- ELSE -->5<!-- ENDIF -->" valign="middle" align="center">{L_RECENT_TOPICS}</td>
+		</tr>
+		<tr>
+			<!-- IF S_TOPIC_ICONS -->
+				<th colspan="3">&nbsp;{L_TOPICS}&nbsp;</th>
+			<!-- ELSE -->
+				<th colspan="2">&nbsp;{L_TOPICS}&nbsp;</th>
+			<!-- ENDIF -->
+			<th>&nbsp;{L_REPLIES}&nbsp;</th>
+			<th>&nbsp;{L_VIEWS}&nbsp;</th>
+			<th>&nbsp;{L_LAST_POST}&nbsp;</th>
+		</tr>
+
+		<!-- BEGIN recent_topics -->
+			<tr>
+				<td class="row1" width="25" align="center">{recent_topics.TOPIC_FOLDER_IMG}</td>
+				<!-- IF S_TOPIC_ICONS -->
+					<td class="row1" width="25" align="center"><!-- IF recent_topics.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{recent_topics.TOPIC_ICON_IMG}" width="{recent_topics.TOPIC_ICON_IMG_WIDTH}" height="{recent_topics.TOPIC_ICON_IMG_HEIGHT}" alt="" title="" /><!-- ENDIF --></td>
+				<!-- ENDIF -->
+				<td class="row1">
+					<!-- IF recent_topics.S_UNREAD_TOPIC --><a href="{recent_topics.U_NEWEST_POST}">{NEWEST_POST_IMG}</a><!-- ENDIF -->
+					{recent_topics.ATTACH_ICON_IMG} <!-- IF recent_topics.S_HAS_POLL or recent_topics.S_TOPIC_MOVED --><b>{recent_topics.TOPIC_TYPE}</b> <!-- ENDIF --><a title="{L_POSTED}: {recent_topics.FIRST_POST_TIME}" href="{recent_topics.U_VIEW_TOPIC}" class="topictitle">{recent_topics.TOPIC_TITLE}</a>
+					<!-- IF recent_topics.S_TOPIC_UNAPPROVED or recent_topics.S_POSTS_UNAPPROVED -->
+						<a href="{recent_topics.U_MCP_QUEUE}">{recent_topics.UNAPPROVED_IMG}</a>&nbsp;
+					<!-- ENDIF -->
+					<!-- IF recent_topics.S_TOPIC_REPORTED -->
+						<a href="{recent_topics.U_MCP_REPORT}">{recent_topics.REPORTED_IMG}</a>&nbsp;
+					<!-- ENDIF -->
+					<!-- IF recent_topics.PAGINATION -->
+						<p class="gensmall"> [ {GOTO_PAGE_IMG}{L_GOTO_PAGE}: {recent_topics.PAGINATION} ] </p>
+					<!-- ENDIF -->
+					<p class="gensmall">{L_POST_BY_AUTHOR} {recent_topics.TOPIC_AUTHOR_FULL}
+					&raquo; {recent_topics.FIRST_POST_TIME}
+					<!-- IF recent_topics.U_VIEW_FORUM and recent_topics.FORUM_NAME -->
+						{L_IN} <!-- BEGIN parent_forums --><a href="{recent_topics.parent_forums.U_VIEW_FORUM}" style="font-weight: bold;">{recent_topics.parent_forums.FORUM_NAME}</a> &raquo; <!-- END parent_forums --><a href="{recent_topics.U_VIEW_FORUM}" style="font-weight: bold;">{recent_topics.FORUM_NAME}</a>
+					<!-- ENDIF -->
+					</p>
+				</td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">{recent_topics.REPLIES}</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">{recent_topics.VIEWS}</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">{recent_topics.LAST_POST_TIME}</p>
+					<p class="topicdetails">{recent_topics.LAST_POST_AUTHOR_FULL}
+						<a href="{recent_topics.U_LAST_POST}">{LAST_POST_IMG}</a>
+					</p>
+				</td>
+			</tr>
+
+		<!-- BEGINELSE -->
+
+			<tr>
+				<!-- IF S_TOPIC_ICONS -->
+					<td class="row1" colspan="7" height="30" align="center" valign="middle"><span class="gen"><!-- IF not S_SORT_DAYS -->{L_NO_TOPICS}<!-- ELSE -->{L_NO_TOPICS_TIME_FRAME}<!-- ENDIF --></span></td>
+				<!-- ELSE -->
+					<td class="row1" colspan="6" height="30" align="center" valign="middle"><span class="gen"><!-- IF not S_SORT_DAYS -->{L_NO_TOPICS}<!-- ELSE -->{L_NO_TOPICS_TIME_FRAME}<!-- ENDIF --></span></td>
+				<!-- ENDIF -->
+			</tr>
+		<!-- END recent_topics -->
+		</table>
+</div>
+<br clear="all" />
