@@ -50,17 +50,21 @@ class recenttopics_module
 			set_config('rt_number', request_var('rt_number', 5));
 			set_config('rt_page_number', request_var('rt_page_number', 0));
 			set_config('rt_parents', request_var('rt_parents', false));
+			set_config('rt_unreadonly', request_var('rt_unreadonly', false));
+
 			set_config('rt_index', request_var('rt_index', 0));
 
 			trigger_error($user->lang['RT_SAVED'] . adm_back_link($this->u_action));
 		}
 
 		$template->assign_vars(array(
-			'RT_VERSION'			=> 'v' . $config['rt_version'],
+			'RT_VERSION'			=> $config['rt_version'],
 			'RT_ANTI_TOPICS'		=> $config['rt_anti_topics'],
 			'RT_NUMBER'				=> $config['rt_number'],
 			'RT_PAGE_NUMBER'		=> $config['rt_page_number'],
 			'RT_PARENTS'			=> $config['rt_parents'],
+			'RT_UNREADONLY'			=> $config['rt_unreadonly'],
+
 			'RT_INDEX'				=> $config['rt_index'],
 			'U_ACTION'				=> $this->u_action,
 		));

@@ -79,20 +79,21 @@ class release_2_0_0 extends \phpbb\db\migration\migration
 				array('config.remove', array('rt_anti_topics')),
 			)),
 			array('if', array(
-				(isset($this->config['rt_index'])),
-				array('config.remove', array('rt_index')),
-			)),
-			array('if', array(
 				(isset($this->config['rt_parents'])),
 				array('config.remove', array('rt_parents')),
+			)),
+			array('if', array(
+				(isset($this->config['rt_index'])),
+				array('config.remove', array('rt_index')),
 			)),
 
 			array('config.add', array('rt_version', '2.0.0')),
 			array('config.add', array('rt_number', 5)),
 			array('config.add', array('rt_page_number', 0)),
 			array('config.add', array('rt_anti_topics', 0)),
-			array('config.add', array('rt_index', 1)),
 			array('config.add', array('rt_parents', 1)),
+			array('config.add', array('rt_unreadonly', 0)),
+			array('config.add', array('rt_index', 1)),
 
 			array('if', array(
 				array('module.exists', array('acp', 'RECENT_TOPICS_MOD', array(
@@ -135,8 +136,9 @@ class release_2_0_0 extends \phpbb\db\migration\migration
 			array('config.remove', array('rt_number')),
 			array('config.remove', array('rt_page_number')),
 			array('config.remove', array('rt_anti_topics')),
-			array('config.remove', array('rt_index')),
 			array('config.remove', array('rt_parents')),
+			array('config.remove', array('rt_unreadonly')),
+			array('config.remove', array('rt_index')),
 
 			array('module.remove', array(
 				'acp',

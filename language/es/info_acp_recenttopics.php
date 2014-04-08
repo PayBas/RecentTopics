@@ -20,20 +20,24 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'RECENT_TOPICS'						=> 'Temas recientes',
-	'RECENT_TOPICS_EXT'					=> 'Temas recientes',
-	'RECENT_TOPICS_LIST'				=> 'Ver en “temas recientes”',
-	'RECENT_TOPICS_LIST_EXPLAIN'		=> 'Serán los temas de este foro los que se mostrarán en el índice de “temas recientes”?',
+	'RECENT_TOPICS'					=> 'Temas Recientes',
+	'RECENT_TOPICS_EXT'				=> 'Temas Recientes',
+	'RECENT_TOPICS_LIST'			=> 'Ver en “temas recientes”',
+	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Serán los temas de este foro los que se mostrarán en el índice de “temas recientes”?',
 
-	'RT_CONFIG'							=> 'Configuracón',
-	'RT_ANTI_TOPICS'					=> 'Temas excluidos',
-	'RT_ANTI_TOPICS_EXP'				=> 'Separados por “, ” (Por ejemplo: “7, 9”)<br />Si quiere excluir un tema, simplemente introduzca 0.',
-	'RT_NUMBER'							=> 'Temas recientes',
-	'RT_NUMBER_EXP'						=> 'Número de temas mostrados en el índice.',
-	'RT_PAGE_NUMBER'					=> 'Páginas de temas recientes',
-	'RT_PAGE_NUMBER_EXP'				=> 'Puede mostrar más temas recientes usando una pequeña paginación. Solo tiene que introducir 1 para desactivar esta función. Si introduce 0, habrá tantas páginas como sean necesarias para mostrar todos los temas.',
-	'RT_PARENTS'						=> 'Mostrar foros padre',
-	'RT_SAVED'							=> 'Ajustes guardados.',
+	'RT_CONFIG'						=> 'Configuracón',
+	'RT_ANTI_TOPICS'				=> 'Temas excluidos',
+	'RT_ANTI_TOPICS_EXP'			=> 'Separados por “, ” (Por ejemplo: “7, 9”)<br />Si quiere excluir un tema, simplemente introduzca 0.',
+	'RT_NUMBER'						=> 'Temas recientes',
+	'RT_NUMBER_EXP'					=> 'Número de temas mostrados en el índice.',
+	'RT_PAGE_NUMBER'				=> 'Páginas de temas recientes',
+	'RT_PAGE_NUMBER_EXP'			=> 'Puede mostrar más temas recientes usando una pequeña paginación. Solo tiene que introducir 1 para desactivar esta función. Si introduce 0, habrá tantas páginas como sean necesarias para mostrar todos los temas.',
+	'RT_PARENTS'					=> 'Mostrar foros padre',
+	//'RT_PARENTS_EXP'				=> '',
+	//'RT_UNREADONLY'					=> '',
+	//'RT_UNREADONLY_EXP'				=> '',
+
+	'RT_SAVED'						=> 'Ajustes guardados.',
 
 	'RT_VIEW_ON'		=> 'ver temas recientes en',
 	'RT_MEMBERLIST'		=> 'Lista de Usuarios',

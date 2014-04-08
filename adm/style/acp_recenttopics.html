@@ -1,30 +1,37 @@
 <!-- INCLUDE overall_header.html -->
 
 <h1>{L_RECENT_TOPICS_EXT}</h1>
-<p>{RT_VERSION}</p>
+<p>v{RT_VERSION}</p>
 
 
 <form id="acp_board" method="post" action="{U_ACTION}">
 	<fieldset>
 		<dl>
-			<dt><label for="rt_number">{L_RT_NUMBER}:</label><br />
+			<dt><label for="rt_number">{L_RT_NUMBER}{L_COLON}</label><br />
 			<span>{L_RT_NUMBER_EXP}</span></dt>
 			<dd><input type="text" id="rt_number" name="rt_number" size="30" value="{RT_NUMBER}" /></dd>
 		</dl>
 		<dl>
-			<dt><label for="rt_page_number">{L_RT_PAGE_NUMBER}:</label><br />
+			<dt><label for="rt_page_number">{L_RT_PAGE_NUMBER}{L_COLON}</label><br />
 			<span>{L_RT_PAGE_NUMBER_EXP}</span></dt>
 			<dd><input type="text" id="rt_page_number" name="rt_page_number" size="30" value="{RT_PAGE_NUMBER}" /></dd>
 		</dl>
 		<dl>
-			<dt><label for="rt_anti_topics">{L_RT_ANTI_TOPICS}:</label><br />
+			<dt><label for="rt_anti_topics">{L_RT_ANTI_TOPICS}{L_COLON}</label><br />
 			<span>{L_RT_ANTI_TOPICS_EXP}</span></dt>
 			<dd><input type="text" id="rt_anti_topics" name="rt_anti_topics" size="30" value="{RT_ANTI_TOPICS}" /></dd>
 		</dl>
 		<dl>
-			<dt><label for="rt_parents">{L_RT_PARENTS}:</label></dt>
+			<dt><label for="rt_parents">{L_RT_PARENTS}{L_COLON}</label><br />
+			<span>{L_RT_PARENTS_EXP}</span></dt>
 			<dd><input type="radio" class="radio" id="rt_parents" name="rt_parents" value="1" <!-- IF RT_PARENTS -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="rt_parents" value="0" <!-- IF not RT_PARENTS -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
+			<dt><label for="rt_unreadonly">{L_RT_UNREADONLY}{L_COLON}</label><br />
+			<span>{L_RT_UNREADONLY_EXP}</span></dt>
+			<dd><input type="radio" class="radio" id="rt_unreadonly" name="rt_unreadonly" value="1" <!-- IF RT_UNREADONLY -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+				<input type="radio" class="radio" name="rt_unreadonly" value="0" <!-- IF not RT_UNREADONLY -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
 	</fieldset>
 	<fieldset>

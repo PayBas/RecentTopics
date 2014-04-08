@@ -20,20 +20,24 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'RECENT_TOPICS'						=> 'Recent topics',
-	'RECENT_TOPICS_EXT'					=> 'Recent topics',
-	'RECENT_TOPICS_LIST'				=> 'View on “recent topics”',
-	'RECENT_TOPICS_LIST_EXPLAIN'		=> 'Shall topics of this forum be displayed on the index in “recent topics”?',
+	'RECENT_TOPICS'					=> 'Recent Topics',
+	'RECENT_TOPICS_EXT'				=> 'Recent Topics',
+	'RECENT_TOPICS_LIST'			=> 'View on “recent topics”',
+	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Shall topics of this forum be displayed on the index in “recent topics”?',
 
-	'RT_CONFIG'							=> 'Configuration',
-	'RT_ANTI_TOPICS'					=> 'Excluded topics',
-	'RT_ANTI_TOPICS_EXP'				=> 'Seperated by “, ” (Example: “7, 9”)<br />If you don’t want to exclude a topic, just enter 0.',
-	'RT_NUMBER'							=> 'Recent topics',
-	'RT_NUMBER_EXP'						=> 'Number of topics displayed on the index.',
-	'RT_PAGE_NUMBER'					=> 'Recent topics pages',
-	'RT_PAGE_NUMBER_EXP'				=> 'You can display some more recent topics on a little pagination. Just enter 1 to disable this feature. If you enter 0 there will be so much pages as needed to display all topics.',
-	'RT_PARENTS'						=> 'Display parent forums',
-	'RT_SAVED'							=> 'Saved adjustments.',
+	'RT_CONFIG'						=> 'Configuration',
+	'RT_ANTI_TOPICS'				=> 'Excluded topics',
+	'RT_ANTI_TOPICS_EXP'			=> 'Seperated by “, ” (Example: “7, 9”)<br />If you don’t want to exclude a topic, just enter 0.',
+	'RT_NUMBER'						=> 'Recent topics',
+	'RT_NUMBER_EXP'					=> 'Number of topics displayed on the index.',
+	'RT_PAGE_NUMBER'				=> 'Recent topics pages',
+	'RT_PAGE_NUMBER_EXP'			=> 'You can display some more recent topics on a little pagination. Just enter 1 to disable this feature. If you enter 0 there will be so much pages as needed to display all topics.',
+	'RT_PARENTS'					=> 'Display parent forums',
+	'RT_PARENTS_EXP'				=> 'Display parent forums inside the topic row of recent topics.',
+	'RT_UNREADONLY'					=> 'Only display unread topics',
+	'RT_UNREADONLY_EXP'				=> 'Will display only the unread topics (whether they are "recent" or not).',
+
+	'RT_SAVED'						=> 'Saved adjustments.',
 
 	'RT_VIEW_ON'		=> 'view recent topics on',
 	'RT_MEMBERLIST'		=> 'Memberlist',
