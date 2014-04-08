@@ -333,7 +333,7 @@ class functions_recenttopics
 		* @since 2.0.0
 		*/
 		$vars = array('sql_array');
-		extract($this->dispatcher->trigger_event('recenttopics.sql_pull_topics_data', compact($vars)));
+		extract($this->dispatcher->trigger_event('paybas.recenttopics.sql_pull_topics_data', compact($vars)));
 
 		$sql = $this->db->sql_build_query('SELECT', $sql_array);
 		$result = $this->db->sql_query_limit($sql, $topics_per_page);
@@ -451,7 +451,7 @@ class functions_recenttopics
 			* @since 2.0.0
 			*/
 			$vars = array('row', 'tpl_ary');
-			extract($this->dispatcher->trigger_event('recenttopics.modify_tpl_ary', compact($vars)));
+			extract($this->dispatcher->trigger_event('paybas.recenttopics.modify_tpl_ary', compact($vars)));
 
 			$this->template->assign_block_vars($tpl_loopname, $tpl_ary);
 
