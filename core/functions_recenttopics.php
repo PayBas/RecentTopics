@@ -206,68 +206,89 @@ class functions_recenttopics
 			}
 		}
 
-		// Get the allowed topics
-		$sql_array = array(
-			'SELECT'	=> 't.forum_id, t.topic_id, t.topic_type, t.icon_id, tt.mark_time, ft.mark_time as f_mark_time',
-			'FROM'		=> array(TOPICS_TABLE => 't'),
-			'LEFT_JOIN'	=> array(
-				array(
-					'FROM'	=> array(TOPICS_TRACK_TABLE => 'tt'),
-					'ON'	=> 'tt.topic_id = t.topic_id AND tt.user_id = ' . $this->user->data['user_id'],
-				),
-				array(
-					'FROM'	=> array(FORUMS_TRACK_TABLE => 'ft'),
-					'ON'	=> 'ft.forum_id = t.forum_id AND ft.user_id = ' . $this->user->data['user_id'],
-				),
-			),
-			'WHERE'		=> '
-				(
-					(' . $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true) . '
-						AND ' . $this->db->sql_in_set('t.forum_id', $forum_ids) . '
-					)
-					OR t.topic_type = ' . POST_GLOBAL . '
-				)
-				AND t.topic_status <> ' . ITEM_MOVED . '
-				AND (' . $this->db->sql_in_set('t.forum_id', $m_approve_ids, false, true) . '
-					OR t.topic_posts_approved >= 1)',
-			'ORDER_BY'	=> 't.topic_last_post_time DESC',
-		);
-
-		// TODO: rework the soft-delete feature
-		if (file_exists("{$this->root_path}includes/mods/soft_delete.$this->phpEx"))
-		{
-			$sql_array['WHERE'] .= ' AND topic_deleted = 0';
-		}
-	
-		$sql = $this->db->sql_build_query('SELECT', $sql_array);
-		$result = $this->db->sql_query_limit($sql, $total_limit);
-	
 		$forums = $ga_topic_ids = $topic_ids = array();
 		$topics_count = 0;
 		$obtain_icons = false;
+		
+		// Either use the phpBB core function to get unread topics, or the custom function for default behavior
+		if ($unread_only) {
+			// Get unread topics
+			
+			// TODO: this stuff isn't working yet
+			break;
 
-		while ($row = $this->db->sql_fetchrow($result))
+			$sort_key = 't';
+			$sort_by_sql['t'] = 't.topic_last_post_time';
+			$sql_sort = 'ORDER BY ' . $sort_by_sql[$sort_key] . (($sort_dir == 'a') ? ' ASC' : ' DESC');
+
+			$sql_where = 'AND t.topic_moved_id = 0
+				AND ' . $m_approve_topics_fid_sql . '
+				' . ((sizeof($ex_fid_ary)) ? 'AND ' . $db->sql_in_set('t.forum_id', $ex_fid_ary, true) : '');
+
+			gen_sort_selects($limit_days, $sort_by_text, $sort_days, $sort_key, $sort_dir, $s_limit_days, $s_sort_key, $s_sort_dir, $u_sort_param);
+			$s_sort_key = $s_sort_dir = $u_sort_param = $s_limit_days = '';
+
+			$sql_data = get_unread_topics(false, $sql_where, $sql_sort, $total_limit + 1);
+		}
+		else
 		{
-			$topics_count++;
-			if (($topics_count > $start) && ($topics_count <= ($start + $topics_per_page)))
+			// Get the allowed topics
+			$sql_array = array(
+				'SELECT'	=> 't.forum_id, t.topic_id, t.topic_type, t.icon_id, tt.mark_time, ft.mark_time as f_mark_time',
+				'FROM'		=> array(TOPICS_TABLE => 't'),
+				'LEFT_JOIN'	=> array(
+					array(
+						'FROM'	=> array(TOPICS_TRACK_TABLE => 'tt'),
+						'ON'	=> 'tt.topic_id = t.topic_id AND tt.user_id = ' . $this->user->data['user_id'],
+					),
+					array(
+						'FROM'	=> array(FORUMS_TRACK_TABLE => 'ft'),
+						'ON'	=> 'ft.forum_id = t.forum_id AND ft.user_id = ' . $this->user->data['user_id'],
+					),
+				),
+				'WHERE'		=> '
+					(
+						' . $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true) . '
+						AND ' . $this->db->sql_in_set('t.forum_id', $forum_ids) . '
+					)
+					AND t.topic_status <> ' . ITEM_MOVED . '
+					AND (' . $this->db->sql_in_set('t.forum_id', $m_approve_ids, false, true) . '
+						OR t.topic_posts_approved >= 1)',
+				'ORDER_BY'	=> 't.topic_last_post_time DESC',
+			);
+	
+			// TODO: rework the soft-delete feature
+			if (file_exists("{$this->root_path}includes/mods/soft_delete.$this->phpEx"))
 			{
-				$topic_ids[] = $row['topic_id'];
-	
-				$rowset[$row['topic_id']] = $row;
-				if (!isset($forums[$row['forum_id']]) && $this->user->data['is_registered'] && $this->config['load_db_lastread'])
+				$sql_array['WHERE'] .= ' AND topic_deleted = 0';
+			}
+		
+			$sql = $this->db->sql_build_query('SELECT', $sql_array);
+			$result = $this->db->sql_query_limit($sql, $total_limit);
+
+			while ($row = $this->db->sql_fetchrow($result))
+			{
+				$topics_count++;
+				if (($topics_count > $start) && ($topics_count <= ($start + $topics_per_page)))
 				{
-					$forums[$row['forum_id']]['mark_time'] = $row['f_mark_time'];
-				}
-				$forums[$row['forum_id']]['topic_list'][] = $row['topic_id'];
-				$forums[$row['forum_id']]['rowset'][$row['topic_id']] = &$rowset[$row['topic_id']];
-	
-				if ($row['icon_id'] && $this->auth->acl_get('f_icons', $row['forum_id']))
-				{
-					$obtain_icons = true;
+					$topic_ids[] = $row['topic_id'];
+		
+					$rowset[$row['topic_id']] = $row;
+					if (!isset($forums[$row['forum_id']]) && $this->user->data['is_registered'] && $this->config['load_db_lastread'])
+					{
+						$forums[$row['forum_id']]['mark_time'] = $row['f_mark_time'];
+					}
+					$forums[$row['forum_id']]['topic_list'][] = $row['topic_id'];
+					$forums[$row['forum_id']]['rowset'][$row['topic_id']] = &$rowset[$row['topic_id']];
+		
+					if ($row['icon_id'] && $this->auth->acl_get('f_icons', $row['forum_id']))
+					{
+						$obtain_icons = true;
+					}
 				}
 			}
+			$this->db->sql_freeresult($result);
 		}
-		$this->db->sql_freeresult($result);
 
 		// No topics to display
 		if (!sizeof($topic_ids))
@@ -376,8 +397,8 @@ class functions_recenttopics
 			$view_topic_url = append_sid("{$this->root_path}viewtopic.$this->phpEx", 'f=' . $forum_id . '&amp;t=' . $topic_id);
 			$view_forum_url = append_sid("{$this->root_path}viewforum.$this->phpEx", 'f=' . $forum_id);
 
-			$topic_unapproved = ($row['topic_visibility'] == ITEM_UNAPPROVED && $auth->acl_get('m_approve', $forum_id));
-			$posts_unapproved = ($row['topic_visibility'] == ITEM_APPROVED && $row['topic_posts_unapproved'] && $auth->acl_get('m_approve', $forum_id));
+			$topic_unapproved = ($row['topic_visibility'] == ITEM_UNAPPROVED && $this->auth->acl_get('m_approve', $forum_id));
+			$posts_unapproved = ($row['topic_visibility'] == ITEM_APPROVED && $row['topic_posts_unapproved'] && $this->auth->acl_get('m_approve', $forum_id));
 
 			$u_mcp_queue = ($topic_unapproved || $posts_unapproved) ? append_sid("{$this->root_path}mcp.$this->phpEx", 'i=queue&amp;mode=' . (($topic_unapproved) ? 'approve_details' : 'unapproved_posts') . "&amp;t=$topic_id", true, $this->user->session_id) : '';
 			$s_type_switch = ($row['topic_type'] == POST_ANNOUNCE || $row['topic_type'] == POST_GLOBAL) ? 1 : 0;
