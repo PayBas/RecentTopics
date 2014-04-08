@@ -71,6 +71,7 @@ class functions_recenttopics
 		$this->root_path = $root_path;
 		$this->phpEx = $phpEx;
 
+		// Not sure if we still need this
 		if (!function_exists('display_forums') || !function_exists('topic_status'))
 		{
 			//include($this->root_path . 'includes/functions_display.' . $this->phpEx);
@@ -79,24 +80,26 @@ class functions_recenttopics
 
 	public function display_recent_topics($tpl_loopname = 'recenttopicrow', $spec_forum_id = 0, $include_subforums = true)
 	{
-		$this->user->add_lang_ext('paybas/recenttopics', 'info_acp_recenttopics');
-
+		// Since we only have one option yet (display on index), if it's not set/true, just abort the whole thing
 		if(!isset($this->config['rt_index']) || !$this->config['rt_index']) {
 			return;
 		}
+		
+		$this->user->add_lang_ext('paybas/recenttopics', 'info_acp_recenttopics');
 
-		$topics_per_page = $this->config['rt_number'];
-		$num_pages = $this->config['rt_page_number'];
-		$excluded_topics = $this->config['rt_anti_topics'];
-		$display_parent_forums = $this->config['rt_parents'];
-	
 		/**
 		* Set some internal needed variables
 		*/
-		$start = request_var($tpl_loopname . '_start', 0);
-		$excluded_topic_ids = explode(', ', $excluded_topics);
-		$total_limit	= $topics_per_page * $num_pages;
-		$ga_forum_id	= 0; // Forum id we use for global announcements
+		$topics_per_page 		= $this->config['rt_number'];
+		$num_pages 				= $this->config['rt_page_number'];
+		$excluded_topics 		= $this->config['rt_anti_topics'];
+		$display_parent_forums 	= $this->config['rt_parents'];
+		$unread_only			= $this->config['rt_unreadonly']; // Use function get_unread_topics later
+
+		$start 					= request_var($tpl_loopname . '_start', 0);
+		$excluded_topic_ids 	= explode(', ', $excluded_topics);
+		$total_limit			= $topics_per_page * $num_pages;
+		$ga_forum_id			= 0; // Forum id we use for global announcements
 	
 		/**
 		* Get the forums we take our topics from
@@ -191,7 +194,7 @@ class functions_recenttopics
 		{
 			return;
 		}
-	
+
 		// Moderator forums
 		$m_approve_ids = array();
 		$m_approve_ary = $this->auth->acl_getf('m_approve');
@@ -202,7 +205,7 @@ class functions_recenttopics
 				$m_approve_ids[] = (int) $forum_id;
 			}
 		}
-	
+
 		// Get the allowed topics
 		$sql_array = array(
 			'SELECT'	=> 't.forum_id, t.topic_id, t.topic_type, t.icon_id, tt.mark_time, ft.mark_time as f_mark_time',
@@ -226,11 +229,11 @@ class functions_recenttopics
 				)
 				AND t.topic_status <> ' . ITEM_MOVED . '
 				AND (' . $this->db->sql_in_set('t.forum_id', $m_approve_ids, false, true) . '
-					OR t.topic_posts_unapproved >= 1)',
+					OR t.topic_posts_approved >= 1)',
 			'ORDER_BY'	=> 't.topic_last_post_time DESC',
 		);
-	
-		// Is a soft delete MOD installed?
+
+		// TODO: rework the soft-delete feature
 		if (file_exists("{$this->root_path}includes/mods/soft_delete.$this->phpEx"))
 		{
 			$sql_array['WHERE'] .= ' AND topic_deleted = 0';
@@ -242,6 +245,7 @@ class functions_recenttopics
 		$forums = $ga_topic_ids = $topic_ids = array();
 		$topics_count = 0;
 		$obtain_icons = false;
+
 		while ($row = $this->db->sql_fetchrow($result))
 		{
 			$topics_count++;
@@ -264,13 +268,13 @@ class functions_recenttopics
 			}
 		}
 		$this->db->sql_freeresult($result);
-	
+
 		// No topics to display
 		if (!sizeof($topic_ids))
 		{
 			return;
 		}
-	
+
 		// Grab icons
 		if ($obtain_icons)
 		{
