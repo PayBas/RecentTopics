@@ -103,7 +103,6 @@ class functions_recenttopics
 		$start 					= request_var($tpl_loopname . '_start', 0);
 		$excluded_topic_ids 	= explode(', ', $excluded_topics);
 		$total_limit			= $topics_per_page * $num_pages;
-		$ga_forum_id			= 0; // Forum id we use for global announcements
 	
 		/**
 		* Get the forums we take our topics from
@@ -199,18 +198,10 @@ class functions_recenttopics
 			return;
 		}
 
-		// Moderator forums
-		$m_approve_ids = array();
-		$m_approve_ary = $this->auth->acl_getf('m_approve');
-		foreach ($m_approve_ary as $forum_id => $allowed)
-		{
-			if ($allowed['m_approve'] && in_array($forum_id, $forum_ids))
-			{
-				$m_approve_ids[] = (int) $forum_id;
-			}
-		}
+		// Remove duplicated ids
+		$forum_ids = array_unique($forum_ids);
 
-		$forums = $ga_topic_ids = $topic_ids = array();
+		$forums = $topic_ids = array();
 		$topics_count = 0;
 		$obtain_icons = false;
 		
@@ -250,22 +241,11 @@ class functions_recenttopics
 						'ON'	=> 'ft.forum_id = t.forum_id AND ft.user_id = ' . $this->user->data['user_id'],
 					),
 				),
-				'WHERE'		=> '
-					(
-						' . $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true) . '
-						AND ' . $this->db->sql_in_set('t.forum_id', $forum_ids) . '
-					)
+				'WHERE'		=> $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true) . '
 					AND t.topic_status <> ' . ITEM_MOVED . '
-					AND (' . $this->db->sql_in_set('t.forum_id', $m_approve_ids, false, true) . '
-						OR t.topic_posts_approved >= 1)',
+					AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.'),
 				'ORDER_BY'	=> 't.topic_last_post_time DESC',
 			);
-	
-			// TODO: rework the soft-delete feature
-			if (file_exists("{$this->root_path}includes/mods/soft_delete.$this->phpEx"))
-			{
-				$sql_array['WHERE'] .= ' AND topic_deleted = 0';
-			}
 		
 			$sql = $this->db->sql_build_query('SELECT', $sql_array);
 			$result = $this->db->sql_query_limit($sql, $total_limit);
@@ -373,23 +353,6 @@ class functions_recenttopics
 		{
 			$topic_id = $row['topic_id'];
 			$forum_id = $row['forum_id'];
-	
-			// Cheat for Global Announcements on the unread-link: copied from search.php
-			if (!$forum_id && !$ga_forum_id)
-			{
-				$sql2 = 'SELECT forum_id
-					FROM ' . FORUMS_TABLE . '
-					WHERE forum_type = ' . FORUM_POST . '
-						AND ' . $this->db->sql_in_set('forum_id', $forum_ary, false, true);
-				$result2 = $this->db->sql_query_limit($sql2, 1);
-				$ga_forum_id = (int) $this->db->sql_fetchfield('forum_id');
-				$this->db->sql_freeresult($result2);
-				$forum_id = $ga_forum_id;
-			}
-			else if (!$forum_id && $ga_forum_id)
-			{
-				$forum_id = $ga_forum_id;
-			}
 	
 			$s_type_switch_test = ($row['topic_type'] == POST_ANNOUNCE || $row['topic_type'] == POST_GLOBAL) ? 1 : 0;
 			//$replies = ($this->auth->acl_get('m_approve', $forum_id)) ? $row['topic_replies_real'] : $row['topic_replies'];

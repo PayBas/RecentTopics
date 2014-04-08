@@ -59,9 +59,7 @@
 							{L_POST_BY_AUTHOR} {recent_topics.TOPIC_AUTHOR_FULL} &raquo; {recent_topics.FIRST_POST_TIME}
 							<!-- IF recent_topics.S_POST_GLOBAL and FORUM_ID != recent_topics.FORUM_ID --> &raquo; {L_IN} <a href="{recent_topics.U_VIEW_FORUM}">{recent_topics.FORUM_NAME}</a><!-- ENDIF -->
 
-
 							<!-- IF recent_topics.U_VIEW_FORUM and recent_topics.FORUM_NAME --><br />{L_IN} <!-- BEGIN parent_forums --><a href="{recent_topics.parent_forums.U_VIEW_FORUM}" style="font-weight: bold;">{recent_topics.parent_forums.FORUM_NAME}</a> &raquo; <!-- END parent_forums --><a href="{recent_topics.U_VIEW_FORUM}" style="font-weight: bold;">{recent_topics.FORUM_NAME}</a><!-- ENDIF -->
-
 
 						</div>
 						<!-- IF not S_IS_BOT -->
