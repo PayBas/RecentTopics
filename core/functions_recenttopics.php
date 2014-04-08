@@ -44,6 +44,9 @@ class functions_recenttopics
 	/** @var \phpbb\pagination */
 	protected $pagination;
 
+	/** @var \phpbb\request\request */
+	protected $request;
+
 	/** @var \phpbb\template\template */
 	protected $template;
 	
@@ -57,7 +60,7 @@ class functions_recenttopics
 	protected $phpEx;
 
 
-	public function __construct(\phpbb\auth\auth $auth, \phpbb\config\config $config, \phpbb\cache\service $cache, \phpbb\content_visibility $content_visibility, \phpbb\db\driver\driver $db, \phpbb\event\dispatcher $dispatcher, \phpbb\pagination $pagination, \phpbb\template\template $template, \phpbb\user $user, $root_path, $phpEx)
+	public function __construct(\phpbb\auth\auth $auth, \phpbb\config\config $config, \phpbb\cache\service $cache, \phpbb\content_visibility $content_visibility, \phpbb\db\driver\driver $db, \phpbb\event\dispatcher $dispatcher, \phpbb\pagination $pagination, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, $root_path, $phpEx)
 	{
 		$this->auth = $auth;
 		$this->config = $config;
@@ -66,6 +69,7 @@ class functions_recenttopics
 		$this->db = $db;
 		$this->dispatcher = $dispatcher;
 		$this->pagination = $pagination;
+		$this->request = $request;
 		$this->template = $template;
 		$this->user = $user;
 		$this->root_path = $root_path;
@@ -315,7 +319,7 @@ class functions_recenttopics
 			}
 			else if ($this->config['load_anon_lastread'] || $this->user->data['is_registered'])
 			{
-				$tracking_topics = (isset($_COOKIE[$this->config['cookie_name'] . '_track'])) ? ((STRIP) ? stripslashes($_COOKIE[$this->config['cookie_name'] . '_track']) : $_COOKIE[$this->config['cookie_name'] . '_track']) : '';
+				$tracking_topics = $this->request->variable($this->config['cookie_name'] . '_track', '', true, \phpbb\request\request_interface::COOKIE);
 				$tracking_topics = ($tracking_topics) ? tracking_unserialize($tracking_topics) : array();
 	
 				$topic_tracking_info[$forum_id] = get_complete_topic_tracking($forum_id, $forum['topic_list'], ($forum_id) ? false : $forum['topic_list']);

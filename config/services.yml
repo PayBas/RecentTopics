@@ -9,6 +9,7 @@ services:
             - @dbal.conn
             - @dispatcher
             - @pagination
+            - @request
             - @template
             - @user
             - %core.root_path%
