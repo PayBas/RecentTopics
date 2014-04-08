@@ -496,9 +496,8 @@ class functions_recenttopics
 			}
 		}
 
-		$this->pagination->generate_template_pagination(
-			append_sid($this->root_path . $this->user->page['page_name'],$append_params), 'pagination', $tpl_loopname . '_start', $topics_count, $topics_per_page, $start
-		);
+		$pagination_url = append_sid($this->root_path . $this->user->page['page_name'],$append_params);
+		$this->pagination->generate_template_pagination($pagination_url, 'pagination', $tpl_loopname . '_start', $topics_count, $topics_per_page, $start);
 		
 		$this->template->assign_vars(array(
 			'S_TOPIC_ICONS'			=> (sizeof($topic_icons)) ? true : false,
