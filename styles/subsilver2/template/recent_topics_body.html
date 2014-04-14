@@ -25,6 +25,7 @@
 
 		<!-- BEGIN recent_topics -->
 			<tr>
+				<!-- EVENT topiclist_row_prepend -->
 				<td class="row1" width="25" align="center">{recent_topics.TOPIC_FOLDER_IMG}</td>
 				<!-- IF S_TOPIC_ICONS -->
 					<td class="row1" width="25" align="center"><!-- IF recent_topics.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{recent_topics.TOPIC_ICON_IMG}" width="{recent_topics.TOPIC_ICON_IMG_WIDTH}" height="{recent_topics.TOPIC_ICON_IMG_HEIGHT}" alt="" title="" /><!-- ENDIF --></td>
@@ -56,6 +57,7 @@
 						<a href="{recent_topics.U_LAST_POST}">{LAST_POST_IMG}</a>
 					</p>
 				</td>
+				<!-- EVENT topiclist_row_append -->
 			</tr>
 
 		<!-- BEGINELSE -->
