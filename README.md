@@ -1,13 +1,21 @@
 Recent Topics for phpBB 3.1
 ============
 
-Reworked and updated extension for phpBB to display recent topics.
+Extension for phpBB 3.1 to display recent topics.
+
+![Screenshot](screenshot.png)
 
 #### Based on NV Recent Topics for phpBB 3.0, by Joas Schilling ([nickvergessen](https://github.com/nickvergessen))
 
 
 ## Features
-- Not much (yet)
+- Adds a list of recent topics to the index page.
+- ACP module to change:
+  - number of topics to show
+  - max. number of pages
+  - exclusion of topics (by ID)
+  - display parent forums in the row
+- Inherits all styling from regular "viewforum" templates
 
 #### Requirements
 - >= phpBB 3.1-dev
@@ -16,6 +24,11 @@ Reworked and updated extension for phpBB to display recent topics.
 #### Languages supported
 - English
 - German
+- Spanish
+
+#### To do list
+- Implement the "show only unread topics" feature.
+- Add compatibility for topic prefixes and allow exclusion/inclusion based on predefined prefixes.
 
 ## Installation
 You can install this on the latest copy of the develop branch (phpBB 3.1-dev) by following the steps below.
@@ -23,7 +36,7 @@ You can install this on the latest copy of the develop branch (phpBB 3.1-dev) by
 **Manual:**
 
 1. If there is not yet an `./ext/paybas/recenttopics/` folder tree starting from your board root, create one.
-2. Copy the entire contents of this repo into that folder you just created (You can leave out the *.md files, .gitignore, and the .git folder).
+2. Copy the entire contents of this repo into that folder you just created (You can leave out the *.md files, screenshot.png, .gitignore, and the .git folder).
 3. Navigate in the ACP to `Customise -> Manage extensions -> Extensions`.
 4. Click Enable.
 
@@ -32,7 +45,7 @@ You can install this on the latest copy of the develop branch (phpBB 3.1-dev) by
 1. From the board root run the following git command:
 `git clone https://github.com/paybas/RecentTopics.git ext/paybas/recenttopics`
 2. Go to `ACP -> Customise -> Manage extensions -> Extensions`
-3. Click Enable next to the Recent Topics extension.
+3. Click Enable.
 
 ## Uninstallation
 In the ACP -> Customise -> Manage Extensions -> Extensions module, you can click one of the following:
