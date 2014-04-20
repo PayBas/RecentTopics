@@ -382,6 +382,8 @@ class functions_recenttopics
 			$tpl_ary = array(
 				'FORUM_ID'					=> $forum_id,
 				'TOPIC_ID'					=> $topic_id,
+				'TOPIC_AUTHOR'				=> get_username_string('username', $row['topic_poster'], $row['topic_first_poster_name'], $row['topic_first_poster_colour']),
+				'TOPIC_AUTHOR_COLOUR'		=> get_username_string('colour', $row['topic_poster'], $row['topic_first_poster_name'], $row['topic_first_poster_colour']),
 				'TOPIC_AUTHOR_FULL'			=> get_username_string('full', $row['topic_poster'], $row['topic_first_poster_name'], $row['topic_first_poster_colour']),
 				'FIRST_POST_TIME'			=> $this->user->format_date($row['topic_time']),
 	
