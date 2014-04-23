@@ -85,7 +85,8 @@ class functions_recenttopics
 	public function display_recent_topics($tpl_loopname = 'recenttopicrow', $spec_forum_id = 0, $include_subforums = true)
 	{
 		// Since we only have one option yet (display on index), if it's not set/true, just abort the whole thing
-		if(!isset($this->config['rt_index']) || !$this->config['rt_index']) {
+		if(!isset($this->config['rt_index']) || !$this->config['rt_index'])
+		{
 			return;
 		}
 		
@@ -206,7 +207,8 @@ class functions_recenttopics
 		$obtain_icons = false;
 		
 		// Either use the phpBB core function to get unread topics, or the custom function for default behavior
-		if ($unread_only) {
+		if ($unread_only)
+		{
 			// Get unread topics
 			
 			// TODO: this stuff isn't working yet
@@ -411,6 +413,8 @@ class functions_recenttopics
 				'ATTACH_ICON_IMG'		=> ($this->auth->acl_get('u_download') && $this->auth->acl_get('f_download', $forum_id) && $row['topic_attachment']) ? $this->user->img('icon_topic_attach', $this->user->lang['TOTAL_ATTACHMENTS']) : '',
 				'UNAPPROVED_IMG'		=> ($topic_unapproved || $posts_unapproved) ? $this->user->img('icon_topic_unapproved', ($topic_unapproved) ? 'TOPIC_UNAPPROVED' : 'POSTS_UNAPPROVED') : '',
 				'REPORTED_IMG'			=> ($row['topic_reported'] && $this->auth->acl_get('m_report', $forum_id)) ? $this->user->img('icon_topic_reported', 'TOPIC_REPORTED') : '',
+				'POLL_IMG'				=> $this->user->img('icon_topic_poll', 'TOPIC_POLL'),
+				'S_HAS_POLL'			=> ($row['poll_start']) ? true : false,
 	
 				'S_TOPIC_TYPE'			=> $row['topic_type'],
 				'S_USER_POSTED'			=> (isset($row['topic_posted']) && $row['topic_posted']) ? true : false,
