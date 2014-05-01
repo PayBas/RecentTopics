@@ -9,12 +9,13 @@ Extension for phpBB 3.1 to display recent topics.
 
 
 ## Features
-- Adds a list of recent topics to the index page.
+- Adds a list of recent (or unread) topics to the index page.
 - ACP module to change:
   - number of topics to show
   - max. number of pages
   - exclusion of topics (by ID)
   - display parent forums in the row
+  - only show unread topics
 - Inherits all styling from regular "viewforum" templates
 
 #### Requirements
