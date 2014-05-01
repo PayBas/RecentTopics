@@ -35,7 +35,7 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS'					=> 'Display parent forums',
 	'RT_PARENTS_EXP'				=> 'Display parent forums inside the topic row of recent topics.',
 	'RT_UNREADONLY'					=> 'Only display unread topics',
-	'RT_UNREADONLY_EXP'				=> 'Will display only the unread topics (whether they are "recent" or not). This function uses the same settings (excluding forums/topics etc.) as normal mode.',
+	'RT_UNREADONLY_EXP'				=> 'This option will only display unread topics (whether they are "recent" or not). This function uses the same settings (excluding forums/topics etc.) as normal mode. Note: this only works for logged-in users; guests will get the normal list.',
 
 	'RT_SAVED'						=> 'Saved adjustments.',
 

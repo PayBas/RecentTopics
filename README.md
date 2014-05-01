@@ -27,7 +27,6 @@ Extension for phpBB 3.1 to display recent topics.
 - Spanish
 
 #### To do list
-- Implement the "show only unread topics" feature.
 - Add compatibility for topic prefixes and allow exclusion/inclusion based on predefined prefixes.
 
 ## Installation

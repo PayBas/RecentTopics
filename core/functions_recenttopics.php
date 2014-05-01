@@ -82,7 +82,7 @@ class functions_recenttopics
 		}
 	}
 
-	public function display_recent_topics($tpl_loopname = 'recenttopicrow', $spec_forum_id = 0, $include_subforums = true)
+	public function display_recent_topics($tpl_loopname = 'recent_topics', $spec_forum_id = 0, $include_subforums = true)
 	{
 		// Since we only have one option yet (display on index), if it's not set/true, just abort the whole thing
 		if(!isset($this->config['rt_index']) || !$this->config['rt_index'])
@@ -99,7 +99,7 @@ class functions_recenttopics
 		$num_pages 				= $this->config['rt_page_number'];
 		$excluded_topics 		= $this->config['rt_anti_topics'];
 		$display_parent_forums 	= $this->config['rt_parents'];
-		$unread_only			= $this->config['rt_unreadonly']; // Use function get_unread_topics later
+		$unread_only			= $this->config['rt_unreadonly'];
 
 		$start 					= request_var($tpl_loopname . '_start', 0);
 		$excluded_topic_ids 	= explode(', ', $excluded_topics);
@@ -193,7 +193,7 @@ class functions_recenttopics
 			$this->db->sql_freeresult($result);
 		}
 	
-		// No forums with f_read
+		// No forums with f_read or recent topics enabled
 		if (!sizeof($forum_ids))
 		{
 			return;
@@ -207,25 +207,22 @@ class functions_recenttopics
 		$obtain_icons = false;
 		
 		// Either use the phpBB core function to get unread topics, or the custom function for default behavior
-		if ($unread_only)
+		if ($unread_only && $this->user->data['user_id'] != ANONYMOUS)
 		{
 			// Get unread topics
+			$sql_where = ' AND ' . $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true);
+			$sql_where .= ' AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.');
+			$sql_sort = '';
+			$unread_topics = get_unread_topics(false, $sql_where, $sql_sort, $total_limit);
 			
-			// TODO: this stuff isn't working yet
-			break;
-
-			$sort_key = 't';
-			$sort_by_sql['t'] = 't.topic_last_post_time';
-			$sql_sort = 'ORDER BY ' . $sort_by_sql[$sort_key] . (($sort_dir == 'a') ? ' ASC' : ' DESC');
-
-			$sql_where = 'AND t.topic_moved_id = 0
-				AND ' . $m_approve_topics_fid_sql . '
-				' . ((sizeof($ex_fid_ary)) ? 'AND ' . $db->sql_in_set('t.forum_id', $ex_fid_ary, true) : '');
-
-			gen_sort_selects($limit_days, $sort_by_text, $sort_days, $sort_key, $sort_dir, $s_limit_days, $s_sort_key, $s_sort_dir, $u_sort_param);
-			$s_sort_key = $s_sort_dir = $u_sort_param = $s_limit_days = '';
-
-			$sql_data = get_unread_topics(false, $sql_where, $sql_sort, $total_limit + 1);
+			foreach ($unread_topics as $topic_id => $mark_time)
+			{
+				$topics_count++;
+				if (($topics_count > $start) && ($topics_count <= ($start + $topics_per_page)))
+				{
+					$topic_ids[] = $topic_id;
+				}
+			}
 		}
 		else
 		{
@@ -359,9 +356,17 @@ class functions_recenttopics
 			$s_type_switch_test = ($row['topic_type'] == POST_ANNOUNCE || $row['topic_type'] == POST_GLOBAL) ? 1 : 0;
 			//$replies = ($this->auth->acl_get('m_approve', $forum_id)) ? $row['topic_replies_real'] : $row['topic_replies'];
 			$replies = $this->content_visibility->get_count('topic_posts', $row, $forum_id) - 1;
-			topic_status($row, $replies, (isset($topic_tracking_info[$forum_id][$row['topic_id']]) && $row['topic_last_post_time'] > $topic_tracking_info[$forum_id][$row['topic_id']]) ? true : false, $folder_img, $folder_alt, $topic_type);
-	
-			$unread_topic = (isset($topic_tracking_info[$forum_id][$row['topic_id']]) && $row['topic_last_post_time'] > $topic_tracking_info[$forum_id][$row['topic_id']]) ? true : false;
+			
+			if ($unread_only)
+			{
+				topic_status($row, $replies, true, $folder_img, $folder_alt, $topic_type);
+				$unread_topic = true;
+			}
+			else
+			{
+				topic_status($row, $replies, (isset($topic_tracking_info[$forum_id][$row['topic_id']]) && $row['topic_last_post_time'] > $topic_tracking_info[$forum_id][$row['topic_id']]) ? true : false, $folder_img, $folder_alt, $topic_type);
+				$unread_topic = (isset($topic_tracking_info[$forum_id][$row['topic_id']]) && $row['topic_last_post_time'] > $topic_tracking_info[$forum_id][$row['topic_id']]) ? true : false;
+			}
 	
 			$view_topic_url = append_sid("{$this->root_path}viewtopic.$this->phpEx", 'f=' . $forum_id . '&amp;t=' . $topic_id);
 			$view_forum_url = append_sid("{$this->root_path}viewforum.$this->phpEx", 'f=' . $forum_id);
@@ -406,14 +411,13 @@ class functions_recenttopics
 				'TOPIC_FOLDER_IMG'		=> $this->user->img($folder_img, $folder_alt),
 				'TOPIC_FOLDER_IMG_ALT'	=> $this->user->lang[$folder_alt],
 
-				'NEWEST_POST_IMG'		=> $this->user->img('icon_topic_newest', 'VIEW_NEWEST_POST'),
+				//'NEWEST_POST_IMG'		=> $this->user->img('icon_topic_newest', 'VIEW_NEWEST_POST'), // dupe?
 				'TOPIC_ICON_IMG'		=> (!empty($icons[$row['icon_id']])) ? $icons[$row['icon_id']]['img'] : '',
 				'TOPIC_ICON_IMG_WIDTH'	=> (!empty($icons[$row['icon_id']])) ? $icons[$row['icon_id']]['width'] : '',
 				'TOPIC_ICON_IMG_HEIGHT'	=> (!empty($icons[$row['icon_id']])) ? $icons[$row['icon_id']]['height'] : '',
 				'ATTACH_ICON_IMG'		=> ($this->auth->acl_get('u_download') && $this->auth->acl_get('f_download', $forum_id) && $row['topic_attachment']) ? $this->user->img('icon_topic_attach', $this->user->lang['TOTAL_ATTACHMENTS']) : '',
 				'UNAPPROVED_IMG'		=> ($topic_unapproved || $posts_unapproved) ? $this->user->img('icon_topic_unapproved', ($topic_unapproved) ? 'TOPIC_UNAPPROVED' : 'POSTS_UNAPPROVED') : '',
 				'REPORTED_IMG'			=> ($row['topic_reported'] && $this->auth->acl_get('m_report', $forum_id)) ? $this->user->img('icon_topic_reported', 'TOPIC_REPORTED') : '',
-				'POLL_IMG'				=> $this->user->img('icon_topic_poll', 'TOPIC_POLL'),
 				'S_HAS_POLL'			=> ($row['poll_start']) ? true : false,
 	
 				'S_TOPIC_TYPE'			=> $row['topic_type'],
@@ -497,6 +501,7 @@ class functions_recenttopics
 			'S_TOPIC_ICONS'			=> (sizeof($topic_icons)) ? true : false,
 			'NEWEST_POST_IMG'		=> $this->user->img('icon_topic_newest', 'VIEW_NEWEST_POST'),
 			'LAST_POST_IMG'			=> $this->user->img('icon_topic_latest', 'VIEW_LATEST_POST'),
+			'POLL_IMG'				=> $this->user->img('icon_topic_poll', 'TOPIC_POLL'),
 			strtoupper($tpl_loopname) . '_DISPLAY'		=> true,
 		));
 	}

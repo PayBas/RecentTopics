@@ -20,7 +20,7 @@
 						<!-- IF recent_topics.S_UNREAD_TOPIC and not S_IS_BOT --><!-- ENDIF --><a href="{recent_topics.U_VIEW_TOPIC}" class="topictitle"<!-- IF recent_topics.TOPIC_AUTHOR_COLOUR --> style="color: {recent_topics.TOPIC_AUTHOR_COLOUR}"<!-- ENDIF -->>{recent_topics.TOPIC_TITLE}</a>
 
 						<div class="forum-links">
-							<!-- IF recent_topics.S_HAS_POLL -->{recent_topics.POLL_IMG} <!-- ENDIF -->
+							<!-- IF recent_topics.S_HAS_POLL -->{POLL_IMG} <!-- ENDIF -->
 							<!-- IF recent_topics.S_POST_GLOBAL and FORUM_ID != recent_topics.FORUM_ID -->
 								<a href="{recent_topics.U_VIEW_FORUM}">{recent_topics.FORUM_NAME}</a>
 							<!-- ELSEIF recent_topics.U_VIEW_FORUM and recent_topics.FORUM_NAME -->
