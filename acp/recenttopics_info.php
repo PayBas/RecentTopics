@@ -29,7 +29,7 @@ class recenttopics_info
 			'title'		=> 'RECENT_TOPICS_EXT',
 			'version'	=> '2.0.0',
 			'modes'		=> array(
-				'recenttopics_config' => array('title' => 'RT_CONFIG', 'auth' => 'acl_a_board', 'cat' => array('RECENT_TOPICS_EXT')),
+				'recenttopics_config' => array('title' => 'RT_CONFIG', 'auth' => 'ext_paybas/recenttopics && acl_a_board', 'cat' => array('RECENT_TOPICS_EXT')),
 			),
 		);
 	}
