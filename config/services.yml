@@ -1,6 +1,6 @@
 services:
     paybas.recenttopics.functions:
-        class: paybas\recenttopics\core\functions_recenttopics
+        class: paybas\recenttopics\core\recenttopics
         arguments:
             - @auth
             - @config
@@ -18,5 +18,6 @@ services:
         class: paybas\recenttopics\event\listener
         arguments:
             - @paybas.recenttopics.functions
+            - @request
         tags:
             - { name: event.listener }

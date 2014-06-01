@@ -21,7 +21,6 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Temas Recientes',
-	'RECENT_TOPICS_EXT'				=> 'Temas Recientes',
 	'RECENT_TOPICS_LIST'			=> 'Ver en “temas recientes”',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Serán los temas de este foro los que se mostrarán en el índice de “temas recientes”?',
 
@@ -37,9 +36,7 @@ $lang = array_merge($lang, array(
 	//'RT_UNREADONLY'					=> '',
 	//'RT_UNREADONLY_EXP'				=> '',
 
-	'RT_SAVED'						=> 'Ajustes guardados.',
-
-	'RT_VIEW_ON'		=> 'ver temas recientes en',
+	'RT_VIEW_ON'		=> 'Ver temas recientes en:',
 	'RT_MEMBERLIST'		=> 'Lista de Usuarios',
 	'RT_INDEX'			=> 'Índice',
 	'RT_SEARCH'			=> 'Buscar',

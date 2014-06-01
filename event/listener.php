@@ -24,12 +24,16 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	/* @var \paybas\recenttopics\core\functions_recenttopics */
+	/* @var \paybas\recenttopics\core\recenttopics */
 	protected $rt_functions;
 
-	public function __construct(\paybas\recenttopics\core\functions_recenttopics $functions)
+	/** @var \phpbb\request\request */
+	protected $request;
+
+	public function __construct(\paybas\recenttopics\core\recenttopics $functions, \phpbb\request\request $request)
 	{
 		$this->rt_functions = $functions;
+		$this->request = $request;
 	}
 
 	static public function getSubscribedEvents()
@@ -46,14 +50,14 @@ class listener implements EventSubscriberInterface
 	// The main magic
 	public function display_rt($event)
 	{
-		$this->rt_functions->display_recent_topics('recent_topics', request_var('f', 0), true);
+		$this->rt_functions->display_recent_topics('recent_topics', $this->request->variable('f', '0'), true);
 	}
 	
 	// Submit form (add/update)
 	public function acp_manage_forums_request_data($event)
 	{
 		$array = $event['forum_data'];
-		$array['forum_recent_topics'] = request_var('forum_recent_topics', 1);
+		$array['forum_recent_topics'] = $this->request->variable('forum_recent_topics', 1);
 		$event['forum_data'] = $array; 
 	}
 

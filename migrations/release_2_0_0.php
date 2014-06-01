@@ -87,6 +87,7 @@ class release_2_0_0 extends \phpbb\db\migration\migration
 				array('config.remove', array('rt_index')),
 			)),
 
+			// Add new config vars
 			array('config.add', array('rt_version', '2.0.0')),
 			array('config.add', array('rt_number', 5)),
 			array('config.add', array('rt_page_number', 0)),
@@ -95,6 +96,7 @@ class release_2_0_0 extends \phpbb\db\migration\migration
 			array('config.add', array('rt_unreadonly', 0)),
 			array('config.add', array('rt_index', 1)),
 
+			// Remove old (v1) modules
 			array('if', array(
 				array('module.exists', array('acp', 'RECENT_TOPICS_MOD', array(
 					'module_basename'	=> 'recenttopics',
@@ -111,16 +113,35 @@ class release_2_0_0 extends \phpbb\db\migration\migration
 				array('module.exists', array('acp', 'ACP_CAT_DOT_MODS', 'RECENT_TOPICS_MOD')),
 				array('module.remove', array('acp', 'ACP_CAT_DOT_MODS', 'RECENT_TOPICS_MOD')),
 			)),
+			
+			// Remove early beta modules
+			array('if', array(
+				array('module.exists', array('acp', 'RECENT_TOPICS_EXT', array(
+					'module_basename'	=> '\paybas\recenttopics\acp\recenttopics_module',
+					'modes'	=> array('recenttopics_config'),
+					),
+				)),
+				array('module.remove', array('acp', 'RECENT_TOPICS_EXT', array(
+					'module_basename'	=> '\paybas\recenttopics\acp\recenttopics_module',
+					'modes'	=> array('recenttopics_config'),
+					),
+				)),
+			)),
+			array('if', array(
+				array('module.exists', array('acp', 'ACP_CAT_DOT_MODS', 'RECENT_TOPICS_EXT')),
+				array('module.remove', array('acp', 'ACP_CAT_DOT_MODS', 'RECENT_TOPICS_EXT')),
+			)),
 
+			// Add new modules
 			array('module.add', array(
 				'acp',
 				'ACP_CAT_DOT_MODS',
-				'RECENT_TOPICS_EXT'
+				'RECENT_TOPICS'
 			)),
 
 			array('module.add', array(
 				'acp',
-				'RECENT_TOPICS_EXT',
+				'RECENT_TOPICS',
 				array(
 					'module_basename'	=> '\paybas\recenttopics\acp\recenttopics_module',
 					'modes'	=> array('recenttopics_config'),
@@ -142,7 +163,7 @@ class release_2_0_0 extends \phpbb\db\migration\migration
 
 			array('module.remove', array(
 				'acp',
-				'RECENT_TOPICS_EXT',
+				'RECENT_TOPICS',
 				array(
 					'module_basename'	=> '\paybas\recenttopics\acp\recenttopics_module',
 					'modes'	=> array('recenttopics_config'),
@@ -151,7 +172,7 @@ class release_2_0_0 extends \phpbb\db\migration\migration
 			array('module.remove', array(
 				'acp',
 				'ACP_CAT_DOT_MODS',
-				'RECENT_TOPICS_EXT'
+				'RECENT_TOPICS'
 			)),
 		);
 	}

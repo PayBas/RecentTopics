@@ -21,7 +21,6 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Aktuelle Themen',
-	'RECENT_TOPICS_EXT'				=> 'Aktuelle Themen',
 	'RECENT_TOPICS_LIST'			=> 'unter “aktuelle Themen” anzeigen',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Sollen Themen aus diesem Forum “aktuelle Themen” angezeigt werden?',
 
@@ -37,9 +36,7 @@ $lang = array_merge($lang, array(
 	//'RT_UNREADONLY'					=> '',
 	//'RT_UNREADONLY_EXP'				=> '',
 
-	'RT_SAVED'						=> 'Einstellungen gespeichert.',
-
-	'RT_VIEW_ON'		=> 'recent topics anzeigen',
+	'RT_VIEW_ON'		=> 'Recent topics anzeigen:',
 	'RT_MEMBERLIST'		=> 'Mitgliederliste',
 	'RT_INDEX'			=> 'Index',
 	'RT_SEARCH'			=> 'Suche',

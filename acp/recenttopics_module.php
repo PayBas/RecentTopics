@@ -25,47 +25,74 @@ if (!defined('IN_PHPBB'))
 */
 class recenttopics_module
 {
+	/** @var \phpbb\config\config */
+	protected $config;
+
+	/** @var \phpbb\request\request */
+	protected $request;
+
+	/** @var \phpbb\template\template */
+	protected $template;
+
+	/** @var \phpbb\user */
+	protected $user;
+
 	public $u_action;
 
 	function main($id, $mode)
 	{
-		global $db, $user, $auth, $template, $cache;
-		global $config, $phpbb_root_path, $phpbb_admin_path, $phpEx;
+		global $config, $request, $template, $user;
 
-		$user->add_lang('acp/common');
+		$this->config = $config;
+		$this->request = $request;
+		$this->template = $template;
+		$this->user = $user;
+
+		$this->user->add_lang('acp/common');
 		$this->tpl_name = 'acp_recenttopics';
-		$this->page_title = $user->lang['RECENT_TOPICS_EXT'];
-		add_form_key('acp_recenttopics');
+		$this->page_title = $this->user->lang('RECENT_TOPICS');
+
+		$form_key = 'acp_recenttopics';
+		add_form_key($form_key);
 
 		if (isset($_POST['submit']))
 		{
-			if (!check_form_key('acp_recenttopics'))
+			if (!check_form_key($form_key))
 			{
-				trigger_error('FORM_INVALID');
+				trigger_error($user->lang('FORM_INVALID') . adm_back_link($this->u_action), E_USER_WARNING);
 			}
 
-			// request_var should be '' as it is a string ("1, 2, 3928") here, not an integer.
-			set_config('rt_anti_topics', request_var('rt_anti_topics', '0'));
+			// variable should be '' as it is a string ("1, 2, 3928") here, not an integer.
+			$rt_anti_topics = $this->request->variable('rt_anti_topics', '0');
+			$this->config->set('rt_anti_topics', $rt_anti_topics);
 
-			set_config('rt_number', request_var('rt_number', 5));
-			set_config('rt_page_number', request_var('rt_page_number', 0));
-			set_config('rt_parents', request_var('rt_parents', false));
-			set_config('rt_unreadonly', request_var('rt_unreadonly', false));
+			$rt_number = $this->request->variable('rt_number', 5);
+			$this->config->set('rt_number', $rt_number);
 
-			set_config('rt_index', request_var('rt_index', 0));
+			$rt_page_number = $this->request->variable('rt_page_number', 0);
+			$this->config->set('rt_page_number', $rt_page_number);
 
-			trigger_error($user->lang['RT_SAVED'] . adm_back_link($this->u_action));
+			$rt_parents = $this->request->variable('rt_parents', false);
+			$this->config->set('rt_parents', $rt_parents);
+
+			$rt_unreadonly = $this->request->variable('rt_unreadonly', false);
+			$this->config->set('rt_unreadonly', $rt_unreadonly);
+
+			$rt_index = $this->request->variable('rt_index', 0);
+			$this->config->set('rt_index', $rt_index);
+
+			trigger_error($user->lang['CONFIG_UPDATED'] . adm_back_link($this->u_action));
 		}
 
 		$template->assign_vars(array(
-			'RT_VERSION'			=> $config['rt_version'],
-			'RT_ANTI_TOPICS'		=> $config['rt_anti_topics'],
-			'RT_NUMBER'				=> $config['rt_number'],
-			'RT_PAGE_NUMBER'		=> $config['rt_page_number'],
-			'RT_PARENTS'			=> $config['rt_parents'],
-			'RT_UNREADONLY'			=> $config['rt_unreadonly'],
+			'RT_VERSION'			=> isset($this->config['rt_version']) ? $this->config['rt_version'] : '',
+			'RT_ANTI_TOPICS'		=> isset($this->config['rt_anti_topics']) ? $this->config['rt_anti_topics'] : '',
+			'RT_NUMBER'				=> isset($this->config['rt_number']) ? $this->config['rt_number'] : '',
+			'RT_PAGE_NUMBER'		=> isset($this->config['rt_page_number']) ? $this->config['rt_page_number'] : '',
+			'RT_PARENTS'			=> isset($this->config['rt_parents']) ? $this->config['rt_parents'] : false,
+			'RT_UNREADONLY'			=> isset($this->config['rt_unreadonly']) ? $this->config['rt_unreadonly'] : false,
 
-			'RT_INDEX'				=> $config['rt_index'],
+			'RT_INDEX'				=> isset($this->config['rt_index']) ? $this->config['rt_index'] : '',
 			'U_ACTION'				=> $this->u_action,
 		));
 	}

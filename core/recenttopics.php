@@ -20,7 +20,7 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-class functions_recenttopics
+class recenttopics
 {
 
 	/** @var \phpbb\auth\auth */
@@ -101,7 +101,7 @@ class functions_recenttopics
 		$display_parent_forums 	= $this->config['rt_parents'];
 		$unread_only			= $this->config['rt_unreadonly'];
 
-		$start 					= request_var($tpl_loopname . '_start', 0);
+		$start 					= $this->request->variable($tpl_loopname . '_start', 0);
 		$excluded_topic_ids 	= explode(', ', $excluded_topics);
 		$total_limit			= $topics_per_page * $num_pages;
 	

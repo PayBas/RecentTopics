@@ -21,7 +21,6 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Recent Topics',
-	'RECENT_TOPICS_EXT'				=> 'Recent Topics',
 	'RECENT_TOPICS_LIST'			=> 'View on “recent topics”',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Shall topics of this forum be displayed on the index in “recent topics”?',
 
@@ -37,9 +36,7 @@ $lang = array_merge($lang, array(
 	'RT_UNREADONLY'					=> 'Only display unread topics',
 	'RT_UNREADONLY_EXP'				=> 'This option will only display unread topics (whether they are "recent" or not). This function uses the same settings (excluding forums/topics etc.) as normal mode. Note: this only works for logged-in users; guests will get the normal list.',
 
-	'RT_SAVED'						=> 'Saved adjustments.',
-
-	'RT_VIEW_ON'		=> 'view recent topics on',
+	'RT_VIEW_ON'		=> 'View recent topics on:',
 	'RT_MEMBERLIST'		=> 'Memberlist',
 	'RT_INDEX'			=> 'Index',
 	'RT_SEARCH'			=> 'Search',
