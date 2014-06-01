@@ -1,8 +1,6 @@
 <!-- INCLUDE overall_header.html -->
 
-<h1>{L_RECENT_TOPICS}</h1>
-<p>{RT_VERSION}</p>
-
+<h1>{L_RECENT_TOPICS}<!-- IF RT_VERSION --> <span style="font-size:0.6em;">{RT_VERSION}</span><!-- ENDIF --></h1>
 
 <form id="acp_board" method="post" action="{U_ACTION}">
 	<fieldset>
