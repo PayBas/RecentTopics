@@ -3,8 +3,8 @@ services:
         class: paybas\recenttopics\core\recenttopics
         arguments:
             - @auth
-            - @config
             - @cache
+            - @config
             - @content.visibility
             - @dbal.conn
             - @dispatcher
