@@ -55,7 +55,7 @@ class recenttopics_module
 		$form_key = 'acp_recenttopics';
 		add_form_key($form_key);
 
-		if (isset($_POST['submit']))
+		if ($this->request->is_set_post('submit'))
 		{
 			if (!check_form_key($form_key))
 			{
