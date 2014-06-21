@@ -200,7 +200,7 @@ class recenttopics
 		// Remove duplicated ids
 		$forum_ids = array_unique($forum_ids);
 
-		$forums = $topic_ids = array();
+		$forums = $topic_list = array();
 		$topics_count = 0;
 		$obtain_icons = false;
 		
@@ -218,7 +218,7 @@ class recenttopics
 				$topics_count++;
 				if (($topics_count > $start) && ($topics_count <= ($start + $topics_per_page)))
 				{
-					$topic_ids[] = $topic_id;
+					$topic_list[] = $topic_id;
 				}
 			}
 		}
@@ -252,7 +252,7 @@ class recenttopics
 				$topics_count++;
 				if (($topics_count > $start) && ($topics_count <= ($start + $topics_per_page)))
 				{
-					$topic_ids[] = $row['topic_id'];
+					$topic_list[] = $row['topic_id'];
 		
 					$rowset[$row['topic_id']] = $row;
 					if (!isset($forums[$row['forum_id']]) && $this->user->data['is_registered'] && $this->config['load_db_lastread'])
@@ -272,7 +272,7 @@ class recenttopics
 		}
 
 		// No topics to display
-		if (!sizeof($topic_ids))
+		if (!sizeof($topic_list))
 		{
 			return;
 		}
@@ -322,7 +322,7 @@ class recenttopics
 					'ON'	=> 'f.forum_id = t.forum_id',
 				),
 			),
-			'WHERE'		=> $this->db->sql_in_set('t.topic_id', $topic_ids),
+			'WHERE'		=> $this->db->sql_in_set('t.topic_id', $topic_list),
 			'ORDER_BY'	=> 't.topic_last_post_time DESC',
 		);
 	
@@ -344,13 +344,36 @@ class recenttopics
 		$sql = $this->db->sql_build_query('SELECT', $sql_array);
 		$result = $this->db->sql_query_limit($sql, $topics_per_page);
 
+		$rowset = $topic_icons = array();
 
-		$topic_icons = array();
 		while ($row = $this->db->sql_fetchrow($result))
+		{
+			$rowset[] = $row;
+		}
+		$this->db->sql_freeresult($result);
+
+		// No topics returned by the DB
+		if (!sizeof($rowset))
+		{
+			return;
+		}
+
+		/**
+		* Event to modify the topics list data before we start the display loop
+		*
+		* @event recenttopics.modify_topics_list
+		* @var	array	topic_list		Array of all the topic IDs
+		* @var	array	rowset			The full topics list array
+		* @since 2.0.0
+		*/
+		$vars = array('topic_list', 'rowset');
+		extract($this->dispatcher->trigger_event('paybas.recenttopics.modify_topics_list', compact($vars)));
+
+		foreach ($rowset as $row)
 		{
 			$topic_id = $row['topic_id'];
 			$forum_id = $row['forum_id'];
-	
+
 			$s_type_switch_test = ($row['topic_type'] == POST_ANNOUNCE || $row['topic_type'] == POST_GLOBAL) ? 1 : 0;
 			//$replies = ($this->auth->acl_get('m_approve', $forum_id)) ? $row['topic_replies_real'] : $row['topic_replies'];
 			$replies = $this->content_visibility->get_count('topic_posts', $row, $forum_id) - 1;
@@ -471,7 +494,6 @@ class recenttopics
 				}
 			}
 		}
-		$this->db->sql_freeresult($result);
 
 		// Get URL-parameters for pagination
 		$url_params = explode('&', $this->user->page['query_string']);
