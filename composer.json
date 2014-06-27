@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Adds a list with a number of recent topics to the index.php",
     "homepage": "http://paybas.com/",
-    "version": "2.0.0",
-    "time": "2014-04-10",
+    "version": "2.0.1",
+    "time": "2014-06-27",
     "license": "GPL-2.0",
     "authors": [
         {
@@ -25,6 +25,11 @@
         "phpbb/phpbb": "3.1.*@dev"
     },
     "extra": {
-        "display-name": "Recent Topics"
+        "display-name": "Recent Topics",
+        "version-check": {
+            "host": "paybas.github.io",
+            "directory": "/RecentTopics",
+            "filename": "version.json"
+        }
     }
 }

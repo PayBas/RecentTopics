@@ -50,5 +50,3 @@ $lang = array_merge($lang, array(
 	'RT_REPORT'			=> 'Reportando',
 	'RT_OTHERS'			=> 'otro sitio',
 ));
-
-?>

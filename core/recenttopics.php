@@ -364,7 +364,7 @@ class recenttopics
 		* @event recenttopics.modify_topics_list
 		* @var	array	topic_list		Array of all the topic IDs
 		* @var	array	rowset			The full topics list array
-		* @since 2.0.0
+		* @since 2.0.1
 		*/
 		$vars = array('topic_list', 'rowset');
 		extract($this->dispatcher->trigger_event('paybas.recenttopics.modify_topics_list', compact($vars)));
