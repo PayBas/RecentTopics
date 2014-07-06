@@ -40,6 +40,15 @@
 						<!-- IF recent_topics.S_TOPIC_UNAPPROVED or recent_topics.S_POSTS_UNAPPROVED --><a href="{recent_topics.U_MCP_QUEUE}">{recent_topics.UNAPPROVED_IMG}</a> <!-- ENDIF -->
 						<!-- IF recent_topics.S_TOPIC_DELETED --><a href="{recent_topics.U_MCP_QUEUE}">{recent_topics.DELETED_IMG}</a> <!-- ENDIF -->
 						<!-- IF recent_topics.S_TOPIC_REPORTED --><a href="{recent_topics.U_MCP_REPORT}">{recent_topics.REPORTED_IMG}</a><!-- ENDIF --><br />
+
+						<!-- IF not S_IS_BOT -->
+						<div class="responsive-show" style="display: none;">
+							{L_LAST_POST} {L_POST_BY_AUTHOR} {recent_topics.LAST_POST_AUTHOR_FULL} &laquo; <a href="{recent_topics.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{recent_topics.LAST_POST_TIME}</a>
+							<!-- IF recent_topics.S_POST_GLOBAL and FORUM_ID != recent_topics.FORUM_ID --><br />{L_POSTED} {L_IN} <a href="{recent_topics.U_VIEW_FORUM}">{recent_topics.FORUM_NAME}</a><!-- ENDIF -->
+						</div>
+						<!-- IF recent_topics.REPLIES --><span class="responsive-show left-box" style="display: none;">{L_REPLIES}{L_COLON} <strong>{recent_topics.REPLIES}</strong></span><!-- ENDIF -->
+						<!-- ENDIF -->
+
 						<!-- IF .recent_topics.pagination -->
 						<div class="pagination">
 							<ul>
@@ -54,19 +63,13 @@
 							</ul>
 						</div>
 						<!-- ENDIF -->
+
 						<div class="responsive-hide">
 							<!-- IF recent_topics.S_HAS_POLL -->{POLL_IMG} <!-- ENDIF -->
 							{L_POST_BY_AUTHOR} {recent_topics.TOPIC_AUTHOR_FULL} &raquo; {recent_topics.FIRST_POST_TIME}
 							<!-- IF recent_topics.S_POST_GLOBAL and FORUM_ID != recent_topics.FORUM_ID --> &raquo; {L_IN} <a href="{recent_topics.U_VIEW_FORUM}">{recent_topics.FORUM_NAME}</a>
 							<!-- ELSEIF recent_topics.U_VIEW_FORUM and recent_topics.FORUM_NAME --> &raquo; {L_IN} <!-- BEGIN parent_forums --><a href="{recent_topics.parent_forums.U_VIEW_FORUM}">{recent_topics.parent_forums.FORUM_NAME}</a> &raquo; <!-- END parent_forums --><a href="{recent_topics.U_VIEW_FORUM}">{recent_topics.FORUM_NAME}</a><!-- ENDIF -->
 						</div>
-						<!-- IF not S_IS_BOT -->
-						<div class="responsive-show" style="display: none;">
-							{L_LAST_POST} {L_POST_BY_AUTHOR} {recent_topics.LAST_POST_AUTHOR_FULL} &laquo; <a href="{recent_topics.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{recent_topics.LAST_POST_TIME}</a>
-							<!-- IF recent_topics.S_POST_GLOBAL and FORUM_ID != recent_topics.FORUM_ID --><br />{L_POSTED} {L_IN} <a href="{recent_topics.U_VIEW_FORUM}">{recent_topics.FORUM_NAME}</a><!-- ENDIF -->
-							<!-- IF recent_topics.REPLIES --><br />{L_REPLIES}{L_COLON} <strong>{recent_topics.REPLIES}</strong><!-- ENDIF -->
-						</div>
-						<!-- ENDIF -->
 
 						<!-- EVENT topiclist_row_append -->
 					</div>
