@@ -19,7 +19,7 @@ Extension for phpBB 3.1 to display recent topics.
 - Inherits all styling from regular "viewforum" templates
 
 #### Requirements
-- phpBB 3.1-RC1 or higher
+- phpBB 3.1-RC2 or higher
 - PHP 5.3.3 or higher
 
 #### Languages supported
