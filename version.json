@@ -1,7 +1,7 @@
 {
 	"stable": {
 		"2.0": {
-			"current": "2.0.1",
+			"current": "2.0.2",
 			"announcement": "https://github.com/PayBas/RecentTopics/releases/tag/v2.0.1",
 			"eol": null,
 			"security": false
