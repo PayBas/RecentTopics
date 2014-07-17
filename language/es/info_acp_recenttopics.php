@@ -36,17 +36,5 @@ $lang = array_merge($lang, array(
 	'RT_UNREADONLY'					=> 'Mostrar sólo temas no leídos',
 	'RT_UNREADONLY_EXP'				=> 'Esta opción sólo mostrará temas no leídos (tanto si son "recientes" o no). Esta función utiliza la misma configuración (excluyendo forums/topics etc.) que el modo normal. Nota: esto sólo funciona para usuarios registrados e identificados; los invitados podrán obtener la lista normal.',
 
-	'RT_VIEW_ON'		=> 'Ver temas recientes en:',
-	'RT_MEMBERLIST'		=> 'Lista de Usuarios',
-	'RT_INDEX'			=> 'Índice',
-	'RT_SEARCH'			=> 'Buscar',
-	'RT_FAQ'			=> 'FAQ',
-	'RT_MCP'			=> 'MCP (Panel de Control del Moderador)',
-	'RT_UCP'			=> 'UCP (Panel de Control del Usuario)',
-	'RT_VIEWFORUM'		=> 'Viendo un foro',
-	'RT_VIEWTOPIC'		=> 'Viendo un tema',
-	'RT_VIEWONLINE'		=> 'Viendo conectados',
-	'RT_POSTING'		=> 'Escribiendo',
-	'RT_REPORT'			=> 'Reportando',
-	'RT_OTHERS'			=> 'otro sitio',
+	'RT_VIEW_ON'					=> 'Ver temas recientes en:',
 ));

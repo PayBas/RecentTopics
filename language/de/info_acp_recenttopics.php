@@ -36,17 +36,5 @@ $lang = array_merge($lang, array(
 	'RT_UNREADONLY'					=> 'Nur ungelesene Themen anzeigen',
 	'RT_UNREADONLY_EXP'				=> 'Diese Option zeigt nur ungelesene Themen an (egal ob diese aktuell sind oder nicht). Diese Funktion nutzt die gleichen Einstellungen (Ausgeschlossene Foren / Themen, etc.) wie die normale Version. Hinweis: diese Funktion steht nur eingeloggten Benutzern zur Verfügung; Gäste sehen die normale "Aktuelle Themen" Liste.',
 
-	'RT_VIEW_ON'		=> 'Recent topics anzeigen:',
-	'RT_MEMBERLIST'		=> 'Mitgliederliste',
-	'RT_INDEX'			=> 'Index',
-	'RT_SEARCH'			=> 'Suche',
-	'RT_FAQ'			=> 'FAQ',
-	'RT_MCP'			=> 'MCP (Moderations-Bereich)',
-	'RT_UCP'			=> 'UCP (Persönlicher-Bereich)',
-	'RT_VIEWFORUM'		=> 'Forum',
-	'RT_VIEWTOPIC'		=> 'Thema',
-	'RT_VIEWONLINE'		=> 'Online-Anzeige',
-	'RT_POSTING'		=> 'Posten',
-	'RT_REPORT'			=> 'Beitrag melden',
-	'RT_OTHERS'			=> 'andere Seiten',
+	'RT_VIEW_ON'					=> 'Recent topics anzeigen:',
 ));

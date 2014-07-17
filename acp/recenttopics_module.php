@@ -92,7 +92,6 @@ class recenttopics_module
 			'RT_PARENTS'			=> isset($this->config['rt_parents']) ? $this->config['rt_parents'] : false,
 			'RT_UNREADONLY'			=> isset($this->config['rt_unreadonly']) ? $this->config['rt_unreadonly'] : false,
 
-			'RT_INDEX'				=> isset($this->config['rt_index']) ? $this->config['rt_index'] : '',
 			'U_ACTION'				=> $this->u_action,
 		));
 	}
