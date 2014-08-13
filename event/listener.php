@@ -64,7 +64,7 @@ class listener implements EventSubscriberInterface
 	// Default settings for new forums
 	public function acp_manage_forums_initialise_data($event)
 	{
-		if($event['action'] == 'add') {
+		if ($event['action'] == 'add') {
 			$array = $event['forum_data'];
 			$array['forum_recent_topics'] = '1';
 			$event['forum_data'] = $array;

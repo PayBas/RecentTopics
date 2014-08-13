@@ -83,7 +83,7 @@ class recenttopics
 	public function display_recent_topics($tpl_loopname = 'recent_topics', $spec_forum_id = 0, $include_subforums = true)
 	{
 		// Since we only have one option yet (display on index), if it's not set/true, just abort the whole thing
-		if(!isset($this->config['rt_index']) || !$this->config['rt_index'])
+		if (!isset($this->config['rt_index']) || !$this->config['rt_index'])
 		{
 			return;
 		}
