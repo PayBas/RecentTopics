@@ -85,7 +85,6 @@ class recenttopics_module
 		}
 
 		$template->assign_vars(array(
-			'RT_VERSION'     => isset($this->config['rt_version']) ? $this->config['rt_version'] : '',
 			'RT_ANTI_TOPICS' => isset($this->config['rt_anti_topics']) ? $this->config['rt_anti_topics'] : '',
 			'RT_NUMBER'      => isset($this->config['rt_number']) ? $this->config['rt_number'] : '',
 			'RT_PAGE_NUMBER' => isset($this->config['rt_page_number']) ? $this->config['rt_page_number'] : '',
