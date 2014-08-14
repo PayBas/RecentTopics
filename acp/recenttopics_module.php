@@ -1,28 +1,28 @@
 <?php
 
 /**
-*
-* @package Recent Topics Extension
-* @copyright (c) 2014 PayBas
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-*
-* Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
-*
-*/
+ *
+ * @package Recent Topics Extension
+ * @copyright (c) 2014 PayBas
+ * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+ *
+ * Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
+ *
+ */
 
 namespace paybas\recenttopics\acp;
 
 /**
-* @ignore
-*/
+ * @ignore
+ */
 if (!defined('IN_PHPBB'))
 {
-    exit;
+	exit;
 }
 
 /**
-* @package acp
-*/
+ * @package acp
+ */
 class recenttopics_module
 {
 	/** @var \phpbb\config\config */
@@ -85,14 +85,14 @@ class recenttopics_module
 		}
 
 		$template->assign_vars(array(
-			'RT_VERSION'			=> isset($this->config['rt_version']) ? $this->config['rt_version'] : '',
-			'RT_ANTI_TOPICS'		=> isset($this->config['rt_anti_topics']) ? $this->config['rt_anti_topics'] : '',
-			'RT_NUMBER'				=> isset($this->config['rt_number']) ? $this->config['rt_number'] : '',
-			'RT_PAGE_NUMBER'		=> isset($this->config['rt_page_number']) ? $this->config['rt_page_number'] : '',
-			'RT_PARENTS'			=> isset($this->config['rt_parents']) ? $this->config['rt_parents'] : false,
-			'RT_UNREADONLY'			=> isset($this->config['rt_unreadonly']) ? $this->config['rt_unreadonly'] : false,
+			'RT_VERSION'     => isset($this->config['rt_version']) ? $this->config['rt_version'] : '',
+			'RT_ANTI_TOPICS' => isset($this->config['rt_anti_topics']) ? $this->config['rt_anti_topics'] : '',
+			'RT_NUMBER'      => isset($this->config['rt_number']) ? $this->config['rt_number'] : '',
+			'RT_PAGE_NUMBER' => isset($this->config['rt_page_number']) ? $this->config['rt_page_number'] : '',
+			'RT_PARENTS'     => isset($this->config['rt_parents']) ? $this->config['rt_parents'] : false,
+			'RT_UNREADONLY'  => isset($this->config['rt_unreadonly']) ? $this->config['rt_unreadonly'] : false,
 
-			'U_ACTION'				=> $this->u_action,
+			'U_ACTION'       => $this->u_action,
 		));
 	}
 }
