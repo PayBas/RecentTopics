@@ -447,7 +447,6 @@ class recenttopics
 				'S_TOPIC_REPORTED'        => ($row['topic_reported'] && $this->auth->acl_get('m_report', $forum_id)) ? true : false,
 				'S_TOPIC_UNAPPROVED'      => $topic_unapproved,
 				'S_POSTS_UNAPPROVED'      => $posts_unapproved,
-				'S_HAS_POLL'              => ($row['poll_start']) ? true : false,
 				'S_POST_ANNOUNCE'         => ($row['topic_type'] == POST_ANNOUNCE) ? true : false,
 				'S_POST_GLOBAL'           => ($row['topic_type'] == POST_GLOBAL) ? true : false,
 				'S_POST_STICKY'           => ($row['topic_type'] == POST_STICKY) ? true : false,

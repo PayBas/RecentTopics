@@ -48,7 +48,7 @@ class listener implements EventSubscriberInterface
 	}
 
 	// The main magic
-	public function display_rt($event)
+	public function display_rt()
 	{
 		$this->rt_functions->display_recent_topics('recent_topics', $this->request->variable('f', '0'), true);
 	}
