@@ -6,7 +6,7 @@
 * @copyright (c) 2014 PayBas
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
-* Based on the original NV Recent Topics by Joas Schilling (nickvergessen); Estonian translation by phpbbeesti.com 10/2014
+* Based on the original NV Recent Topics by Joas Schilling (nickvergessen); Estonian translation by www.phpbbeesti.com 10/2014
 *
 */
 
