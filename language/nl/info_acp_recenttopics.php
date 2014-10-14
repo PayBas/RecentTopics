@@ -23,7 +23,7 @@ $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Recente Onderwerpen',
 	'RECENT_TOPICS_LIST'			=> 'Weergeven in "recent onderwerpen” lijst',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Moeten onderwerpen uit dit forum worden weergegeven in de "recente onderwerpen" lijst?',
-	
+
 	'RT_CONFIG'						=> 'Configuratie',
 	'RT_ANTI_TOPICS'				=> 'Uitgesloten onderwerpen',
 	'RT_ANTI_TOPICS_EXP'			=> 'Gescheiden door een “, ” (Voorbeeld: “7, 9”)<br />Als je geen onderwerpen wilt uitsluiten, vul een 0 in.',
@@ -35,6 +35,6 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS_EXP'				=> 'Geeft de hoofdforums weer in de onderwerpregel van de recente onderwerpen.',
 	'RT_UNREADONLY'					=> 'Alleen ongelezen onderwerpen weergeven',
 	'RT_UNREADONLY_EXP'				=> 'Deze optie zorgt ervoor dat alleen de ongelezen onderwerpen worden weergegeven (ongeacht of ze recent zijn). Deze functie gebruikt dezelfde instellingen (uitsluiting van forums/onderwerpen etc.) als in de normale situatie. NB: dit werkt alleen bij ingelogde gebruikers; gasten krijgen de normale lijst te zien.',
-	
+
 	'RT_VIEW_ON'					=> 'Geef recente onderwerpen weer bij:',
 ));

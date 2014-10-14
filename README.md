@@ -19,7 +19,7 @@ Extension for phpBB 3.1 to display recent topics.
 - Inherits all styling from regular "viewforum" templates
 
 #### Requirements
-- phpBB 3.1-RC2 or higher
+- phpBB 3.1-RC5 or higher
 - PHP 5.3.3 or higher
 
 #### Languages supported
@@ -32,6 +32,7 @@ Extension for phpBB 3.1 to display recent topics.
 
 #### To do list
 - Add compatibility for topic prefixes and allow exclusion/inclusion based on predefined prefixes.
+- Add option to have stickies/announcements at the top
 
 ## Installation
 1. [Download the latest release](https://github.com/PayBas/RecentTopics/releases) and unzip it.
