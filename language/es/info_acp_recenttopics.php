@@ -26,7 +26,7 @@ $lang = array_merge($lang, array(
 
 	'RT_CONFIG'						=> 'Configuracón',
 	'RT_ANTI_TOPICS'				=> 'Temas excluidos',
-	'RT_ANTI_TOPICS_EXP'			=> 'Separados por “, ” (Por ejemplo: “7, 9”)<br />Si quiere excluir un tema, simplemente introduzca 0.',
+	'RT_ANTI_TOPICS_EXP'			=> 'Separados por “, ” (Por ejemplo: “7, 9”)<br />Si no quiere excluir un tema, simplemente introduzca 0.',
 	'RT_NUMBER'						=> 'Temas recientes',
 	'RT_NUMBER_EXP'					=> 'Número de temas mostrados en el índice.',
 	'RT_PAGE_NUMBER'				=> 'Páginas de temas recientes',
