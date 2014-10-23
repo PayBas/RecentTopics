@@ -334,7 +334,7 @@ class recenttopics
 		/**
 		 * Event to modify the SQL query before the topics data is retrieved
 		 *
-		 * @event recenttopics.sql_pull_topics_data
+		 * @event paybas.recenttopics.sql_pull_topics_data
 		 * @var    array    sql_array        The SQL array
 		 * @since 2.0.0
 		 */
@@ -361,7 +361,7 @@ class recenttopics
 		/**
 		 * Event to modify the topics list data before we start the display loop
 		 *
-		 * @event recenttopics.modify_topics_list
+		 * @event paybas.recenttopics.modify_topics_list
 		 * @var    array    topic_list        Array of all the topic IDs
 		 * @var    array    rowset            The full topics list array
 		 * @since 2.0.1
@@ -467,7 +467,7 @@ class recenttopics
 			/**
 			 * Modify the topic data before it is assigned to the template
 			 *
-			 * @event recenttopics.modify_tpl_ary
+			 * @event paybas.recenttopics.modify_tpl_ary
 			 * @var    array    row            Array with topic data
 			 * @var    array    tpl_ary        Template block array with topic data
 			 * @since 2.0.0
