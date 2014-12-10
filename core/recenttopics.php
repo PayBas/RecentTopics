@@ -103,6 +103,11 @@ class recenttopics
 		$excluded_topic_ids = explode(', ', $excluded_topics);
 		$total_limit = $topics_per_page * $num_pages;
 
+		if (!function_exists('display_forums'))
+		{
+			include($this->root_path . 'includes/functions_display.' . $this->phpEx);
+		}
+
 		/**
 		 * Get the forums we take our topics from
 		 */
