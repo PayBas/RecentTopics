@@ -49,6 +49,9 @@ class recenttopics_module
 			$rt_anti_topics = $request->variable('rt_anti_topics', '0');
 			$config->set('rt_anti_topics', $rt_anti_topics);
 
+			$rt_min_topic_level = $request->variable('rt_min_topic_level', 0);
+			$config->set('rt_min_topic_level', $rt_min_topic_level);
+
 			$rt_number = $request->variable('rt_number', 5);
 			$config->set('rt_number', $rt_number);
 
@@ -68,15 +71,16 @@ class recenttopics_module
 		}
 
 		$template->assign_vars(array(
-			'RT_ANTI_TOPICS' => isset($config['rt_anti_topics']) ? $config['rt_anti_topics'] : '',
-			'RT_NUMBER'      => isset($config['rt_number']) ? $config['rt_number'] : '',
-			'RT_PAGE_NUMBER' => isset($config['rt_page_number']) ? $config['rt_page_number'] : '',
-			'RT_PARENTS'     => isset($config['rt_parents']) ? $config['rt_parents'] : false,
-			'RT_UNREADONLY'  => isset($config['rt_unreadonly']) ? $config['rt_unreadonly'] : false,
+			'RT_ANTI_TOPICS'     => isset($config['rt_anti_topics']) ? $config['rt_anti_topics'] : '',
+			'RT_MIN_TOPIC_LEVEL' => isset($config['rt_min_topic_level']) ? $config['rt_min_topic_level'] : '',
+			'RT_NUMBER'          => isset($config['rt_number']) ? $config['rt_number'] : '',
+			'RT_PAGE_NUMBER'     => isset($config['rt_page_number']) ? $config['rt_page_number'] : '',
+			'RT_PARENTS'         => isset($config['rt_parents']) ? $config['rt_parents'] : false,
+			'RT_UNREADONLY'      => isset($config['rt_unreadonly']) ? $config['rt_unreadonly'] : false,
 
-			'RT_INDEX'       => isset($config['rt_index']) ? $config['rt_index'] : false,
+			'RT_INDEX'           => isset($config['rt_index']) ? $config['rt_index'] : false,
 
-			'U_ACTION'       => $this->u_action,
+			'U_ACTION'           => $this->u_action,
 		));
 	}
 }

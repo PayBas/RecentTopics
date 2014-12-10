@@ -26,7 +26,9 @@ $lang = array_merge($lang, array(
 
 	'RT_CONFIG'						=> 'Ρυθμίσεις',
 	'RT_ANTI_TOPICS'				=> 'Εξαιρούμενα θέματα',
-	'RT_ANTI_TOPICS_EXP'			=> 'Χωρισμένα με “, ” (Παράδειγμα: “7, 9”)<br />Εάν δεν θέλετε να εξαιρέσετε κάποιο θέμα, απλώς εισάγετε 0.',
+	'RT_ANTI_TOPICS_EXP'			=> 'Χωρισμένα με ", " (Παράδειγμα: "7, 9")<br />Εάν δεν θέλετε να εξαιρέσετε κάποιο θέμα, απλώς εισάγετε 0.',
+	'RT_MIN_TOPIC_LEVEL'			=> 'Minimum topic type level',
+	'RT_MIN_TOPIC_LEVEL_EXP'		=> 'Determines the minimum level of the topic type to display. It will display topics of the set level, and higher.<br />(0 = normal, 1 = sticky, 2 = announcement, 3 = global announcement)',
 	'RT_NUMBER'						=> 'Πρόσφατα θέματα',
 	'RT_NUMBER_EXP'					=> 'Πλήθος θεμάτων εμφανιζόμενα στο ευρετήριο.',
 	'RT_PAGE_NUMBER'				=> 'Σελίδες προσφάτων θεμάτων',

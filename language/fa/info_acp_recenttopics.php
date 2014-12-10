@@ -28,7 +28,9 @@ $lang = array_merge($lang, array(
 
 	'RT_CONFIG'                  => 'پیکربندی',
 	'RT_ANTI_TOPICS'             => 'موضوعات چشم پوشی شده',
-	'RT_ANTI_TOPICS_EXP'         => 'جداسازی توسط کاما “, ” (به عنوان مثال: “7, 9”)<br />اگر تمایل به چشم پوشی موضوعی ندارید عدد 0 را وارد کنید.',
+	'RT_ANTI_TOPICS_EXP'         => 'ج"اساز" توسط کاما ", ” (به عنوان مثال: “7, 9”)<br />اگر تمایل به چشم پوشی موضوعی ندارید عدد 0 را وارد کنید.',
+	'RT_MIN_TOPIC_LEVEL'         => 'Minimum topic type level',
+	'RT_MIN_TOPIC_LEVEL_EXP'     => 'Determines the minimum level of the topic type to display. It will display topics of the set level, and higher.<br />(0 = normal, 1 = sticky, 2 = announcement, 3 = global announcement)',
 	'RT_NUMBER'                  => 'موضوعات اخیر',
 	'RT_NUMBER_EXP'              => 'نمایش تعداد موضوعات در صفحه اصلی تالار',
 	'RT_PAGE_NUMBER'             => 'صفحات موضوعات اخیر',

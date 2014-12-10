@@ -95,6 +95,7 @@ class recenttopics
 		 */
 		$topics_per_page = $this->config['rt_number'];
 		$num_pages = $this->config['rt_page_number'];
+		$min_topic_level = $this->config['rt_min_topic_level'];
 		$excluded_topics = $this->config['rt_anti_topics'];
 		$display_parent_forums = $this->config['rt_parents'];
 		$unread_only = $this->config['rt_unreadonly'];
@@ -248,6 +249,22 @@ class recenttopics
 					AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.'),
 				'ORDER_BY'  => 't.topic_last_post_time DESC',
 			);
+
+			// Check if we want all topics, or only stickies/announcements/globals
+			if ($min_topic_level > 0)
+			{
+				$sql_array['WHERE'] .= ' AND t.topic_type >= ' . $min_topic_level;
+			}
+
+			/**
+			 * Event to modify the SQL query before the allowed topics list data is retrieved
+			 *
+			 * @event paybas.recenttopics.sql_pull_topics_list
+			 * @var    array    sql_array        The SQL array
+			 * @since 2.0.4
+			 */
+			$vars = array('sql_array');
+			extract($this->dispatcher->trigger_event('paybas.recenttopics.sql_pull_topics_list', compact($vars)));
 
 			$sql = $this->db->sql_build_query('SELECT', $sql_array);
 			$result = $this->db->sql_query_limit($sql, $total_limit);

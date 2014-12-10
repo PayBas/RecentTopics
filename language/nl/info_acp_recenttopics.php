@@ -21,12 +21,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Recente Onderwerpen',
-	'RECENT_TOPICS_LIST'			=> 'Weergeven in "recent onderwerpen” lijst',
+	'RECENT_TOPICS_LIST'			=> 'Weergeven in "recent onderwerpen" lijst',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Moeten onderwerpen uit dit forum worden weergegeven in de "recente onderwerpen" lijst?',
 
 	'RT_CONFIG'						=> 'Configuratie',
 	'RT_ANTI_TOPICS'				=> 'Uitgesloten onderwerpen',
-	'RT_ANTI_TOPICS_EXP'			=> 'Gescheiden door een “, ” (Voorbeeld: “7, 9”)<br />Als je geen onderwerpen wilt uitsluiten, vul een 0 in.',
+	'RT_ANTI_TOPICS_EXP'			=> 'Gescheiden door een ", " (Voorbeeld: "7, 9")<br />Als je geen onderwerpen wilt uitsluiten, vul een 0 in.',
+	'RT_MIN_TOPIC_LEVEL'			=> 'Minimum topic type level',
+	'RT_MIN_TOPIC_LEVEL_EXP'		=> 'Determines the minimum level of the topic type to display. It will display topics of the set level, and higher.<br />(0 = normal, 1 = sticky, 2 = announcement, 3 = global announcement)',
 	'RT_NUMBER'						=> 'Aantal recente onderwerpen',
 	'RT_NUMBER_EXP'					=> 'Aantal onderwerpen dat weergegeven wordt op de forumindex.',
 	'RT_PAGE_NUMBER'				=> 'Aantal recente onderwerpen pagina\'s',

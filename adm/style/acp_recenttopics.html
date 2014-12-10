@@ -6,11 +6,15 @@
 	<fieldset>
 		<dl>
 			<dt><label for="rt_number">{L_RT_NUMBER}{L_COLON}</label><br /><span>{L_RT_NUMBER_EXP}</span></dt>
-			<dd><input type="text" id="rt_number" name="rt_number" size="30" value="{RT_NUMBER}" /></dd>
+			<dd><input type="number" id="rt_number" name="rt_number" size="3" min="0" max="999" value="{RT_NUMBER}" /></dd>
 		</dl>
 		<dl>
 			<dt><label for="rt_page_number">{L_RT_PAGE_NUMBER}{L_COLON}</label><br /><span>{L_RT_PAGE_NUMBER_EXP}</span></dt>
-			<dd><input type="text" id="rt_page_number" name="rt_page_number" size="30" value="{RT_PAGE_NUMBER}" /></dd>
+			<dd><input type="number" id="rt_page_number" name="rt_page_number" size="3" min="0" max="999" value="{RT_PAGE_NUMBER}" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="rt_min_topic_level">{L_RT_MIN_TOPIC_LEVEL}{L_COLON}</label><br /><span>{L_RT_MIN_TOPIC_LEVEL_EXP}</span></dt>
+			<dd><input type="number" id="rt_min_topic_level" name="rt_min_topic_level" size="3" min="0" max="3" maxlength="1" value="{RT_MIN_TOPIC_LEVEL}" /></dd>
 		</dl>
 		<dl>
 			<dt><label for="rt_anti_topics">{L_RT_ANTI_TOPICS}{L_COLON}</label><br /><span>{L_RT_ANTI_TOPICS_EXP}</span></dt>

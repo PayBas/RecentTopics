@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Adds a list with a number of recent topics to the index.php",
     "homepage": "https://github.com/PayBas/RecentTopics",
-    "version": "2.0.3",
-    "time": "2014-10-14",
+    "version": "2.0.4",
+    "time": "2014-12-10",
     "license": "GPL-2.0",
     "authors": [
         {
