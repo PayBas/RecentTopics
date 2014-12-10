@@ -13,10 +13,17 @@ Extension for phpBB 3.1 to display recent topics.
 - ACP module to change:
   - number of topics to show
   - max. number of pages
+  - set minimum topic type level to display (normal/sticky/announcement/global)
   - exclusion of topics (by ID)
   - display parent forums in the row
   - only show unread topics
 - Inherits all styling from regular "viewforum" templates
+- Tested on:
+  - prosilver
+  - subsilver2
+  - PBWoW 3
+  - PBTech
+  - we_universal
 
 #### Requirements
 - phpBB 3.1-RC5 or higher
