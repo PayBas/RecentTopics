@@ -22,7 +22,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Recent Topics',
 	'RECENT_TOPICS_LIST'			=> 'Display on “recent topics”',
-	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Enable to display topics in this forum in the “recent topics” extension',
+	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Enable to display topics in this forum in the “recent topics” extension.',
 
 	'RT_CONFIG'						=> 'Configuration',
 	'RT_ANTI_TOPICS'				=> 'Excluded topics',

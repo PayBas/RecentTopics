@@ -32,6 +32,7 @@ Extension for phpBB 3.1 to display recent topics.
 - French
 - Russian
 - Persian
+- Swedish
 
 #### To do list
 - Add compatibility for topic prefixes and allow exclusion/inclusion based on predefined prefixes.

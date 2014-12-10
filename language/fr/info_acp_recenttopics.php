@@ -24,7 +24,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Sujets récents',
 	'RECENT_TOPICS_LIST'			=> 'Afficher les “sujets récents',
-	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Activer pour afficher les sujets de ce forum dans l’Extension “sujets récents”',
+	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Activer pour afficher les sujets de ce forum dans l’Extension “sujets récents”.',
 
 	'RT_CONFIG'						=> 'Configuration',
 	'RT_ANTI_TOPICS'				=> 'Sujets exclus',

@@ -22,7 +22,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Πρόσφατα Θέματα',
 	'RECENT_TOPICS_LIST'			=> 'Εμφάνιση στα "πρόσφατα θέματα"',
-	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Να εμφανίζονται τα θέματα αυτής της συζήτησης στα "πρόσφατα θέματα";',
+	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Να εμφανίζονται τα θέματα αυτής της συζήτησης στα "πρόσφατα θέματα".',
 
 	'RT_CONFIG'						=> 'Ρυθμίσεις',
 	'RT_ANTI_TOPICS'				=> 'Εξαιρούμενα θέματα',

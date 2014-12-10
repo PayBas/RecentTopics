@@ -22,7 +22,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Hiljutised teemad',
 	'RECENT_TOPICS_LIST'			=> 'Näita “hiljutisi teemasi”',
-	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Luba näidata teemasi selles foorumis “hiljutised teemad” laienduses',
+	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Luba näidata teemasi selles foorumis “hiljutised teemad” laienduses.',
 
 	'RT_CONFIG'						=> 'Seadistus',
 	'RT_ANTI_TOPICS'				=> 'Välistatud teemad',
