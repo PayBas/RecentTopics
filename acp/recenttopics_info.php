@@ -33,5 +33,3 @@ class recenttopics_info
 		);
 	}
 }
-
-?>

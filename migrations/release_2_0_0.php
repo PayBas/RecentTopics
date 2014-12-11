@@ -37,7 +37,7 @@ class release_2_0_0 extends \phpbb\db\migration\migration
 			),
 		);
 	}
-	
+
 	public function revert_schema()
 	{
 		return array(
@@ -113,7 +113,7 @@ class release_2_0_0 extends \phpbb\db\migration\migration
 				array('module.exists', array('acp', 'ACP_CAT_DOT_MODS', 'RECENT_TOPICS_MOD')),
 				array('module.remove', array('acp', 'ACP_CAT_DOT_MODS', 'RECENT_TOPICS_MOD')),
 			)),
-			
+
 			// Remove early beta modules
 			array('if', array(
 				array('module.exists', array('acp', 'RECENT_TOPICS_EXT', array(

@@ -551,5 +551,3 @@ class recenttopics
 	}
 
 }
-
-?>
