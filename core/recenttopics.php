@@ -257,12 +257,12 @@ class recenttopics
 			}
 
 			/**
-			 * Event to modify the SQL query before the allowed topics list data is retrieved
-			 *
-			 * @event paybas.recenttopics.sql_pull_topics_list
-			 * @var    array    sql_array        The SQL array
-			 * @since 2.0.4
-			 */
+			* Event to modify the SQL query before the allowed topics list data is retrieved
+			*
+			* @event paybas.recenttopics.sql_pull_topics_list
+			* @var    array    sql_array        The SQL array
+			* @since 2.0.4
+			*/
 			$vars = array('sql_array');
 			extract($this->dispatcher->trigger_event('paybas.recenttopics.sql_pull_topics_list', compact($vars)));
 
@@ -354,12 +354,12 @@ class recenttopics
 		}
 
 		/**
-		 * Event to modify the SQL query before the topics data is retrieved
-		 *
-		 * @event paybas.recenttopics.sql_pull_topics_data
-		 * @var    array    sql_array        The SQL array
-		 * @since 2.0.0
-		 */
+		* Event to modify the SQL query before the topics data is retrieved
+		*
+		* @event paybas.recenttopics.sql_pull_topics_data
+		* @var    array    sql_array        The SQL array
+		* @since 2.0.0
+		*/
 		$vars = array('sql_array');
 		extract($this->dispatcher->trigger_event('paybas.recenttopics.sql_pull_topics_data', compact($vars)));
 
@@ -381,13 +381,13 @@ class recenttopics
 		}
 
 		/**
-		 * Event to modify the topics list data before we start the display loop
-		 *
-		 * @event paybas.recenttopics.modify_topics_list
-		 * @var    array    topic_list        Array of all the topic IDs
-		 * @var    array    rowset            The full topics list array
-		 * @since 2.0.1
-		 */
+		* Event to modify the topics list data before we start the display loop
+		*
+		* @event paybas.recenttopics.modify_topics_list
+		* @var    array    topic_list        Array of all the topic IDs
+		* @var    array    rowset            The full topics list array
+		* @since 2.0.1
+		*/
 		$vars = array('topic_list', 'rowset');
 		extract($this->dispatcher->trigger_event('paybas.recenttopics.modify_topics_list', compact($vars)));
 
@@ -487,13 +487,13 @@ class recenttopics
 			);
 
 			/**
-			 * Modify the topic data before it is assigned to the template
-			 *
-			 * @event paybas.recenttopics.modify_tpl_ary
-			 * @var    array    row            Array with topic data
-			 * @var    array    tpl_ary        Template block array with topic data
-			 * @since 2.0.0
-			 */
+			* Modify the topic data before it is assigned to the template
+			*
+			* @event paybas.recenttopics.modify_tpl_ary
+			* @var    array    row            Array with topic data
+			* @var    array    tpl_ary        Template block array with topic data
+			* @since 2.0.0
+			*/
 			$vars = array('row', 'tpl_ary');
 			extract($this->dispatcher->trigger_event('paybas.recenttopics.modify_tpl_ary', compact($vars)));
 
@@ -549,5 +549,4 @@ class recenttopics
 			strtoupper($tpl_loopname) . '_DISPLAY' => true,
 		));
 	}
-
 }
