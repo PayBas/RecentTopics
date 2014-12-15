@@ -9,6 +9,7 @@
 * Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
 *
 * Polish translation by INVENTEA (https://inventea.com).
+*
 */
 
 if (!defined('IN_PHPBB'))
