@@ -6,7 +6,7 @@
 * @copyright (c) 2014 PayBas
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
-* Based on the original NV Recent Topics by Joas Schilling (nickvergessen); Estonian translation by www.phpbbeesti.com 10/2014
+* Based on the original NV Recent Topics by Joas Schilling (nickvergessen); Estonian translation by www.phpbbeesti.com 12/2014
 *
 */
 
@@ -21,22 +21,22 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Hiljutised teemad',
-	'RECENT_TOPICS_LIST'			=> 'Näita "hiljutisi teemasi"',
-	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Luba näidata teemasi selles foorumis "hiljutised teemad" laienduses.',
+	'RECENT_TOPICS_LIST'			=> 'Foorumi teemad "hiljutised teemad" laienduses',
+	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Väärtus "Jah" näitab selle foorumi uusi postitusi laienduses "Hiljutised teemad".',
 
 	'RT_CONFIG'						=> 'Seadistus',
 	'RT_ANTI_TOPICS'				=> 'Välistatud teemad',
-	'RT_ANTI_TOPICS_EXP'			=> 'Eraldatud ", " (Näiteks: "7, 9")<br />Kui sa aga ei soovi välistada teemat, siis sisesta väärtuseks 0',
-	'RT_MIN_TOPIC_LEVEL'			=> 'Minimum topic type level',
-	'RT_MIN_TOPIC_LEVEL_EXP'		=> 'Determines the minimum level of the topic type to display. It will display topics of the set level, and higher.<br />(0 = normal, 1 = sticky, 2 = announcement, 3 = global announcement)',
-	'RT_NUMBER'						=> 'Hiljutised teemad',
-	'RT_NUMBER_EXP'					=> 'Esilehel näidatavate teemade arv.',
-	'RT_PAGE_NUMBER'				=> 'Hiljutised teemad lehekülgede kaupa',
-	'RT_PAGE_NUMBER_EXP'			=> 'Saad näidata rohkem teemasi kasutades lehekülgesi. Sisesta väärtuseks 1, et keelata antud funktsioon. Kui aga sisestad väärtuseks 0, siis kasutatakse nii palju lehekülgi, et näidata kõiki teemasi foorumis (ei ole soovitatav).',
+	'RT_ANTI_TOPICS_EXP'			=> 'Eraldatud "," (Näiteks: "7, 9")<br />Kui sa aga ei soovi mingit kindlat teemat välistada, siis sisesta väärtuseks 0',
+	'RT_MIN_TOPIC_LEVEL'			=> 'Näita "Hiljutised teemad" laienduses ainult kindlat teema tüüpi',
+	'RT_MIN_TOPIC_LEVEL_EXP'		=> 'Määra millist teemade tüüpi tuleks ainult näidata "Hiljutised teemad" laienduses. Antud seadistus näitab teemasi alates määratletud teematüübist, nt kleebis ja sellest kõrgema teema tüübiga teemad.<br />(0 = tavaline, 1 = kleebis, 2 = teadaanne, 3 = üldteadaanne)',
+	'RT_NUMBER'						=> 'Hiljutiste teemade arv',
+	'RT_NUMBER_EXP'					=> 'Teemade arv, mida näidatakse esilehel laienduse ühel leheküljel.',
+	'RT_PAGE_NUMBER'				=> 'Lehekülgede arv',
+	'RT_PAGE_NUMBER_EXP'			=> 'Saad näidata rohkem teemasi kasutades lehekülgesi laienduses. Sisesta väärtuseks 1, et keelata antud funktsioon. Kui aga sisestad väärtuseks 0, siis kasutatakse nii palju lehekülgi, et näidata kõiki teemasi foorumis (ei ole soovitatav).',
 	'RT_PARENTS'					=> 'Näita vanem foorumit',
 	'RT_PARENTS_EXP'				=> 'Näitab vanem foorumit hiljutistes teemades.',
 	'RT_UNREADONLY'					=> 'Näita ainult lugemata teemasi',
 	'RT_UNREADONLY_EXP'				=> 'Lubades selle, näidatakse ainult lugemata teemasi (ükskõik kas nad on "hiljutised" või mitte). Antud funktsioon kasutab samu seadeid (va foorumid/teemad jne.) nagu tavaline vaadegi. Märkus: see töötab ainult registreeritud kasutajatel; külalised näevad ikka tavalist vaadet.',
 
-	'RT_VIEW_ON'					=> 'Näita hiljutistes teemades:',
+	'RT_VIEW_ON'					=> 'Näita "Hiljutised teemad" laiendust:',
 ));
