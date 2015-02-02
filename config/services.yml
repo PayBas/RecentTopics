@@ -18,6 +18,7 @@ services:
         class: paybas\recenttopics\event\listener
         arguments:
             - @paybas.recenttopics.functions
+            - @config
             - @request
         tags:
             - { name: event.listener }

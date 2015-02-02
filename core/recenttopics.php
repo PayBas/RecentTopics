@@ -64,22 +64,10 @@ class recenttopics
 		$this->user = $user;
 		$this->root_path = $root_path;
 		$this->phpEx = $phpEx;
-
-		// Not sure if we still need this
-		if (!function_exists('display_forums') || !function_exists('topic_status'))
-		{
-			//include($this->root_path . 'includes/functions_display.' . $this->phpEx);
-		}
 	}
 
 	public function display_recent_topics($tpl_loopname = 'recent_topics', $spec_forum_id = 0, $include_subforums = true)
 	{
-		// Since we only have one option yet (display on index), if it's not set/true, just abort the whole thing
-		if (!isset($this->config['rt_index']) || !$this->config['rt_index'])
-		{
-			return;
-		}
-
 		$this->user->add_lang_ext('paybas/recenttopics', 'recenttopics');
 
 		/**
