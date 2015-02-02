@@ -12,14 +12,6 @@
 
 namespace paybas\recenttopics\core;
 
-/**
- * @ignore
- */
-if (!defined('IN_PHPBB'))
-{
-	exit;
-}
-
 class recenttopics
 {
 	/** @var \phpbb\auth\auth */
@@ -214,10 +206,9 @@ class recenttopics
 		if ($unread_only && $this->user->data['user_id'] != ANONYMOUS)
 		{
 			// Get unread topics
-			$sql_where = ' AND ' . $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true);
-			$sql_where .= ' AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.');
-			$sql_sort = '';
-			$unread_topics = get_unread_topics(false, $sql_where, $sql_sort, $total_limit);
+			$sql_extra = ' AND ' . $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true);
+			$sql_extra .= ' AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.');
+			$unread_topics = get_unread_topics(false, $sql_extra, '', $total_limit);
 
 			foreach ($unread_topics as $topic_id => $mark_time)
 			{

@@ -12,14 +12,6 @@
 
 namespace paybas\recenttopics\migrations;
 
-/**
-* @ignore
-*/
-if (!defined('IN_PHPBB'))
-{
-    exit;
-}
-
 class release_2_0_4 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()

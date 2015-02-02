@@ -12,14 +12,6 @@
 
 namespace paybas\recenttopics\acp;
 
-/**
-* @ignore
-*/
-if (!defined('IN_PHPBB'))
-{
-    exit;
-}
-
 class recenttopics_info
 {
 	function module()

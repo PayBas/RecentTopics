@@ -12,17 +12,6 @@
 
 namespace paybas\recenttopics\acp;
 
-/**
- * @ignore
- */
-if (!defined('IN_PHPBB'))
-{
-	exit;
-}
-
-/**
- * @package acp
- */
 class recenttopics_module
 {
 	public $u_action;
