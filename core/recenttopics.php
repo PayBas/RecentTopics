@@ -123,7 +123,7 @@ class recenttopics
 				$forum_ids = array();
 				$sql = 'SELECT 1 as display_forum
 					FROM ' . FORUMS_TABLE . '
-					WHERE forum_id = ' . $spec_forum_id . '
+					WHERE forum_id = ' . intval($spec_forum_id) . '
 						AND forum_recent_topics = 1';
 				$result = $this->db->sql_query_limit($sql, 1);
 				$display_forum = (bool)$this->db->sql_fetchfield('display_forum');
