@@ -26,7 +26,7 @@ $lang = array_merge($lang, array(
 
 	'RT_CONFIG'						=> 'Konfiguration von aktuelle Themen',
 	'RT_ANTI_TOPICS'				=> 'ausgeschlossene Themen',
-	'RT_ANTI_TOPICS_EXP'			=> 'Mit ", " trennen (Beispiel: "7, 9")<br />Wenn kein Thema ausgeschlossen werden soll 1 eingeben. Wenn du 0 eingibst, werden soviele Seiten angezeigt, wie benötigt werden um alle Themen auszugeben.',
+	'RT_ANTI_TOPICS_EXP'			=> 'Mit ", " trennen (Beispiel: 7, 9)<br />Wenn kein Thema ausgeschlossen werden soll 1 eingeben. Wenn du 0 eingibst, werden soviele Seiten angezeigt, wie benötigt werden um alle Themen auszugeben.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Minimum topic type level',
 	'RT_MIN_TOPIC_LEVEL_EXP'		=> 'Determines the minimum level of the topic type to display. It will display topics of the set level, and higher.<br />(0 = normal, 1 = sticky, 2 = announcement, 3 = global announcement)',
 	'RT_NUMBER'						=> 'aktuelle Themen',

@@ -20,13 +20,13 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'RECENT_TOPICS'					=> 'Hiljutised teemad',
+	'RECENT_TOPICS'					=> 'Hiljutised Teemad',
 	'RECENT_TOPICS_LIST'			=> 'Foorumi teemad "hiljutised teemad" laienduses',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Väärtus "Jah" näitab selle foorumi uusi postitusi laienduses "Hiljutised teemad".',
 
 	'RT_CONFIG'						=> 'Seadistus',
 	'RT_ANTI_TOPICS'				=> 'Välistatud teemad',
-	'RT_ANTI_TOPICS_EXP'			=> 'Eraldatud "," (Näiteks: "7, 9")<br />Kui sa aga ei soovi mingit kindlat teemat välistada, siis sisesta väärtuseks 0',
+	'RT_ANTI_TOPICS_EXP'			=> 'Eraldatud "," (Näiteks: 7, 9)<br />Kui sa aga ei soovi mingit kindlat teemat välistada, siis sisesta väärtuseks 0',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Näita "Hiljutised teemad" laienduses ainult kindlat teema tüüpi',
 	'RT_MIN_TOPIC_LEVEL_EXP'		=> 'Määra millist teemade tüüpi tuleks ainult näidata "Hiljutised teemad" laienduses. Antud seadistus näitab teemasi alates määratletud teematüübist, nt kleebis ja sellest kõrgema teema tüübiga teemad.<br />(0 = tavaline, 1 = kleebis, 2 = teadaanne, 3 = üldteadaanne)',
 	'RT_NUMBER'						=> 'Hiljutiste teemade arv',

@@ -26,7 +26,7 @@ $lang = array_merge($lang, array(
 
 	'RT_CONFIG'						=> 'Настройка',
 	'RT_ANTI_TOPICS'				=> 'Исключённые темы',
-	'RT_ANTI_TOPICS_EXP'			=> 'Разделённый запятыми список идентификаторов тем, которые не должны отображаться в списке последних тем (например: «7, 9»)<br />Установите 0 для отключения данной функции.',
+	'RT_ANTI_TOPICS_EXP'			=> 'Разделённый запятыми список идентификаторов тем, которые не должны отображаться в списке последних тем (например: 7, 9)<br />Установите 0 для отключения данной функции.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Minimum topic type level',
 	'RT_MIN_TOPIC_LEVEL_EXP'		=> 'Determines the minimum level of the topic type to display. It will display topics of the set level, and higher.<br />(0 = normal, 1 = sticky, 2 = announcement, 3 = global announcement)',
 	'RT_NUMBER'						=> 'Число тем в списке',

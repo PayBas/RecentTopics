@@ -80,7 +80,7 @@ class recenttopics
 			return;
 		}
 
-		$this->user->add_lang_ext('paybas/recenttopics', 'info_acp_recenttopics');
+		$this->user->add_lang_ext('paybas/recenttopics', 'recenttopics');
 
 		/**
 		 * Set some internal needed variables

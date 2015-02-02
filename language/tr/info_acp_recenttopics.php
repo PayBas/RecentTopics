@@ -26,7 +26,7 @@ $lang = array_merge($lang, array(
 
 	'RT_CONFIG'						=> 'Ayarlar',
 	'RT_ANTI_TOPICS'				=> 'Dışlanan konular',
-	'RT_ANTI_TOPICS_EXP'			=> 'Ayraç ", " (Örnek: "7, 9")<br />Sıfır "0" değeri bu özelliği devre dışı bırakır.',
+	'RT_ANTI_TOPICS_EXP'			=> 'Ayraç ", " (Örnek: 7, 9)<br />Sıfır "0" değeri bu özelliği devre dışı bırakır.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Konu türü',
 	'RT_MIN_TOPIC_LEVEL_EXP'		=> 'Gösterilecek konu türünü belirler.<br />(0 = Normal, 1 = Sabit, 2 = Duyuru, 3 = Genel Duyuru)',
 	'RT_NUMBER'						=> 'Son Konular',

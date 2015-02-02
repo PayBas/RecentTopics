@@ -22,7 +22,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'RECENT_TOPICS'					=> 'Najnowsze tematy',
+	'RECENT_TOPICS'					=> 'Najnowsze Tematy',
 	'RECENT_TOPICS_LIST'			=> 'Wyświetlaj najnowsze tematy',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Jeśli wybrano <samp>Tak</samp>, tematy zamieszczone na tym forum będą wyświetlane na liście najnowszych tematów.',
 

@@ -22,13 +22,13 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'RECENT_TOPICS'					=> 'Sujets récents',
+	'RECENT_TOPICS'					=> 'Sujets Récents',
 	'RECENT_TOPICS_LIST'			=> 'Afficher les “sujets récents”',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Activer pour afficher les sujets de ce forum dans l’extension “sujets récents”.',
 
 	'RT_CONFIG'						=> 'Configuration',
 	'RT_ANTI_TOPICS'				=> 'Sujets exclus',
-	'RT_ANTI_TOPICS_EXP'			=> 'Saisissez les ID des sujets séparés par : “, ” (exemple : “7, 9”).<br />Si vous ne souhaitez pas exclure de sujet saisissez simplement 0.',
+	'RT_ANTI_TOPICS_EXP'			=> 'Saisissez les ID des sujets séparés par : “, ” (exemple : 7, 9).<br />Si vous ne souhaitez pas exclure de sujet saisissez simplement 0.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Niveau minimum du type de sujet',
 	'RT_MIN_TOPIC_LEVEL_EXP'		=> 'Détermine le niveau minimum du type de sujet à afficher. Cela affichera les sujets correspondant au niveau paramétré et de niveau supérieur.<br />(0 = Normal, 1 = Post-it, 2 = Annonce, 3 = Annonce globale)',
 	'RT_NUMBER'						=> 'Sujets récents',
