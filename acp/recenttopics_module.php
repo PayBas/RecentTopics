@@ -18,7 +18,7 @@ class recenttopics_module
 
 	function main($id, $mode)
 	{
-		global $config, $request, $template, $user;
+		global $config, $phpbb_extension_manager, $request, $template, $user;
 
 		$user->add_lang('acp/common');
 		$this->tpl_name = 'acp_recenttopics';
@@ -56,6 +56,10 @@ class recenttopics_module
 			$rt_index = $request->variable('rt_index', 0);
 			$config->set('rt_index', $rt_index);
 
+			// Enable on other extension pages?
+			$rt_on_newspage = $request->variable('rt_on_newspage', 0);
+			$config->set('rt_on_newspage', $rt_on_newspage);
+
 			trigger_error($user->lang['CONFIG_UPDATED'] . adm_back_link($this->u_action));
 		}
 
@@ -68,6 +72,8 @@ class recenttopics_module
 			'RT_UNREADONLY'      => isset($config['rt_unreadonly']) ? $config['rt_unreadonly'] : false,
 
 			'RT_INDEX'           => isset($config['rt_index']) ? $config['rt_index'] : false,
+			'RT_ON_NEWSPAGE'     => isset($config['rt_on_newspage']) ? $config['rt_on_newspage'] : false,
+			'S_RT_NEWSPAGE'      => $phpbb_extension_manager->is_enabled('nickvergessen/newspage'),
 
 			'U_ACTION'           => $this->u_action,
 		));
