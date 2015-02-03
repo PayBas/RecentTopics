@@ -31,6 +31,7 @@ class release_2_0_5 extends \phpbb\db\migration\migration
 		return array(
 			array('config.update', array('rt_version', '2.0.5')),
 			array('config.add', array('rt_on_newspage', 0)),
+			array('config.add', array('rt_sort_start_time', 0)),
 		);
 	}
 }

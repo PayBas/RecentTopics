@@ -53,6 +53,9 @@ class recenttopics_module
 			$rt_unreadonly = $request->variable('rt_unreadonly', false);
 			$config->set('rt_unreadonly', $rt_unreadonly);
 
+			$rt_sort_start_time = $request->variable('rt_sort_start_time', false);
+			$config->set('rt_sort_start_time', $rt_sort_start_time);
+
 			$rt_index = $request->variable('rt_index', 0);
 			$config->set('rt_index', $rt_index);
 
@@ -70,6 +73,7 @@ class recenttopics_module
 			'RT_PAGE_NUMBER'     => isset($config['rt_page_number']) ? $config['rt_page_number'] : '',
 			'RT_PARENTS'         => isset($config['rt_parents']) ? $config['rt_parents'] : false,
 			'RT_UNREADONLY'      => isset($config['rt_unreadonly']) ? $config['rt_unreadonly'] : false,
+			'RT_SORT_START_TIME' => isset($config['rt_sort_start_time']) ? $config['rt_sort_start_time'] : false,
 
 			'RT_INDEX'           => isset($config['rt_index']) ? $config['rt_index'] : false,
 			'RT_ON_NEWSPAGE'     => isset($config['rt_on_newspage']) ? $config['rt_on_newspage'] : false,

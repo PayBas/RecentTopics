@@ -36,6 +36,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'Du kan visa fler aktuella ämnen genom att föredela dem på flera sidor. Ange 1 för att deaktivera denna funktion. Om du anger 0 så kommer antalet sidor att anpassas till antalet ämnen i ditt forum (rekommenderas ej).',
 	'RT_PARENTS'					=> 'Visa överordnade forum',
 	'RT_PARENTS_EXP'				=> 'Visa överordnade forum inom ämnesraden för aktuella ämnen.',
+	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
+	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
 	'RT_UNREADONLY'					=> 'Visa endast olästa ämnen',
 	'RT_UNREADONLY_EXP'				=> 'Aktivera denna funktion för att endast visa olästa ämnen (oavsett om de är "aktuella" eller ej). Denna funktion använder samma inställningar (uteslutna ämnen/forum osv.) som det normala läget. Notera: detta fungerar endast för inloggade användare; gäster kommer att se den normala listan.',
 

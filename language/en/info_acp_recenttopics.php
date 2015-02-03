@@ -35,6 +35,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'You can display more recent topics using pagination. Just enter 1 to disable this feature. If you enter 0 there will be as much pages as needed to display all topics of your forum (not advised).',
 	'RT_PARENTS'					=> 'Display parent forums',
 	'RT_PARENTS_EXP'				=> 'Display parent forums inside the topic row of recent topics.',
+	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
+	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
 	'RT_UNREADONLY'					=> 'Only display unread topics',
 	'RT_UNREADONLY_EXP'				=> 'Enable to only display unread topics (whether they are "recent" or not). This function uses the same settings (excluding forums/topics etc.) as normal mode. Note: this only works for logged-in users; guests will get the normal list.',
 

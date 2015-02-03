@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 * Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
-*  
+*
 * Translated By : Basil Taha Alhitary - www.alhitary.net
 *
 */
@@ -37,6 +37,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'تستطيع عرض الكثير من "أحدث المواضيع" باستخدام ترقيم الصفحات. اكتب رقم 1 لتعطيل هذا الخيار. القيمة صفر تعني أن عدد الصفحات ستكون كثيرة جداً بحسب احتياجها لعرض جميع المواضيع الموجودة في منتداك ( لا يُنصح بهذا ).',
 	'RT_PARENTS'					=> 'إظهار المنتدى الأب ',
 	'RT_PARENTS_EXP'				=> 'إظهار إسم "المنتدى الأب" في التفاصيل المذكورة تحت أسم الموضوع.',
+	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
+	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
 	'RT_UNREADONLY'					=> 'عرض المواضيع الغير مقروءة فقط ',
 	'RT_UNREADONLY_EXP'				=> 'تفعيل هذا الخيار يعني اظهار المواضيع الغير مقروءة فقط ( بغض النظر لو هذه المواضيع حديثة أو قديمة ). هذا الخيار يستخدم نفس اعدادات الطريقة العادية ( استبعاد المنتدىات/المواضيع..الخ ).<br />ملاحظة : هذا الخيار يظهر فقط للأعضاء المسجلين دخولهم للمنتدى. الزائرين سيُشاهدون القائمة العادية.',
 

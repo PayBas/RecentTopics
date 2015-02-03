@@ -35,6 +35,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'Du kannst weiter aktuelle Themen mit einer kleinen Seitennavigation anzeigen lassen. Um das Feature zu deaktivieren einfach 0 eintragen.',
 	'RT_PARENTS'					=> 'Übergeordnete Foren anzeigen',
 	'RT_PARENTS_EXP'				=> 'Übergeordnete Foren in der Liste der aktuellen Themen anzeigen.',
+	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
+	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
 	'RT_UNREADONLY'					=> 'Nur ungelesene Themen anzeigen',
 	'RT_UNREADONLY_EXP'				=> 'Diese Option zeigt nur ungelesene Themen an (egal ob diese aktuell sind oder nicht). Diese Funktion nutzt die gleichen Einstellungen (Ausgeschlossene Foren / Themen, etc.) wie die normale Version. Hinweis: diese Funktion steht nur eingeloggten Benutzern zur Verfügung; Gäste sehen die normale "Aktuelle Themen" Liste.',
 

@@ -35,6 +35,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'Saad näidata rohkem teemasi kasutades lehekülgesi laienduses. Sisesta väärtuseks 1, et keelata antud funktsioon. Kui aga sisestad väärtuseks 0, siis kasutatakse nii palju lehekülgi, et näidata kõiki teemasi foorumis (ei ole soovitatav).',
 	'RT_PARENTS'					=> 'Näita vanem foorumit',
 	'RT_PARENTS_EXP'				=> 'Näitab vanem foorumit hiljutistes teemades.',
+	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
+	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
 	'RT_UNREADONLY'					=> 'Näita ainult lugemata teemasi',
 	'RT_UNREADONLY_EXP'				=> 'Lubades selle, näidatakse ainult lugemata teemasi (ükskõik kas nad on "hiljutised" või mitte). Antud funktsioon kasutab samu seadeid (va foorumid/teemad jne.) nagu tavaline vaadegi. Märkus: see töötab ainult registreeritud kasutajatel; külalised näevad ikka tavalist vaadet.',
 

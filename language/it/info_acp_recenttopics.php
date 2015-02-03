@@ -35,6 +35,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'È possibile mostrare più pagine di topic recenti; per disabilitare questa funzione, digitare 1. Impostando il valore a 0, saranno create tante pagine quante ne servono per mostrare tutti i topic del forum (non consigliato).',
 	'RT_PARENTS'					=> 'Mostra forum genitore',
 	'RT_PARENTS_EXP'				=> 'Mostra il topic genitore nella riga del topic dell&#39;elenco dei topic recenti',
+	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
+	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
 	'RT_UNREADONLY'					=> 'Mostra solo non letti',
 	'RT_UNREADONLY_EXP'				=> 'Abilita per mostrare solo i topic non letti, recenti o meno; questa funzione usa le stesse impostazioni (esclusione di forum, topic eccetera) della modalità normale.<br />Nota: funziona solo per gli utenti registrati; gli ospiti vedranno l&#39;elenco normale.',
 
