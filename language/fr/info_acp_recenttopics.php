@@ -37,8 +37,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'Vous pouvez afficher davantage de sujets récents en utilisant la pagination. Saisissez seulement 1 pour désactiver cette option. Si vous saisissez 0, il y aura autant de pages que nécessaire pour afficher tous les sujets de votre forum (non recommandé).',
 	'RT_PARENTS'					=> 'Afficher les forums parents',
 	'RT_PARENTS_EXP'				=> 'Afficher les forums parents dans la liste des sujets récents.',
-	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
-	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
+	'RT_SORT_START_TIME'			=> 'Classer selon la date de création du sujet',
+	'RT_SORT_START_TIME_EXP'		=> 'Activer pour classer selon la date de création du sujet, en lieu et place de la date du dernier message.',
 	'RT_UNREADONLY'					=> 'Afficher uniquement les sujets non lus',
 	'RT_UNREADONLY_EXP'				=> 'Vous pouvez afficher uniquement les sujets non lus (qu’ils soient “récents” ou non). Cette fonctionnalité utilise les mêmes paramètres que le mode normal (en excluant les forums / sujets, etc…). Note : Cela fonctionne uniquement pour les utilisateurs connectés; les invités verront la liste normale.',
 
