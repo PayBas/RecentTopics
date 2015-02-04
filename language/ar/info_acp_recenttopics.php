@@ -1,16 +1,15 @@
 <?php
-
 /**
-*
-* @package Recent Topics Extension
-* @copyright (c) 2014 PayBas
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-*
-* Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
-*
-* Translated By : Basil Taha Alhitary - www.alhitary.net
-*
-*/
+ *
+ * @package Recent Topics Extension
+ * Arabic translation by Taha Alhitary (www.alhitary.net)
+ *
+ * @copyright (c) 2015 PayBas
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ * Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
+ *
+ */
 
 if (!defined('IN_PHPBB'))
 {

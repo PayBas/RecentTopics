@@ -1,14 +1,16 @@
 <?php
-
 /**
-*
-* @package Recent Topics Extension
-* @copyright (c) 2014 PayBas
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-*
-* Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
-*
-*/
+ *
+ * @package Recent Topics Extension
+ * Spanish translation by Raul [ThE KuKa] (www.phpbb-es.com)
+ *
+ * @copyright (c) 2015 PayBas
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ * Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
+ *
+ */
+
 
 if (!defined('IN_PHPBB'))
 {
