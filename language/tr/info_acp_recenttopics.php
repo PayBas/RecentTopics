@@ -35,9 +35,9 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'Daha fazla konu görüntülemek için sayfalama özelliğini kullanın. Bu özelliği kapatmak için "1" giriniz. Sıfır "0" gireseniz forumdaki tüm konular gösterilecektir (tavsiye edilmez).',
 	'RT_PARENTS'					=> 'Ana forumu göster',
 	'RT_PARENTS_EXP'				=> 'Son Konular listesisinde konunun ait olduğu ana forumu gösterir.',
-	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
-	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
-	'RT_UNREADONLY'					=> 'Sadece okunmamış konuları göster.',
+	'RT_SORT_START_TIME'			=> 'Başlangıç tarihine göre sırala',
+	'RT_SORT_START_TIME_EXP'		=> 'Son Konuları gönderilen son mesajın tarihi yerine, konunun başlangıç tarihine göre sıralamak için etkinleştirin.',
+	'RT_UNREADONLY'					=> 'Sadece okunmamış konuları göster',
 	'RT_UNREADONLY_EXP'				=> 'Bu seçeneğin etkinleştirilmesi sadece okunmamış konuların görüntülenmesini sağlar. Konu türü ayrımı olmayacaktır.<br /><strong>NOT:</strong> Bu özellik giriş yapmış kullanıcılar için geçerlidir; Misafirler normal "Son Konular" listesini görecektir.',
 
 	'RT_VIEW_ON'					=> 'Son Konuları göster:',
