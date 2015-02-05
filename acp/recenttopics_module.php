@@ -1,10 +1,9 @@
 <?php
-
 /**
  *
  * @package Recent Topics Extension
- * @copyright (c) 2014 PayBas
- * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+ * @copyright (c) 2015 PayBas
+ * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
  *
@@ -12,24 +11,13 @@
 
 namespace paybas\recenttopics\acp;
 
-/**
- * @ignore
- */
-if (!defined('IN_PHPBB'))
-{
-	exit;
-}
-
-/**
- * @package acp
- */
 class recenttopics_module
 {
 	public $u_action;
 
 	function main($id, $mode)
 	{
-		global $config, $request, $template, $user;
+		global $config, $phpbb_extension_manager, $request, $template, $user;
 
 		$user->add_lang('acp/common');
 		$this->tpl_name = 'acp_recenttopics';
@@ -64,8 +52,15 @@ class recenttopics_module
 			$rt_unreadonly = $request->variable('rt_unreadonly', false);
 			$config->set('rt_unreadonly', $rt_unreadonly);
 
+			$rt_sort_start_time = $request->variable('rt_sort_start_time', false);
+			$config->set('rt_sort_start_time', $rt_sort_start_time);
+
 			$rt_index = $request->variable('rt_index', 0);
 			$config->set('rt_index', $rt_index);
+
+			// Enable on other extension pages?
+			$rt_on_newspage = $request->variable('rt_on_newspage', 0);
+			$config->set('rt_on_newspage', $rt_on_newspage);
 
 			trigger_error($user->lang['CONFIG_UPDATED'] . adm_back_link($this->u_action));
 		}
@@ -77,8 +72,11 @@ class recenttopics_module
 			'RT_PAGE_NUMBER'     => isset($config['rt_page_number']) ? $config['rt_page_number'] : '',
 			'RT_PARENTS'         => isset($config['rt_parents']) ? $config['rt_parents'] : false,
 			'RT_UNREADONLY'      => isset($config['rt_unreadonly']) ? $config['rt_unreadonly'] : false,
+			'RT_SORT_START_TIME' => isset($config['rt_sort_start_time']) ? $config['rt_sort_start_time'] : false,
 
 			'RT_INDEX'           => isset($config['rt_index']) ? $config['rt_index'] : false,
+			'RT_ON_NEWSPAGE'     => isset($config['rt_on_newspage']) ? $config['rt_on_newspage'] : false,
+			'S_RT_NEWSPAGE'      => $phpbb_extension_manager->is_enabled('nickvergessen/newspage'),
 
 			'U_ACTION'           => $this->u_action,
 		));

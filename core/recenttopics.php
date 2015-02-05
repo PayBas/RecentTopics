@@ -1,24 +1,15 @@
 <?php
-
 /**
-*
-* @package Recent Topics Extension
-* @copyright (c) 2014 PayBas
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-*
-* Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
-*
-*/
+ *
+ * @package Recent Topics Extension
+ * @copyright (c) 2015 PayBas
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ * Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
+ *
+ */
 
 namespace paybas\recenttopics\core;
-
-/**
- * @ignore
- */
-if (!defined('IN_PHPBB'))
-{
-	exit;
-}
 
 class recenttopics
 {
@@ -72,23 +63,11 @@ class recenttopics
 		$this->user = $user;
 		$this->root_path = $root_path;
 		$this->phpEx = $phpEx;
-
-		// Not sure if we still need this
-		if (!function_exists('display_forums') || !function_exists('topic_status'))
-		{
-			//include($this->root_path . 'includes/functions_display.' . $this->phpEx);
-		}
 	}
 
 	public function display_recent_topics($tpl_loopname = 'recent_topics', $spec_forum_id = 0, $include_subforums = true)
 	{
-		// Since we only have one option yet (display on index), if it's not set/true, just abort the whole thing
-		if (!isset($this->config['rt_index']) || !$this->config['rt_index'])
-		{
-			return;
-		}
-
-		$this->user->add_lang_ext('paybas/recenttopics', 'info_acp_recenttopics');
+		$this->user->add_lang_ext('paybas/recenttopics', 'recenttopics');
 
 		/**
 		 * Set some internal needed variables
@@ -99,6 +78,7 @@ class recenttopics
 		$excluded_topics = $this->config['rt_anti_topics'];
 		$display_parent_forums = $this->config['rt_parents'];
 		$unread_only = $this->config['rt_unreadonly'];
+		$sort_topics = ($this->config['rt_sort_start_time']) ? 'topic_time' : 'topic_last_post_time';
 
 		$start = $this->request->variable($tpl_loopname . '_start', 0);
 		$excluded_topic_ids = explode(', ', $excluded_topics);
@@ -143,7 +123,7 @@ class recenttopics
 				$forum_ids = array();
 				$sql = 'SELECT 1 as display_forum
 					FROM ' . FORUMS_TABLE . '
-					WHERE forum_id = ' . $spec_forum_id . '
+					WHERE forum_id = ' . intval($spec_forum_id) . '
 						AND forum_recent_topics = 1';
 				$result = $this->db->sql_query_limit($sql, 1);
 				$display_forum = (bool)$this->db->sql_fetchfield('display_forum');
@@ -214,10 +194,9 @@ class recenttopics
 		if ($unread_only && $this->user->data['user_id'] != ANONYMOUS)
 		{
 			// Get unread topics
-			$sql_where = ' AND ' . $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true);
-			$sql_where .= ' AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.');
-			$sql_sort = '';
-			$unread_topics = get_unread_topics(false, $sql_where, $sql_sort, $total_limit);
+			$sql_extra = ' AND ' . $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true);
+			$sql_extra .= ' AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.');
+			$unread_topics = get_unread_topics(false, $sql_extra, '', $total_limit);
 
 			foreach ($unread_topics as $topic_id => $mark_time)
 			{
@@ -247,7 +226,7 @@ class recenttopics
 				'WHERE'     => $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true) . '
 					AND t.topic_status <> ' . ITEM_MOVED . '
 					AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.'),
-				'ORDER_BY'  => 't.topic_last_post_time DESC',
+				'ORDER_BY'  => 't.' . $sort_topics . ' DESC',
 			);
 
 			// Check if we want all topics, or only stickies/announcements/globals
@@ -345,7 +324,7 @@ class recenttopics
 				),
 			),
 			'WHERE'     => $this->db->sql_in_set('t.topic_id', $topic_list),
-			'ORDER_BY'  => 't.topic_last_post_time DESC',
+			'ORDER_BY'  => 't.' . $sort_topics . ' DESC',
 		);
 
 		if ($display_parent_forums)
@@ -542,6 +521,7 @@ class recenttopics
 		$this->pagination->generate_template_pagination($pagination_url, 'pagination', $tpl_loopname . '_start', $topics_count, $topics_per_page, $start);
 
 		$this->template->assign_vars(array(
+			'RT_SORT_START_TIME'                   => ($sort_topics === 'topic_time') ? true : false,
 			'S_TOPIC_ICONS'                        => (sizeof($topic_icons)) ? true : false,
 			'NEWEST_POST_IMG'                      => $this->user->img('icon_topic_newest', 'VIEW_NEWEST_POST'),
 			'LAST_POST_IMG'                        => $this->user->img('icon_topic_latest', 'VIEW_LATEST_POST'),

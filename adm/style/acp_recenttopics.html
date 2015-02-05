@@ -34,6 +34,13 @@
 				<label><input type="radio" class="radio" name="rt_unreadonly" value="0"<!-- IF not RT_UNREADONLY --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
+		<dl>
+			<dt><label for="rt_sort_start_time">{L_RT_SORT_START_TIME}{L_COLON}</label><br /><span>{L_RT_SORT_START_TIME_EXP}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="rt_sort_start_time" value="1" id="rt_sort_start_time"<!-- IF RT_SORT_START_TIME --> checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="rt_sort_start_time" value="0"<!-- IF not RT_SORT_START_TIME --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
 	</fieldset>
 	<fieldset>
 		<legend>{L_RT_VIEW_ON}</legend>
@@ -44,6 +51,15 @@
 				<label><input type="radio" class="radio" name="rt_index" value="0" <!-- IF not RT_INDEX --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
+		<!-- IF S_RT_NEWSPAGE -->
+		<dl>
+			<dt><label for="rt_on_newspage">nickvergessen/newspage</label></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="rt_on_newspage" value="1" id="rt_on_newspage"<!-- IF RT_ON_NEWSPAGE --> checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="rt_on_newspage" value="0" <!-- IF not RT_ON_NEWSPAGE --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<!-- ENDIF -->
 	</fieldset>
 	<fieldset>
 		<legend>{L_ACP_SUBMIT_CHANGES}</legend>

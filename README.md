@@ -17,6 +17,7 @@ Extension for phpBB 3.1 to display recent topics.
   - exclusion of topics (by ID)
   - display parent forums in the row
   - only show unread topics
+  - sort by topic start time, instead of last post time
 - Inherits all styling from regular "viewforum" templates
 - Tested on:
   - prosilver
@@ -26,20 +27,24 @@ Extension for phpBB 3.1 to display recent topics.
   - we_universal
 
 #### Requirements
-- phpBB 3.1-RC5 or higher
+- phpBB 3.1.0 or higher
 - PHP 5.3.3 or higher
 
 #### Languages supported
 - English
 - German
 - Spanish
-- Greek
-- Estonian
-- Dutch
 - French
 - Russian
-- Persian
+- Greek
+- Dutch
+- Italian
 - Swedish
+- Estonian
+- Persian
+- Arabic
+- Turkish
+- Polish
 
 #### To do list
 - Add compatibility for topic prefixes and allow exclusion/inclusion based on predefined prefixes.
@@ -59,4 +64,4 @@ Extension for phpBB 3.1 to display recent topics.
 ### License
 [GNU General Public License v2](http://opensource.org/licenses/GPL-2.0)
 
-© 2014 - PayBas
+© 2015 - PayBas

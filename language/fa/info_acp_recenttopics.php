@@ -1,16 +1,15 @@
 <?php
-
 /**
-*
-* @package Recent Topics Extension
-* @copyright (c) 2014 PayBas
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-*
-* Persian translation by php-bb.ir (Meis@M Noubari)
-*
-* Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
-*
-*/
+ *
+ * @package Recent Topics Extension
+ * Persian translation by Meis@M Noubari (php-bb.ir)
+ *
+ * @copyright (c) 2015 PayBas
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ * Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
+ *
+ */
 
 if (!defined('IN_PHPBB'))
 {
@@ -37,6 +36,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'         => 'جهت نمایش موضوعات بیشتر می توانید از صفحه بندی استفاده کنید. جهت غیر فعال کردن ، کافیست عدد 1 را وارد کنید. چنانچه عدد 0 را وارد کنید تمامی موضوعات انجمن شامل آن خواهد بود که توصیه نمیشود.',
 	'RT_PARENTS'                 => 'نمایش انجمن های والد',
 	'RT_PARENTS_EXP'             => 'نمایش انجمن های والد در کنار موضوعات',
+	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
+	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
 	'RT_UNREADONLY'              => 'تنها نمایش موضوعات خوانده نشده',
 	'RT_UNREADONLY_EXP'          => 'فعال سازی جهت نمایش تنها موضوعات خوانده نشده (حتی اگر جدید یا اخیر هم نباشد). این عملکرد شامل تنظیمات مشابه نیز میباشد (چشم پوشی کردن از انجمن ها و موضوعات) در حالت معمولی. توجه: این امکان تنها برای کاربران وارد شده قابل استفاده میباشد; و مهمانان لیست معمولی را خواهند داشت',
 

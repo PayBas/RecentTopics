@@ -1,16 +1,15 @@
 <?php
-
 /**
-*
-* @package Recent Topics Extension
-* @copyright (c) 2014 PayBas
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-*
-* Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
-*
-* Polish translation by INVENTEA (https://inventea.com).
-*
-*/
+ *
+ * @package Recent Topics Extension
+ * Polish translation by INVENTEA (https://inventea.com)
+ *
+ * @copyright (c) 2015 PayBas
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ * Based on the original NV Recent Topics by Joas Schilling (nickvergessen)
+ *
+ */
 
 if (!defined('IN_PHPBB'))
 {
@@ -37,6 +36,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'Limit stron, na które podzielona zostanie lista najnowszych tematów. Wartość jeden (1) wyłącza tę funkcję. Wartość zero (0) spowoduje wyświetlenie tylu stron, ile potrzeba do wyświetlenia wszystkich tematów na forum (niezalecane).',
 	'RT_PARENTS'					=> 'Wyświetlaj macierzyste fora',
 	'RT_PARENTS_EXP'				=> 'Włączenie tej funkcji spowoduje wyświetlanie nazw macierzystych forów jako odnośników pod nazwą tematu.',
+	'RT_SORT_START_TIME'			=> 'Wyświetlaj wg daty rozpoczęcia tematu',
+	'RT_SORT_START_TIME_EXP'		=> 'Włączenie tej funkcji spowoduje sortowanie najnowszych tematów wg daty rozpoczęcia tematu, zamiast domyślnego sortowania wg daty ostatniego posta.',
 	'RT_UNREADONLY'					=> 'Wyświetlaj tylko nieprzeczytane tematy',
 	'RT_UNREADONLY_EXP'				=> 'Włączenie tej funkcji spowoduje wyświetlanie na liście tylko nieprzeczytanych tematów. Ta opcja wykorzystuje te same ustawienia co tryb najnowszych tematów. Informacja: Opcja działa tylko dla zalogowanych użytkowników. Dla gości nadal jest wyświetlana lista najnowszych tematów.',
 

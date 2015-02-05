@@ -31,7 +31,9 @@
 						<!-- EVENT topiclist_row_append -->
 					</div>
 				</dt>
-				<dd class="lastpost"><!-- IF not S_IS_BOT -->{recent_topics.LAST_POST_TIME} <a href="{recent_topics.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{LAST_POST_IMG}</a><!-- ENDIF --></dd>
+				<!-- IF not S_IS_BOT -->
+				<dd class="lastpost"><!-- IF RT_SORT_START_TIME -->{recent_topics.FIRST_POST_TIME}<!-- ELSE -->{recent_topics.LAST_POST_TIME}<!-- ENDIF --> <a href="{recent_topics.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{LAST_POST_IMG}</a></dd>
+				<!-- ENDIF -->
 				<dd class="status-icons">
 					<!-- IF recent_topics.S_TOPIC_UNAPPROVED or recent_topics.S_POSTS_UNAPPROVED --><a href="{recent_topics.U_MCP_QUEUE}">{recent_topics.UNAPPROVED_IMG}</a><!-- ENDIF -->
 					<!-- IF recent_topics.S_TOPIC_DELETED --><a href="{recent_topics.U_MCP_QUEUE}">{recent_topics.DELETED_IMG}</a><!-- ENDIF -->
