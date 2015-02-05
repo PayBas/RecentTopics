@@ -21,7 +21,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'RECENT_TOPICS'					=> 'Najnowsze Tematy',
+	'RECENT_TOPICS'					=> 'Najnowsze tematy',
 	'RECENT_TOPICS_LIST'			=> 'Wyświetlaj najnowsze tematy',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Jeśli wybrano <samp>Tak</samp>, tematy zamieszczone na tym forum będą wyświetlane na liście najnowszych tematów.',
 
@@ -36,8 +36,8 @@ $lang = array_merge($lang, array(
 	'RT_PAGE_NUMBER_EXP'			=> 'Limit stron, na które podzielona zostanie lista najnowszych tematów. Wartość jeden (1) wyłącza tę funkcję. Wartość zero (0) spowoduje wyświetlenie tylu stron, ile potrzeba do wyświetlenia wszystkich tematów na forum (niezalecane).',
 	'RT_PARENTS'					=> 'Wyświetlaj macierzyste fora',
 	'RT_PARENTS_EXP'				=> 'Włączenie tej funkcji spowoduje wyświetlanie nazw macierzystych forów jako odnośników pod nazwą tematu.',
-	'RT_SORT_START_TIME'			=> 'Sort by topic start time',
-	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
+	'RT_SORT_START_TIME'			=> 'Wyświetlaj wg daty rozpoczęcia tematu',
+	'RT_SORT_START_TIME_EXP'		=> 'Włączenie tej funkcji spowoduje sortowanie najnowszych tematów wg daty rozpoczęcia tematu, zamiast domyślnego sortowania wg daty ostatniego posta.',
 	'RT_UNREADONLY'					=> 'Wyświetlaj tylko nieprzeczytane tematy',
 	'RT_UNREADONLY_EXP'				=> 'Włączenie tej funkcji spowoduje wyświetlanie na liście tylko nieprzeczytanych tematów. Ta opcja wykorzystuje te same ustawienia co tryb najnowszych tematów. Informacja: Opcja działa tylko dla zalogowanych użytkowników. Dla gości nadal jest wyświetlana lista najnowszych tematów.',
 
