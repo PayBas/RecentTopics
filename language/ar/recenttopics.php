@@ -2,7 +2,7 @@
 /**
  *
  * @package Recent Topics Extension
- * Arabic translation by Taha Alhitary (www.alhitary.net)
+ * Arabic translation by Bassel Taha Alhitary (www.alhitary.net)
  *
  * @copyright (c) 2015 PayBas
  * @license GNU General Public License, version 2 (GPL-2.0)
