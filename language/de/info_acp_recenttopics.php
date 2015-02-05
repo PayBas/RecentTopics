@@ -22,7 +22,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Aktuelle Themen',
-	'RECENT_TOPICS_LIST'			=> 'Unter „aktuelle Themen“ anzeigen',
+	'RECENT_TOPICS_LIST'			=> 'In „aktuelle Themen“ anzeigen',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Sollen Themen aus diesem Forum in „aktuelle Themen“ angezeigt werden?',
 
 	'RT_CONFIG'						=> 'Konfiguration von aktuelle Themen',
