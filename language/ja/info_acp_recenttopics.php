@@ -2,7 +2,7 @@
 /**
  *
  * @package Recent Topics Extension
- * English translation by PayBas
+ * Japanese translation by momo-i
  *
  * @copyright (c) 2015 PayBas
  * @license GNU General Public License, version 2 (GPL-2.0)
@@ -37,7 +37,7 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS'					=> '上位フォーラムを表示',
 	'RT_PARENTS_EXP'				=> '新着トピック行の中に上位フォーラムを表示します。',
 	'RT_SORT_START_TIME'			=> 'トピック開始時間でソート',
-	'RT_SORT_START_TIME_EXP'		=> 'Enable to sort recent topics by the starting time of the topic, instead of the last post time.',
+	'RT_SORT_START_TIME_EXP'		=> 'トピックの最新投稿時間の代わりに開始時間で新着トピックのソートを可能にします。',
 	'RT_UNREADONLY'					=> '未読トピックのみ表示',
 	'RT_UNREADONLY_EXP'				=> '未読トピックのみの表示を有効にします。(それらが"新着"であるか否か)この機能は通常モードとして同じ設定(フォーラム/トピックなどを除いて)を使用します。注: これはログイン済みユーザーにのみ動作し、ゲストは通常のリストを取得します。',
 

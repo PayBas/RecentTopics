@@ -2,7 +2,7 @@
 /**
  *
  * @package Recent Topics Extension
- * English translation by PayBas
+ * Japanese translation by momo-i
  *
  * @copyright (c) 2015 PayBas
  * @license GNU General Public License, version 2 (GPL-2.0)
