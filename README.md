@@ -39,6 +39,7 @@ Extension for phpBB 3.1 to display recent topics.
 - Greek
 - Dutch
 - Italian
+- Japanese
 - Swedish
 - Estonian
 - Persian
