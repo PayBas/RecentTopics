@@ -22,10 +22,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Topic recenti',
+	'RECENT_TOPICS_EXPLAIN'			=> 'On this page you can change the settings specific for the Recent Topics extension.<br /><br />Specific forums can be included or excluded by editing the respective forums in your ACP.<br />Also be sure to check your user permissions, which allow users to change some of the settings found below for themselves.',
+
 	'RECENT_TOPICS_LIST'			=> 'Mostra in "Topic recenti"',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'I topic di questo forum saranno mostrati nell’elenco "Topic recenti".',
 
 	'RT_CONFIG'						=> 'Configurazione',
+	'RT_ALT_LOCATION'				=> 'Display in alternative location',
+	'RT_ALT_LOCATION_EXP'			=> 'Use alternative location to display recent topics.<br />Not all styles will support this, for prosilver it will be moved to the bottom of the page.',
 	'RT_ANTI_TOPICS'				=> 'Topic esclusi',
 	'RT_ANTI_TOPICS_EXP'			=> 'Gli ID dei topic da escludere, separati da una virgola (es.: 7, 9)<br />Per non escudere alcun topic, digitare 0.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Livello minimo topic',
@@ -38,8 +42,8 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS_EXP'				=> 'Mostra il topic genitore nella riga del topic dell’elenco dei topic recenti',
 	'RT_SORT_START_TIME'			=> 'Ordina per data d’apertura',
 	'RT_SORT_START_TIME_EXP'		=> 'Abilitare per mostrare i topic in base alla loro data d’apertura e non per l’ultimo post.',
-	'RT_UNREADONLY'					=> 'Mostra solo non letti',
-	'RT_UNREADONLY_EXP'				=> 'Abilita per mostrare solo i topic non letti, recenti o meno; questa funzione usa le stesse impostazioni (esclusione di forum, topic eccetera) della modalità normale.<br />Nota: funziona solo per gli utenti registrati; gli ospiti vedranno l’elenco normale.',
+	'RT_UNREAD_ONLY'				=> 'Mostra solo non letti',
+	'RT_UNREAD_ONLY_EXP'			=> 'Abilita per mostrare solo i topic non letti, recenti o meno; questa funzione usa le stesse impostazioni (esclusione di forum, topic eccetera) della modalità normale.<br />Nota: funziona solo per gli utenti registrati; gli ospiti vedranno l’elenco normale.',
 
 	'RT_VIEW_ON'					=> 'Mostra i topic recenti in:',
 ));

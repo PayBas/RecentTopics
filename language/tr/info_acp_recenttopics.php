@@ -22,10 +22,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Son Konular',
+	'RECENT_TOPICS_EXPLAIN'			=> 'On this page you can change the settings specific for the Recent Topics extension.<br /><br />Specific forums can be included or excluded by editing the respective forums in your ACP.<br />Also be sure to check your user permissions, which allow users to change some of the settings found below for themselves.',
+
 	'RECENT_TOPICS_LIST'			=> '"son konular" göster',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Eğer etkinleştirilmiş ise, bu forum da "son konular" eklentisi görüntülenir.',
 
 	'RT_CONFIG'						=> 'Ayarlar',
+	'RT_ALT_LOCATION'				=> 'Display in alternative location',
+	'RT_ALT_LOCATION_EXP'			=> 'Use alternative location to display recent topics.<br />Not all styles will support this, for prosilver it will be moved to the bottom of the page.',
 	'RT_ANTI_TOPICS'				=> 'Dışlanan konular',
 	'RT_ANTI_TOPICS_EXP'			=> 'Ayraç ", " (Örnek: 7, 9)<br />Sıfır "0" değeri bu özelliği devre dışı bırakır.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Konu türü',
@@ -38,8 +42,8 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS_EXP'				=> 'Son Konular listesisinde konunun ait olduğu ana forumu gösterir.',
 	'RT_SORT_START_TIME'			=> 'Başlangıç tarihine göre sırala',
 	'RT_SORT_START_TIME_EXP'		=> 'Son Konuları gönderilen son mesajın tarihi yerine, konunun başlangıç tarihine göre sıralamak için etkinleştirin.',
-	'RT_UNREADONLY'					=> 'Sadece okunmamış konuları göster',
-	'RT_UNREADONLY_EXP'				=> 'Bu seçeneğin etkinleştirilmesi sadece okunmamış konuların görüntülenmesini sağlar. Konu türü ayrımı olmayacaktır.<br /><strong>NOT:</strong> Bu özellik giriş yapmış kullanıcılar için geçerlidir; Misafirler normal "Son Konular" listesini görecektir.',
+	'RT_UNREAD_ONLY'				=> 'Sadece okunmamış konuları göster',
+	'RT_UNREAD_ONLY_EXP'			=> 'Bu seçeneğin etkinleştirilmesi sadece okunmamış konuların görüntülenmesini sağlar. Konu türü ayrımı olmayacaktır.<br /><strong>NOT:</strong> Bu özellik giriş yapmış kullanıcılar için geçerlidir; Misafirler normal "Son Konular" listesini görecektir.',
 
 	'RT_VIEW_ON'					=> 'Son Konuları göster:',
 ));

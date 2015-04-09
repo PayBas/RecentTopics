@@ -22,10 +22,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Aktuella ämnen',
+	'RECENT_TOPICS_EXPLAIN'			=> 'On this page you can change the settings specific for the Recent Topics extension.<br /><br />Specific forums can be included or excluded by editing the respective forums in your ACP.<br />Also be sure to check your user permissions, which allow users to change some of the settings found below for themselves.',
+
 	'RECENT_TOPICS_LIST'			=> 'Visa i "Aktuella ämnen"',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Aktivera denna funktion för att visa ämnen i tillägget "Aktuella ämnen".',
 
 	'RT_CONFIG'						=> 'Inställningar',
+	'RT_ALT_LOCATION'				=> 'Display in alternative location',
+	'RT_ALT_LOCATION_EXP'			=> 'Use alternative location to display recent topics.<br />Not all styles will support this, for prosilver it will be moved to the bottom of the page.',
 	'RT_ANTI_TOPICS'				=> 'Uteslutna ämnen',
 	'RT_ANTI_TOPICS_EXP'			=> 'Separerade med ", " (exampel: 7, 9)<br />Ange 0 om du ej vill utesluta ämnen.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Minsta nivå av ämnestyp',
@@ -38,8 +42,8 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS_EXP'				=> 'Visa överordnade forum inom ämnesraden för aktuella ämnen.',
 	'RT_SORT_START_TIME'			=> 'Sortera efter ämnenas startdatum',
 	'RT_SORT_START_TIME_EXP'		=> 'Aktivera detta för att sortera efter ämnenas startdatum istället för senaste svar.',
-	'RT_UNREADONLY'					=> 'Visa endast olästa ämnen',
-	'RT_UNREADONLY_EXP'				=> 'Aktivera denna funktion för att endast visa olästa ämnen (oavsett om de är "aktuella" eller ej). Denna funktion använder samma inställningar (uteslutna ämnen/forum osv.) som det normala läget. Notera: detta fungerar endast för inloggade användare; gäster kommer att se den normala listan.',
+	'RT_UNREAD_ONLY'				=> 'Visa endast olästa ämnen',
+	'RT_UNREAD_ONLY_EXP'			=> 'Aktivera denna funktion för att endast visa olästa ämnen (oavsett om de är "aktuella" eller ej). Denna funktion använder samma inställningar (uteslutna ämnen/forum osv.) som det normala läget. Notera: detta fungerar endast för inloggade användare; gäster kommer att se den normala listan.',
 
 	'RT_VIEW_ON'					=> 'Visa aktuella ämnen på:',
 ));

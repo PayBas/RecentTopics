@@ -22,10 +22,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'أحدث المواضيع',
+	'RECENT_TOPICS_EXPLAIN'			=> 'On this page you can change the settings specific for the Recent Topics extension.<br /><br />Specific forums can be included or excluded by editing the respective forums in your ACP.<br />Also be sure to check your user permissions, which allow users to change some of the settings found below for themselves.',
+
 	'RECENT_TOPICS_LIST'			=> 'العرض في "أحدث المواضيع" ',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'السماح بعرض مواضيع هذا المنتدى في قائمة "أحدث المواضيع"',
 
 	'RT_CONFIG'						=> 'الإعدادات',
+	'RT_ALT_LOCATION'				=> 'Display in alternative location',
+	'RT_ALT_LOCATION_EXP'			=> 'Use alternative location to display recent topics.<br />Not all styles will support this, for prosilver it will be moved to the bottom of the page.',
 	'RT_ANTI_TOPICS'				=> 'المواضيع المُستبعدة ',
 	'RT_ANTI_TOPICS_EXP'			=> 'اكتب علامة الفاصلة ", " بين أرقام المواضيع التي تريد عدم ظهورها في "أحدث المواضيع" (مثال : "7, 9")<br />اكتب القيمة "صفر" لتعطيل هذا الخيار.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'نوع المواضيع ',
@@ -38,8 +42,8 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS_EXP'				=> 'إظهار إسم "المنتدى الأب" في التفاصيل المذكورة تحت أسم الموضوع.',
 	'RT_SORT_START_TIME'			=> 'الترتيب حسب وقت إضافة الموضوع ',
 	'RT_SORT_START_TIME_EXP'		=> 'اختيارك "نعم" يعني ترتيب أحدث المواضيع بحسب وقت إضافة الموضوع , بدلاً من الترتيب بحسب وقت آخر مشاركة.',
-	'RT_UNREADONLY'					=> 'عرض المواضيع الغير مقروءة فقط ',
-	'RT_UNREADONLY_EXP'				=> 'تفعيل هذا الخيار يعني اظهار المواضيع الغير مقروءة فقط ( بغض النظر لو هذه المواضيع حديثة أو قديمة ). هذا الخيار يستخدم نفس اعدادات الطريقة العادية ( استبعاد المنتدىات/المواضيع..الخ ).<br />ملاحظة : هذا الخيار يظهر فقط للأعضاء المسجلين دخولهم للمنتدى. الزائرين سيُشاهدون القائمة العادية.',
+	'RT_UNREAD_ONLY'				=> 'عرض المواضيع الغير مقروءة فقط ',
+	'RT_UNREAD_ONLY_EXP'			=> 'تفعيل هذا الخيار يعني اظهار المواضيع الغير مقروءة فقط ( بغض النظر لو هذه المواضيع حديثة أو قديمة ). هذا الخيار يستخدم نفس اعدادات الطريقة العادية ( استبعاد المنتدىات/المواضيع..الخ ).<br />ملاحظة : هذا الخيار يظهر فقط للأعضاء المسجلين دخولهم للمنتدى. الزائرين سيُشاهدون القائمة العادية.',
 
 	'RT_VIEW_ON'					=> 'إظهار أحدث المواضيع في :',
 ));

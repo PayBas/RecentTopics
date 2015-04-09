@@ -22,3 +22,13 @@ services:
             - @request
         tags:
             - { name: event.listener }
+    paybas.recenttopics.ucp_listener:
+        class: paybas\recenttopics\event\ucp_listener
+        arguments:
+            - @auth
+            - @config
+            - @request
+            - @template
+            - @user
+        tags:
+            - { name: event.listener }

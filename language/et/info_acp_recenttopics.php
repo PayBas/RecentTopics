@@ -22,10 +22,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Hiljutised Teemad',
+	'RECENT_TOPICS_EXPLAIN'			=> 'On this page you can change the settings specific for the Recent Topics extension.<br /><br />Specific forums can be included or excluded by editing the respective forums in your ACP.<br />Also be sure to check your user permissions, which allow users to change some of the settings found below for themselves.',
+
 	'RECENT_TOPICS_LIST'			=> 'Foorumi teemad "hiljutised teemad" laienduses',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Väärtus "Jah" näitab selle foorumi uusi postitusi laienduses "Hiljutised teemad".',
 
 	'RT_CONFIG'						=> 'Seadistus',
+	'RT_ALT_LOCATION'				=> 'Display in alternative location',
+	'RT_ALT_LOCATION_EXP'			=> 'Use alternative location to display recent topics.<br />Not all styles will support this, for prosilver it will be moved to the bottom of the page.',
 	'RT_ANTI_TOPICS'				=> 'Välistatud teemad',
 	'RT_ANTI_TOPICS_EXP'			=> 'Eraldatud "," (Näiteks: 7, 9)<br />Kui sa aga ei soovi mingit kindlat teemat välistada, siis sisesta väärtuseks 0',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Näita "Hiljutised teemad" laienduses ainult kindlat teema tüüpi',
@@ -38,8 +42,8 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS_EXP'				=> 'Näitab vanem foorumit hiljutistes teemades.',
 	'RT_SORT_START_TIME'			=> 'Näita teemasi nende postitamise aja järgi',
 	'RT_SORT_START_TIME_EXP'		=> 'Luba sorteerida teemad nende tegemise järgi, mitte aga viimase postituste järgi.',
-	'RT_UNREADONLY'					=> 'Näita ainult lugemata teemasi',
-	'RT_UNREADONLY_EXP'				=> 'Lubades selle, näidatakse ainult lugemata teemasi (ükskõik kas nad on "hiljutised" või mitte). Antud funktsioon kasutab samu seadeid (va foorumid/teemad jne.) nagu tavaline vaadegi. Märkus: see töötab ainult registreeritud kasutajatel; külalised näevad ikka tavalist vaadet.',
+	'RT_UNREAD_ONLY'				=> 'Näita ainult lugemata teemasi',
+	'RT_UNREAD_ONLY_EXP'			=> 'Lubades selle, näidatakse ainult lugemata teemasi (ükskõik kas nad on "hiljutised" või mitte). Antud funktsioon kasutab samu seadeid (va foorumid/teemad jne.) nagu tavaline vaadegi. Märkus: see töötab ainult registreeritud kasutajatel; külalised näevad ikka tavalist vaadet.',
 
 	'RT_VIEW_ON'					=> 'Näita "Hiljutised teemad" laiendust:',
 ));

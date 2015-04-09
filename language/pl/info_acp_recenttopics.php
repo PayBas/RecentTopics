@@ -22,10 +22,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Najnowsze tematy',
+	'RECENT_TOPICS_EXPLAIN'			=> 'On this page you can change the settings specific for the Recent Topics extension.<br /><br />Specific forums can be included or excluded by editing the respective forums in your ACP.<br />Also be sure to check your user permissions, which allow users to change some of the settings found below for themselves.',
+
 	'RECENT_TOPICS_LIST'			=> 'Wyświetlaj najnowsze tematy',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Jeśli wybrano <samp>Tak</samp>, tematy zamieszczone na tym forum będą wyświetlane na liście najnowszych tematów.',
 
 	'RT_CONFIG'						=> 'Ustawienia',
+	'RT_ALT_LOCATION'				=> 'Display in alternative location',
+	'RT_ALT_LOCATION_EXP'			=> 'Use alternative location to display recent topics.<br />Not all styles will support this, for prosilver it will be moved to the bottom of the page.',
 	'RT_ANTI_TOPICS'				=> 'Pomiń tematy',
 	'RT_ANTI_TOPICS_EXP'			=> 'Podaj identyfikatory tematów do pominięcia, oddzielając je przecinkiem np. <samp>7, 9</samp>. Wartość zero (0) wyłącza tę funkcję.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Minimalny typ tematu',
@@ -38,8 +42,8 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS_EXP'				=> 'Włączenie tej funkcji spowoduje wyświetlanie nazw macierzystych forów jako odnośników pod nazwą tematu.',
 	'RT_SORT_START_TIME'			=> 'Wyświetlaj wg daty rozpoczęcia tematu',
 	'RT_SORT_START_TIME_EXP'		=> 'Włączenie tej funkcji spowoduje sortowanie najnowszych tematów wg daty rozpoczęcia tematu, zamiast domyślnego sortowania wg daty ostatniego posta.',
-	'RT_UNREADONLY'					=> 'Wyświetlaj tylko nieprzeczytane tematy',
-	'RT_UNREADONLY_EXP'				=> 'Włączenie tej funkcji spowoduje wyświetlanie na liście tylko nieprzeczytanych tematów. Ta opcja wykorzystuje te same ustawienia co tryb najnowszych tematów. Informacja: Opcja działa tylko dla zalogowanych użytkowników. Dla gości nadal jest wyświetlana lista najnowszych tematów.',
+	'RT_UNREAD_ONLY'				=> 'Wyświetlaj tylko nieprzeczytane tematy',
+	'RT_UNREAD_ONLY_EXP'			=> 'Włączenie tej funkcji spowoduje wyświetlanie na liście tylko nieprzeczytanych tematów. Ta opcja wykorzystuje te same ustawienia co tryb najnowszych tematów. Informacja: Opcja działa tylko dla zalogowanych użytkowników. Dla gości nadal jest wyświetlana lista najnowszych tematów.',
 
 	'RT_VIEW_ON'					=> 'Wyświetlanie najnowszych tematów',
 ));

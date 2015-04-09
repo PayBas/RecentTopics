@@ -1,0 +1,39 @@
+<!-- IF S_RT_SHOW -->
+	<hr />
+	<!-- IF A_RT_ENABLE -->
+	<dl>
+		<dt><label for="rt_enable1">{L_RT_ENABLE}{L_COLON}</label></dt>
+		<dd>
+			<label for="rt_enable1"><input type="radio" name="rt_enable" id="rt_enable1" value="1"<!-- IF S_RT_ENABLE --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label for="rt_enable0"><input type="radio" name="rt_enable" id="rt_enable0" value="0"<!-- IF not S_RT_ENABLE --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+	<!-- IF A_RT_ALT_LOCATION -->
+	<dl>
+		<dt><label for="rt_alt_location0">{L_RT_ALT_LOCATION}{L_COLON}</label><br /><span>{L_RT_ALT_LOCATION_EXP}</span></dt>
+		<dd>
+			<label for="rt_alt_location1"><input type="radio" name="rt_alt_location" id="rt_alt_location1" value="1"<!-- IF S_RT_ALT_LOCATION --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label for="rt_alt_location0"><input type="radio" name="rt_alt_location" id="rt_alt_location0" value="0"<!-- IF not S_RT_ALT_LOCATION --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+	<!-- IF A_RT_SORT_START_TIME -->
+	<dl>
+		<dt><label for="rt_sort_start_time0">{L_RT_SORT_START_TIME}{L_COLON}</label><br /><span>{L_RT_SORT_START_TIME_EXP}</dt>
+		<dd>
+			<label for="rt_sort_start_time1"><input type="radio" name="rt_sort_start_time" id="rt_sort_start_time1" value="1"<!-- IF S_RT_SORT_START_TIME --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label for="rt_sort_start_time0"><input type="radio" name="rt_sort_start_time" id="rt_sort_start_time0" value="0"<!-- IF not S_RT_SORT_START_TIME --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+	<!-- IF A_RT_UNREAD_ONLY -->
+	<dl>
+		<dt><label for="rt_unread_only0">{L_RT_UNREAD_ONLY}{L_COLON}</label></dt>
+		<dd>
+			<label for="rt_unread_only1"><input type="radio" name="rt_unread_only" id="rt_unread_only1" value="1"<!-- IF S_RT_UNREAD_ONLY --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label for="rt_unread_only0"><input type="radio" name="rt_unread_only" id="rt_unread_only0" value="0"<!-- IF not S_RT_UNREAD_ONLY --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+<!-- ENDIF -->

@@ -18,6 +18,7 @@ Extension for phpBB 3.1 to display recent topics.
   - display parent forums in the row
   - only show unread topics
   - sort by topic start time, instead of last post time
+- UCP permissions and settings so users can choose their own preferences
 - Inherits all styling from regular "viewforum" templates
 - Tested on:
   - prosilver
@@ -46,6 +47,7 @@ Extension for phpBB 3.1 to display recent topics.
 - Arabic
 - Turkish
 - Polish
+- Romanian
 
 #### To do list
 - Add compatibility for topic prefixes and allow exclusion/inclusion based on predefined prefixes.
@@ -53,14 +55,14 @@ Extension for phpBB 3.1 to display recent topics.
 
 ## Installation
 1. [Download the latest release](https://github.com/PayBas/RecentTopics/releases) and unzip it.
-2. Copy the entire contents from the unzipped folder to `phpBB/ext/paybas/recenttopics/`.
+2. Copy the entire contents from the unzipped folder to `/ext/paybas/recenttopics/`.
 3. Navigate in the ACP to `Customise -> Manage extensions`.
 4. Find `Recent Topics` under "Disabled Extensions" and click `Enable`.
 
 ## Uninstallation
 1. Navigate in the ACP to `Customise -> Manage extensions`.
 2. Click the `Disable` link for `Recent Topics`.
-3. To permanently uninstall, click `Delete Data`, then delete the `recenttopics` folder from `phpBB/ext/paybas/`.
+3. To permanently uninstall, click `Delete Data`, then delete the `recenttopics` folder from `/ext/paybas/`.
 
 ### License
 [GNU General Public License v2](http://opensource.org/licenses/GPL-2.0)

@@ -22,10 +22,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Temas Recientes',
+	'RECENT_TOPICS_EXPLAIN'			=> 'On this page you can change the settings specific for the Recent Topics extension.<br /><br />Specific forums can be included or excluded by editing the respective forums in your ACP.<br />Also be sure to check your user permissions, which allow users to change some of the settings found below for themselves.',
+
 	'RECENT_TOPICS_LIST'			=> 'Ver en "temas recientes"',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Serán los temas de este foro los que se mostrarán en el índice de "temas recientes"?',
 
 	'RT_CONFIG'						=> 'Configuracón',
+	'RT_ALT_LOCATION'				=> 'Display in alternative location',
+	'RT_ALT_LOCATION_EXP'			=> 'Use alternative location to display recent topics.<br />Not all styles will support this, for prosilver it will be moved to the bottom of the page.',
 	'RT_ANTI_TOPICS'				=> 'Temas excluidos',
 	'RT_ANTI_TOPICS_EXP'			=> 'Separados por ", " (Por ejemplo: 7, 9)<br />Si no quiere excluir un tema, simplemente introduzca 0.',
 	'RT_MIN_TOPIC_LEVEL'			=> 'Tipo de nivel mínimo del tema',
@@ -38,8 +42,8 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS_EXP'				=> 'Mostrar foros padre dentro de la fila tema, de temas recientes.',
 	'RT_SORT_START_TIME'			=> 'Ordenar temas por la hora de inicio',
 	'RT_SORT_START_TIME_EXP'		=> 'Habilitar para ordenar los temas recientes sobre la hora de inicio del tema, en lugar de la última que se respondió.',
-	'RT_UNREADONLY'					=> 'Mostrar sólo temas no leídos',
-	'RT_UNREADONLY_EXP'				=> 'Esta opción sólo mostrará temas no leídos (tanto si son "recientes" o no). Esta función utiliza la misma configuración (excluyendo forums/topics etc.) que el modo normal. Nota: esto sólo funciona para usuarios registrados e identificados; los invitados podrán obtener la lista normal.',
+	'RT_UNREAD_ONLY'				=> 'Mostrar sólo temas no leídos',
+	'RT_UNREAD_ONLY_EXP'			=> 'Esta opción sólo mostrará temas no leídos (tanto si son "recientes" o no). Esta función utiliza la misma configuración (excluyendo forums/topics etc.) que el modo normal. Nota: esto sólo funciona para usuarios registrados e identificados; los invitados podrán obtener la lista normal.',
 
 	'RT_VIEW_ON'					=> 'Ver temas recientes en:',
 ));

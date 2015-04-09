@@ -75,18 +75,45 @@ class recenttopics
 		$topics_per_page = $this->config['rt_number'];
 		$num_pages = $this->config['rt_page_number'];
 		$min_topic_level = $this->config['rt_min_topic_level'];
-		$excluded_topics = $this->config['rt_anti_topics'];
+		$excluded_topics = explode(', ', $this->config['rt_anti_topics']);
+		$alt_location = $this->config['rt_alt_location'];
 		$display_parent_forums = $this->config['rt_parents'];
-		$unread_only = $this->config['rt_unreadonly'];
 		$sort_topics = ($this->config['rt_sort_start_time']) ? 'topic_time' : 'topic_last_post_time';
+		$unread_only = $this->config['rt_unread_only'];
 
 		$start = $this->request->variable($tpl_loopname . '_start', 0);
-		$excluded_topic_ids = explode(', ', $excluded_topics);
-		$total_limit = $topics_per_page * $num_pages;
+		$total_topics_limit = $topics_per_page * $num_pages;
+		$sql_forum_include_val = 1;
 
 		if (!function_exists('display_forums'))
 		{
 			include($this->root_path . 'includes/functions_display.' . $this->phpEx);
+		}
+
+		/**
+		 * Get the user's display preferences
+		 */
+		if ($this->auth->acl_get('u_rt_view'))
+		{
+			if ($this->auth->acl_get('u_rt_enable') && isset($this->user->data['user_rt_enable']) && !$this->user->data['user_rt_enable'])
+			{
+				return;
+			}
+
+			if ($this->auth->acl_get('u_rt_alt_location') && isset($this->user->data['user_rt_alt_location']))
+			{
+				$alt_location = $this->user->data['user_rt_alt_location'];
+			}
+
+			if ($this->auth->acl_get('u_rt_sort_start_time') && isset($this->user->data['user_rt_sort_start_time']))
+			{
+				$sort_topics = ($this->user->data['user_rt_sort_start_time']) ? 'topic_time' : 'topic_last_post_time';
+			}
+
+			if ($this->auth->acl_get('u_rt_unread_only') && isset($this->user->data['user_rt_unread_only']))
+			{
+				$unread_only = $this->user->data['user_rt_unread_only'];
+			}
 		}
 
 		/**
@@ -104,87 +131,31 @@ class recenttopics
 		}
 		$forum_ids = array_unique($forum_ary);
 
+		// No forums with f_read
 		if (!sizeof($forum_ids))
 		{
-			// No forums with f_read
 			return;
 		}
 
-		$spec_forum_ary = array();
-		if ($spec_forum_id)
+		$sql = 'SELECT forum_id
+			FROM ' . FORUMS_TABLE . '
+			WHERE ' . $this->db->sql_in_set('forum_id', $forum_ids) . '
+				AND forum_recent_topics = ' . $sql_forum_include_val;
+		$result = $this->db->sql_query($sql);
+
+		$forum_ids = array();
+		while ($row = $this->db->sql_fetchrow($result))
 		{
-			// Only take a special-forum
-			if (!$include_subforums)
-			{
-				if (!in_array($spec_forum_id, $forum_ids))
-				{
-					return;
-				}
-				$forum_ids = array();
-				$sql = 'SELECT 1 as display_forum
-					FROM ' . FORUMS_TABLE . '
-					WHERE forum_id = ' . intval($spec_forum_id) . '
-						AND forum_recent_topics = 1';
-				$result = $this->db->sql_query_limit($sql, 1);
-				$display_forum = (bool)$this->db->sql_fetchfield('display_forum');
-				$this->db->sql_freeresult($result);
-
-				if ($display_forum)
-				{
-					$forum_ids = array($spec_forum_id);
-				}
-			}
-			else
-			{
-				// ... and it's subforums
-				$sql = 'SELECT f2.forum_id
-					FROM ' . FORUMS_TABLE . ' f1
-					LEFT JOIN ' . FORUMS_TABLE . " f2
-						ON (f2.left_id BETWEEN f1.left_id AND f1.right_id
-							AND f2.forum_recent_topics = 1)
-					WHERE f1.forum_id = $spec_forum_id
-						AND f1.forum_recent_topics = 1
-					ORDER BY f2.left_id DESC";
-				$result = $this->db->sql_query($sql);
-
-				while ($row = $this->db->sql_fetchrow($result))
-				{
-					$spec_forum_ary[] = $row['forum_id'];
-				}
-				$this->db->sql_freeresult($result);
-
-				$forum_ids = array_intersect($forum_ids, $spec_forum_ary);
-
-				if (!sizeof($forum_ids))
-				{
-					return;
-				}
-			}
+			$forum_ids[] = $row['forum_id'];
 		}
-		else
-		{
-			$sql = 'SELECT forum_id
-				FROM ' . FORUMS_TABLE . '
-				WHERE ' . $this->db->sql_in_set('forum_id', $forum_ids) . '
-					AND forum_recent_topics = 1';
-			$result = $this->db->sql_query($sql);
-
-			$forum_ids = array();
-			while ($row = $this->db->sql_fetchrow($result))
-			{
-				$forum_ids[] = $row['forum_id'];
-			}
-			$this->db->sql_freeresult($result);
-		}
+		$this->db->sql_freeresult($result);
+		$forum_ids = array_unique($forum_ids);
 
 		// No forums with f_read or recent topics enabled
 		if (!sizeof($forum_ids))
 		{
 			return;
 		}
-
-		// Remove duplicated ids
-		$forum_ids = array_unique($forum_ids);
 
 		$forums = $topic_list = array();
 		$topics_count = 0;
@@ -194,9 +165,9 @@ class recenttopics
 		if ($unread_only && $this->user->data['user_id'] != ANONYMOUS)
 		{
 			// Get unread topics
-			$sql_extra = ' AND ' . $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true);
+			$sql_extra = ' AND ' . $this->db->sql_in_set('t.topic_id', $excluded_topics, true);
 			$sql_extra .= ' AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.');
-			$unread_topics = get_unread_topics(false, $sql_extra, '', $total_limit);
+			$unread_topics = get_unread_topics(false, $sql_extra, '', $total_topics_limit);
 
 			foreach ($unread_topics as $topic_id => $mark_time)
 			{
@@ -223,7 +194,7 @@ class recenttopics
 						'ON'   => 'ft.forum_id = t.forum_id AND ft.user_id = ' . $this->user->data['user_id'],
 					),
 				),
-				'WHERE'     => $this->db->sql_in_set('t.topic_id', $excluded_topic_ids, true) . '
+				'WHERE'     => $this->db->sql_in_set('t.topic_id', $excluded_topics, true) . '
 					AND t.topic_status <> ' . ITEM_MOVED . '
 					AND ' . $this->content_visibility->get_forums_visibility_sql('topic', $forum_ids, $table_alias = 't.'),
 				'ORDER_BY'  => 't.' . $sort_topics . ' DESC',
@@ -246,7 +217,7 @@ class recenttopics
 			extract($this->dispatcher->trigger_event('paybas.recenttopics.sql_pull_topics_list', compact($vars)));
 
 			$sql = $this->db->sql_build_query('SELECT', $sql_array);
-			$result = $this->db->sql_query_limit($sql, $total_limit);
+			$result = $this->db->sql_query_limit($sql, $total_topics_limit);
 
 			while ($row = $this->db->sql_fetchrow($result))
 			{
@@ -522,6 +493,7 @@ class recenttopics
 
 		$this->template->assign_vars(array(
 			'RT_SORT_START_TIME'                   => ($sort_topics === 'topic_time') ? true : false,
+			'RT_ALT_LOCATION'                      => $alt_location,
 			'S_TOPIC_ICONS'                        => (sizeof($topic_icons)) ? true : false,
 			'NEWEST_POST_IMG'                      => $this->user->img('icon_topic_newest', 'VIEW_NEWEST_POST'),
 			'LAST_POST_IMG'                        => $this->user->img('icon_topic_latest', 'VIEW_LATEST_POST'),

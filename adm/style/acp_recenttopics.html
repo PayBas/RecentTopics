@@ -1,6 +1,7 @@
 <!-- INCLUDE overall_header.html -->
 
 <h1>{L_RECENT_TOPICS}</h1>
+<p>{L_RECENT_TOPICS_EXPLAIN}</p>
 
 <form id="acp_board" method="post" action="{U_ACTION}">
 	<fieldset>
@@ -21,6 +22,13 @@
 			<dd><input type="text" id="rt_anti_topics" name="rt_anti_topics" size="30" value="{RT_ANTI_TOPICS}" /></dd>
 		</dl>
 		<dl>
+			<dt><label for="rt_alt_location">{L_RT_ALT_LOCATION}{L_COLON}</label><br /><span>{L_RT_ALT_LOCATION_EXP}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="rt_alt_location" value="1" id="rt_alt_location"<!-- IF RT_ALT_LOCATION --> checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="rt_alt_location" value="0"<!-- IF not RT_ALT_LOCATION --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
 			<dt><label for="rt_parents">{L_RT_PARENTS}{L_COLON}</label><br /><span>{L_RT_PARENTS_EXP}</span></dt>
 			<dd>
 				<label><input type="radio" class="radio" name="rt_parents" value="1" id="rt_parents"<!-- IF RT_PARENTS --> checked="checked"<!-- ENDIF -->/> {L_YES}</label>
@@ -28,10 +36,10 @@
 			</dd>
 		</dl>
 		<dl>
-			<dt><label for="rt_unreadonly">{L_RT_UNREADONLY}{L_COLON}</label><br /><span>{L_RT_UNREADONLY_EXP}</span></dt>
+			<dt><label for="rt_unread_only">{L_RT_UNREAD_ONLY}{L_COLON}</label><br /><span>{L_RT_UNREAD_ONLY_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="rt_unreadonly" value="1" id="rt_unreadonly"<!-- IF RT_UNREADONLY --> checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="rt_unreadonly" value="0"<!-- IF not RT_UNREADONLY --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="rt_unread_only" value="1" id="rt_unread_only"<!-- IF RT_UNREAD_ONLY --> checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="rt_unread_only" value="0"<!-- IF not RT_UNREAD_ONLY --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 		<dl>

@@ -22,10 +22,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> '新着トピック',
+	'RECENT_TOPICS_EXPLAIN'			=> 'On this page you can change the settings specific for the Recent Topics extension.<br /><br />Specific forums can be included or excluded by editing the respective forums in your ACP.<br />Also be sure to check your user permissions, which allow users to change some of the settings found below for themselves.',
+
 	'RECENT_TOPICS_LIST'			=> '"新着トピック" に表示',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> '"新着トピック"拡張機能でこのフォーラム内にトピックを表示することを許可します。',
 
 	'RT_CONFIG'						=> '設定',
+	'RT_ALT_LOCATION'				=> 'Display in alternative location',
+	'RT_ALT_LOCATION_EXP'			=> 'Use alternative location to display recent topics.<br />Not all styles will support this, for prosilver it will be moved to the bottom of the page.',
 	'RT_ANTI_TOPICS'				=> '除外するトピック',
 	'RT_ANTI_TOPICS_EXP'			=> '除外するトピックのIDをカンマ", "で区切ります (例: 7, 9)<br />トピックを除外したくない場合、0を入力します。',
 	'RT_MIN_TOPIC_LEVEL'			=> 'トピックタイプの最大レベル',
@@ -38,8 +42,8 @@ $lang = array_merge($lang, array(
 	'RT_PARENTS_EXP'				=> '新着トピック行の中に上位フォーラムを表示します。',
 	'RT_SORT_START_TIME'			=> 'トピック開始時間でソート',
 	'RT_SORT_START_TIME_EXP'		=> 'トピックの最新投稿時間の代わりに開始時間で新着トピックのソートを可能にします。',
-	'RT_UNREADONLY'					=> '未読トピックのみ表示',
-	'RT_UNREADONLY_EXP'				=> '未読トピックのみの表示を有効にします。(それらが"新着"であるか否か)この機能は通常モードとして同じ設定(フォーラム/トピックなどを除いて)を使用します。注: これはログイン済みユーザーにのみ動作し、ゲストは通常のリストを取得します。',
+	'RT_UNREAD_ONLY'				=> '未読トピックのみ表示',
+	'RT_UNREAD_ONLY_EXP'			=> '未読トピックのみの表示を有効にします。(それらが"新着"であるか否か)この機能は通常モードとして同じ設定(フォーラム/トピックなどを除いて)を使用します。注: これはログイン済みユーザーにのみ動作し、ゲストは通常のリストを取得します。',
 
 	'RT_VIEW_ON'					=> '新着トピックを表示:',
 ));
