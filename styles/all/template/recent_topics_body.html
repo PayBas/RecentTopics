@@ -1,5 +1,5 @@
 <a id="recent_topics"></a>
-<!-- IF .pagination -->
+<!-- IF .pagination and not RT_ALT_LOCATION -->
 <div class="action-bar">
 	<div class="pagination">
 		<!-- INCLUDE pagination.html -->
@@ -95,3 +95,11 @@
 		</div>
 	</div>
 <!-- END recent_topics -->
+
+<!-- IF .pagination and RT_ALT_LOCATION -->
+<div class="action-bar">
+	<div class="pagination">
+		<!-- INCLUDE pagination.html -->
+	</div>
+</div>
+<!-- ENDIF -->

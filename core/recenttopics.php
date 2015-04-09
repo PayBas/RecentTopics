@@ -488,6 +488,13 @@ class recenttopics
 			}
 		}
 
+		// Some styles simply aren't compatible with alternative display locations
+		$alt_loc_incomp_list = array('pbtech','pbwow3','pbwow3_battlecry','pbwow3_diablo','pbwow3_garrison','pbwow3_heroes','pbwow3_pandaria','pbwow3_tbc','pbwow3_tech','pbwow3_tribute','pbwow3_warlords','pbwow3_wildstar','pbwow3_wotlk','pbwow3_xmas');
+		if (in_array($this->user->style['style_path'], $alt_loc_incomp_list))
+		{
+			$alt_location = false;
+		}
+
 		$pagination_url = append_sid($this->root_path . $this->user->page['page_name'], $append_params);
 		$this->pagination->generate_template_pagination($pagination_url, 'pagination', $tpl_loopname . '_start', $topics_count, $topics_per_page, $start);
 
