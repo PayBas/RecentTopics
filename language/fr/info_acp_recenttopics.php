@@ -42,7 +42,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECENT_TOPICS'					=> 'Sujets récents',
-	'RECENT_TOPICS_EXPLAIN'			=> 'Sur cette page il est possible de modifier les paramètres spécifiques de l’extension « Sujets récents ».<br /><br />Des forums spécifiques peuvent être inclus ou exclus en modifiant les paramètres des forums respectifs depuis le PCA.<br />Il est recommander de vérifier les autorisations des utilisateurs, permettant aux utilisateurs de modifier pour eux-mêmes certains paramètres présents ci-dessous.',
+	'RECENT_TOPICS_EXPLAIN'			=> 'Sur cette page il est possible de modifier les paramètres spécifiques de l’extension « Sujets récents ».<br /><br />Des forums spécifiques peuvent être inclus ou exclus en modifiant les paramètres des forums respectifs depuis le PCA.<br />Il est recommander de vérifier les autorisations des utilisateurs, leur permettant de modifier par eux-mêmes certains paramètres présents ci-dessous.',
 
 	'RECENT_TOPICS_LIST'			=> 'Afficher les « sujets récents »',
 	'RECENT_TOPICS_LIST_EXPLAIN'	=> 'Affiche les sujets de ce forum au moyen de l’extension « Sujets récents ».',
